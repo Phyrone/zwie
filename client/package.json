@@ -1,0 +1,39 @@
+{
+  "name": "client",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "tauri": "tauri",
+    "tauricon": "tauricon src/assets/zwie.svg"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
+    "@tauri-apps/cli": "^1.0.3",
+    "@tauri-apps/tauricon": "^1.0.3",
+    "@tsconfig/svelte": "^2.0.1",
+    "autoprefixer": "^10.4.7",
+    "cross-env": "^7.0.3",
+    "postcss": "^8.4.14",
+    "sass": "^1.53.0",
+    "svelte": "^3.44.0",
+    "svelte-check": "^2.2.7",
+    "svelte-preprocess": "^4.9.8",
+    "tailwindcss": "^3.1.5",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.9",
+    "vite-imagetools": "^4.0.4"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.1.1",
+    "@tauri-apps/api": "^1.0.2",
+    "daisyui": "^2.19.0",
+    "dompurify": "^2.3.8",
+    "marked": "^4.0.17"
+  }
+}

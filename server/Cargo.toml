@@ -1,0 +1,17 @@
+[package]
+name = "zwie-server"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+log = { version = "0.4.17", features = ["release_max_level_info", "max_level_debug"] }
+simple_logger = { version = "2.2.0", features = ["threads"] }
+tokio = { version = "1.19.2", features = ["rt-multi-thread", "full","macros"] }
+
+
+actix-web = { version = "4", features = ["openssl","compress-gzip","compress-zstd"] }
+openssl = { version = "0.10", features = ["v110","v111"] }
+webrtc = "0.4.0"
+deno_core = "0.142.0"
