@@ -1,8 +1,6 @@
-use actix_web::{web, App, HttpResponse, HttpServer};
+use actix_web::{App, HttpResponse, HttpServer, web};
 use log::info;
 use simple_logger::SimpleLogger;
-
-
 
 #[tokio::main]
 async fn main() {
@@ -15,7 +13,7 @@ async fn main() {
 
     let server = HttpServer::new(|| {
         App::new()
-            .route("/", web::to(||HttpResponse::Ok()))
+            .route("/", web::to(|| HttpResponse::Ok()))
             .route("/bob", web::to(|| HttpResponse::Ok()))
     });
 

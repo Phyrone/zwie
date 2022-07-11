@@ -2,95 +2,95 @@
 <!-- Generator: Gravit.io -->
 
 <svg
-   style="isolation:isolate"
-   viewBox="0 0 1024 1024"
-   width="1024pt"
-   height="1024pt"
-   version="1.1"
-   id="svg32"
-   sodipodi:docname="zwie (1).svg"
-   inkscape:version="1.1 (c4e8f9e, 2021-05-24)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
+        xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+        xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+        style="isolation:isolate"
+        viewBox="0 0 1024 1024"
+        width="1024pt"
+        height="1024pt"
+        version="1.1"
+        id="svg32"
+        sodipodi:docname="zwie (1).svg"
+        inkscape:version="1.1 (c4e8f9e, 2021-05-24)"
+        xmlns="http://www.w3.org/2000/svg"
+>
   <sodipodi:namedview
-     id="namedview34"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:document-units="pt"
-     showgrid="false"
-     inkscape:zoom="0.51049805"
-     inkscape:cx="680.7078"
-     inkscape:cy="681.68723"
-     inkscape:window-width="1680"
-     inkscape:window-height="1050"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="svg32" />
+          id="namedview34"
+          pagecolor="#ffffff"
+          bordercolor="#666666"
+          borderopacity="1.0"
+          inkscape:pageshadow="2"
+          inkscape:pageopacity="0.0"
+          inkscape:pagecheckerboard="0"
+          inkscape:document-units="pt"
+          showgrid="false"
+          inkscape:zoom="0.51049805"
+          inkscape:cx="680.7078"
+          inkscape:cy="681.68723"
+          inkscape:window-width="1680"
+          inkscape:window-height="1050"
+          inkscape:window-x="0"
+          inkscape:window-y="0"
+          inkscape:window-maximized="0"
+          inkscape:current-layer="svg32"/>
   <defs
-     id="defs12">
+          id="defs12">
     <clipPath
-       id="_clipPath_RPPnS96LeVaHQVN31qWVFQH314Q0L5ba">
+            id="_clipPath_RPPnS96LeVaHQVN31qWVFQH314Q0L5ba">
       <rect
-         width="1024"
-         height="1024"
-         id="rect9" />
+              width="1024"
+              height="1024"
+              id="rect9"/>
     </clipPath>
   </defs>
   <g
-     clip-path="url(#_clipPath_RPPnS96LeVaHQVN31qWVFQH314Q0L5ba)"
-     id="g30">
+          clip-path="url(#_clipPath_RPPnS96LeVaHQVN31qWVFQH314Q0L5ba)"
+          id="g30">
     <mask
-       id="_mask_mgH06H8TREc6DKnGoOhJ02UpCZNbUJ7m">
+            id="_mask_mgH06H8TREc6DKnGoOhJ02UpCZNbUJ7m">
       <circle
-         vector-effect="non-scaling-stroke"
-         cx="512"
-         cy="511.9999999999999"
-         r="512"
-         fill="white"
-         stroke="none"
-         id="circle14" />
+              vector-effect="non-scaling-stroke"
+              cx="512"
+              cy="511.9999999999999"
+              r="512"
+              fill="white"
+              stroke="none"
+              id="circle14"/>
     </mask>
     <path
-       id="circle17"
-       style="vector-effect:non-scaling-stroke;fill:#ff6666"
-       d="M 1024,512 A 512,512 0 0 1 512,1024 512,512 0 0 1 0,512 512,512 0 0 1 512,0 512,512 0 0 1 1024,512 Z" />
+            id="circle17"
+            style="vector-effect:non-scaling-stroke;fill:#ff6666"
+            d="M 1024,512 A 512,512 0 0 1 512,1024 512,512 0 0 1 0,512 512,512 0 0 1 512,0 512,512 0 0 1 1024,512 Z"/>
     <path
-       id="circle19"
-       mask="url(#_mask_mgH06H8TREc6DKnGoOhJ02UpCZNbUJ7m)"
-       style="vector-effect:non-scaling-stroke;fill:#ff6666;stroke:#9b8181;stroke-width:18;stroke-linecap:square;stroke-miterlimit:3"
-       d="M 1024,512 A 512,512 0 0 1 512,1024 512,512 0 0 1 0,512 512,512 0 0 1 512,0 512,512 0 0 1 1024,512 Z" />
+            id="circle19"
+            mask="url(#_mask_mgH06H8TREc6DKnGoOhJ02UpCZNbUJ7m)"
+            style="vector-effect:non-scaling-stroke;fill:#ff6666;stroke:#9b8181;stroke-width:18;stroke-linecap:square;stroke-miterlimit:3"
+            d="M 1024,512 A 512,512 0 0 1 512,1024 512,512 0 0 1 0,512 512,512 0 0 1 512,0 512,512 0 0 1 1024,512 Z"/>
     <g
-       clip-path="url(#_clipPath_5tSI7gekqHTHijOsrJIdTxbaKRB1fCTj)"
-       id="g23">
+            clip-path="url(#_clipPath_5tSI7gekqHTHijOsrJIdTxbaKRB1fCTj)"
+            id="g23">
       <g
-         aria-label="Z"
-         transform="matrix(0.973,0.051,-0.051,0.973,123.904,839.97)"
-         id="text21"
-         style="font-size:931px;font-family:Pacifico;fill:#484747">
+              aria-label="Z"
+              transform="matrix(0.973,0.051,-0.051,0.973,123.904,839.97)"
+              id="text21"
+              style="font-size:931px;font-family:Pacifico;fill:#484747">
         <path
-           d="m 765.282,-207.613 q 12.103,0 18.62,11.172 7.448,11.172 7.448,30.723 0,36.309 -17.689,57.722 -52.136,62.377 -101.479,87.514 -48.412,25.137 -117.306,25.137 -48.412,0 -89.376,-12.103 -40.964,-12.103 -99.617,-36.309 -50.274,-21.413 -89.376,-34.447 -42.826,46.55 -77.273,65.17 -34.447,17.689 -72.618,17.689 -51.205,0 -81.928,-23.275 -30.723,-24.206 -30.723,-62.377 0,-28.861 18.62,-53.067 19.551,-24.206 53.998,-38.171 34.447,-13.965 80.066,-13.965 26.068,0 39.102,0.931 182.476,-227.164 329.574,-479.465 -80.066,-13.965 -162.925,-13.965 -107.065,0 -157.339,25.137 -49.343,24.206 -49.343,77.273 0,15.827 3.724,26.999 3.724,11.172 11.172,26.068 8.379,16.758 8.379,24.206 0,18.62 -17.689,31.654 -16.758,12.103 -39.102,12.103 -23.275,0 -38.171,-13.965 -17.689,-15.827 -28.861,-42.826 -10.241,-27.93 -10.241,-62.377 0,-108.927 90.307,-161.063 90.307,-52.136 238.336,-52.136 73.549,0 149.891,8.379 77.273,8.379 144.305,26.999 27.93,7.448 37.24,21.413 9.31,13.034 9.31,34.447 0,25.137 -13.034,39.102 -13.034,13.965 -36.309,13.965 h -6.517 q -100.548,163.856 -203.889,314.678 -82.859,120.099 -116.375,162.925 53.998,12.103 94.031,22.344 49.343,13.034 79.135,19.551 30.723,5.586 53.067,5.586 53.998,0 92.169,-17.689 39.102,-18.62 73.549,-58.653 11.172,-13.034 25.137,-13.034 z"
-           style="font-size:931px;font-family:Pacifico;fill:#484747"
-           id="path118" />
+                d="m 765.282,-207.613 q 12.103,0 18.62,11.172 7.448,11.172 7.448,30.723 0,36.309 -17.689,57.722 -52.136,62.377 -101.479,87.514 -48.412,25.137 -117.306,25.137 -48.412,0 -89.376,-12.103 -40.964,-12.103 -99.617,-36.309 -50.274,-21.413 -89.376,-34.447 -42.826,46.55 -77.273,65.17 -34.447,17.689 -72.618,17.689 -51.205,0 -81.928,-23.275 -30.723,-24.206 -30.723,-62.377 0,-28.861 18.62,-53.067 19.551,-24.206 53.998,-38.171 34.447,-13.965 80.066,-13.965 26.068,0 39.102,0.931 182.476,-227.164 329.574,-479.465 -80.066,-13.965 -162.925,-13.965 -107.065,0 -157.339,25.137 -49.343,24.206 -49.343,77.273 0,15.827 3.724,26.999 3.724,11.172 11.172,26.068 8.379,16.758 8.379,24.206 0,18.62 -17.689,31.654 -16.758,12.103 -39.102,12.103 -23.275,0 -38.171,-13.965 -17.689,-15.827 -28.861,-42.826 -10.241,-27.93 -10.241,-62.377 0,-108.927 90.307,-161.063 90.307,-52.136 238.336,-52.136 73.549,0 149.891,8.379 77.273,8.379 144.305,26.999 27.93,7.448 37.24,21.413 9.31,13.034 9.31,34.447 0,25.137 -13.034,39.102 -13.034,13.965 -36.309,13.965 h -6.517 q -100.548,163.856 -203.889,314.678 -82.859,120.099 -116.375,162.925 53.998,12.103 94.031,22.344 49.343,13.034 79.135,19.551 30.723,5.586 53.067,5.586 53.998,0 92.169,-17.689 39.102,-18.62 73.549,-58.653 11.172,-13.034 25.137,-13.034 z"
+                style="font-size:931px;font-family:Pacifico;fill:#484747"
+                id="path118"/>
       </g>
     </g>
     <defs
-       id="defs28">
+            id="defs28">
       <clipPath
-         id="_clipPath_5tSI7gekqHTHijOsrJIdTxbaKRB1fCTj">
+              id="_clipPath_5tSI7gekqHTHijOsrJIdTxbaKRB1fCTj">
         <rect
-           x="0"
-           y="0"
-           width="724.003"
-           height="1408.513"
-           transform="matrix(0.973,0.051,-0.051,0.973,158.389,-345)"
-           id="rect25" />
+                x="0"
+                y="0"
+                width="724.003"
+                height="1408.513"
+                transform="matrix(0.973,0.051,-0.051,0.973,158.389,-345)"
+                id="rect25"/>
       </clipPath>
     </defs>
   </g>
