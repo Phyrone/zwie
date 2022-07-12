@@ -14,4 +14,4 @@ tokio = { version = "1.19.2", features = ["rt-multi-thread", "full", "macros"] }
 actix-web = { version = "4", features = ["openssl", "compress-gzip", "compress-zstd"] }
 openssl = { version = "0.10", features = ["v110", "v111"] }
 webrtc = "0.4.0"
-deno_core = "0.142.0"
+deno_core = "0.143.0"
