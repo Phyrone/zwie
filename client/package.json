@@ -12,7 +12,7 @@
     "tauricon": "tauricon src/assets/zwie.svg"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "1.0.0-next.49",
+    "@sveltejs/vite-plugin-svelte": "1.0.1",
     "@tauri-apps/cli": "1.0.3",
     "@tauri-apps/tauricon": "1.0.3",
     "@tsconfig/svelte": "3.0.0",
