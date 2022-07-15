@@ -4,5 +4,11 @@ import {imagetools} from 'vite-imagetools'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [svelte(), imagetools()]
+    plugins: [svelte(), imagetools()],
+    clearScreen: false,
+    envPrefix: ['VITE_', 'TAURI_'],
+    server: {
+        port: 3000,
+        strictPort: true,
+    }
 })

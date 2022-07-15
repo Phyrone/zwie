@@ -51,7 +51,11 @@
       "csp": null
     },
     "updater": {
-      "active": false
+      "active": false,
+      "dialog": false,
+      "windows": {
+        "installMode": "basicUi"
+      }
     },
     "windows": [
       {

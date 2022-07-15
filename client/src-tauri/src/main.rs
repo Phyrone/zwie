@@ -1,9 +1,18 @@
 #![cfg_attr(
-all(not(debug_assertions), target_os = "windows"),
-windows_subsystem = "windows"
+    all(not(debug_assertions), target_os = "windows"),
+    windows_subsystem = "windows"
 )]
 
-//use tauri_plugin_log::{LogLevel, LogTarget, LoggerBuilder};
+//#[cfg(all(target_os = "macos", not(debug_assertions)))]
+//embed_plist::embed_info_plist!("../Info.plist");
+
+//#[cfg(not(debug_assertions))]
+//#[cfg(target_os = "macos")]
+//embed_plist::embed_info_plist!("../Info.plist");
+
+//#[cfg(debug_assertions)]
+//#[cfg(target_os = "macos")]
+//embed_plist::embed_info_plist!("../Info.plist");
 
 fn main() {
     tauri::Builder::default()
@@ -11,4 +20,3 @@ fn main() {
         .run(tauri::generate_context!())
         .expect("error while running tauri application")
 }
-
