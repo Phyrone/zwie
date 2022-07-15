@@ -61,6 +61,5 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: ${{ runner.os }}
-        working-directory: ./
         path: |
-          client/src-tauri/target/**/bundle/**/*.*
+          **/src-tauri/target/**/bundle/**/*.*
