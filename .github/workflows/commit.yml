@@ -1,4 +1,4 @@
-name: Test 2
+name: Commit
 
 on:
   push:
@@ -61,4 +61,4 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: ${{ runner.os }}
-        path: ./client/src-tauri/target/release/bundle/**
+        path: ./src-tauri/target/release/bundle/**
