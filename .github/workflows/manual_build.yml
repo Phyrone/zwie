@@ -1,7 +1,7 @@
 name: Commit
 
 on:
-  
+  workflow_dispatch:
 
 env:
   CARGO_TERM_COLOR: always
@@ -45,7 +45,7 @@ jobs:
            client/src-tauri/target
            !client/src-tauri/target/*/bundle/**
            client/node_modules
-        key: ${{ runner.os }}-${{ hashFiles('client/yarn.lock','client/src-tauri/Cargo.lock') }}-client
+        key: ${{ runner.os }}-${{ hashFiles('client/yarn.lock','client/src-tauri/Cargo.lock') }}-client:manual
     - name: Install app dependencies
       run: yarn && yarn build
     - name: Run Tests
@@ -53,12 +53,12 @@ jobs:
       run: cargo test
     - name: Run Build
       if: matrix.platform != 'macos-latest'
-      run: yarn tauri build --debug
+      run: yarn tauri build
     - name: Run Build (macos)
       if: matrix.platform == 'macos-latest'
-      run: yarn tauri build --debug --target universal-apple-darwin
+      run: yarn tauri build --target universal-apple-darwin
     - uses: actions/upload-artifact@v3
       with:
         name: ${{ runner.os }}
         path: |
-          **/src-tauri/target/**/bundle/**/*.*
+          client/src-tauri/target/**/bundle/**/*.*
