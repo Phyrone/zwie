@@ -58,8 +58,8 @@ jobs:
     - name: Run Build (macos)
       if: matrix.platform == 'macos-latest'
       run: yarn tauri build --debug --target universal-apple-darwin
-    - uses: actions/upload-artifact@v3
-      with:
-        name: ${{ runner.os }}
-        path: |
-          **/src-tauri/target/**/bundle/**/*.*
+#    - uses: actions/upload-artifact@v3
+#      with:
+#        name: ${{ runner.os }}
+#        path: |
+#          **/src-tauri/target/**/bundle/**/*.*
