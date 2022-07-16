@@ -76,7 +76,7 @@ jobs:
         with:
           path: |
             **/build/
-          key: ${{ runner.os }}-${{ hashFiles('client/yarn.lock','client/src-tauri/Cargo.lock') }}-server
+          key: ${{ runner.os }}-${{ hashFiles('**/build.gradle.kts','settings.gradle.kts') }}-server
       - name: Run Build
         run: ./gradlew build
       - name: Run Test
