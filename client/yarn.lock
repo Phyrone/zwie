@@ -597,17 +597,17 @@
   dependencies:
     "@types/node" "*"
 
-"@types/sockjs-client@^1.5.1":
+"@types/sockjs-client@1.5.1":
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/@types/sockjs-client/-/sockjs-client-1.5.1.tgz#7ed2093da89305af370511c4e3beb7e4ef0d7e87"
   integrity sha512-bmZM6A1GPdjF0bcuIUC+50hZEMGkzMsiG9by6X9U+7IZFOiPtz7MJ9h05FSpPVxlj4i+TzzoG3ESo1FJlbLb6A==
 
-"@types/vertx__eventbus-bridge-client.js@^1.0.1":
+"@types/vertx__eventbus-bridge-client.js@1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/vertx__eventbus-bridge-client.js/-/vertx__eventbus-bridge-client.js-1.0.1.tgz#8dc663707a3235dfb1c86b35b159c4aab05a3737"
   integrity sha512-qrRbsCIlXSATXl5xieKbsLBXsfNU5zOmYg6OrYL3HX6a13ajC63dq4GUejG8ZRYZTcREmm7/r1s+B2ZaOKWDIA==
 
-"@vertx/eventbus-bridge-client.js@^1.0.0-3-SNAPSHOT":
+"@vertx/eventbus-bridge-client.js@1.0.0-3-SNAPSHOT":
   version "1.0.0-3-SNAPSHOT"
   resolved "https://registry.yarnpkg.com/@vertx/eventbus-bridge-client.js/-/eventbus-bridge-client.js-1.0.0-3-SNAPSHOT.tgz#2d4b452976995ff18a0479c375c85725d62f8ae8"
   integrity sha512-uozSw0dac57zTOV8KH8RJeJ6w87GnNykHQ3cpk0vOKCC2tWwi0zoncqvjyWkJVwEMABWApJnTWDDj9Rf0OqOpg==
@@ -3935,7 +3935,7 @@ slash@^4.0.0:
   resolved "https://registry.yarnpkg.com/slash/-/slash-4.0.0.tgz#2422372176c4c6c5addb5e2ada885af984b396a7"
   integrity sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==
 
-sockjs-client@^1.6.0, sockjs-client@^1.6.1:
+sockjs-client@1.6.1, sockjs-client@^1.6.0:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/sockjs-client/-/sockjs-client-1.6.1.tgz#350b8eda42d6d52ddc030c39943364c11dcad806"
   integrity sha512-2g0tjOR+fRs0amxENLi/q5TiJTqY+WXFOzb5UwXndlK6TO3U/mirZznpx6w34HVMoc3g7cY24yC/ZMIYnDlfkw==
@@ -4184,7 +4184,7 @@ svgson@^5.2.1:
     omit-deep "0.3.0"
     xml-reader "2.4.3"
 
-sweetalert2@^11.4.23:
+sweetalert2@11.4.23:
   version "11.4.23"
   resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-11.4.23.tgz#a29b1d43bbfd579c1a54952da2a18a8d1a41cf0e"
   integrity sha512-BfO0gIIHu4SJiixBHpCmd74W+EkORJPX9zy5HLp6vkMAz7RsUED7BhrOBEYrYYgw9nnbxYOwzJDDVPNuK1JQtQ==
