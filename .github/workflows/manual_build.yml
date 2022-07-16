@@ -48,9 +48,6 @@ jobs:
         key: ${{ runner.os }}-${{ hashFiles('client/yarn.lock','client/src-tauri/Cargo.lock') }}-client:manual
     - name: Install app dependencies
       run: yarn && yarn build
-    - name: Run Tests
-      working-directory: ./client/src-tauri
-      run: cargo test
     - name: Run Build
       if: matrix.platform != 'macos-latest'
       run: yarn tauri build
