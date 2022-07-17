@@ -46,8 +46,16 @@ jobs:
            !client/src-tauri/target/*/bundle/**
            client/node_modules
         key: ${{ runner.os }}-${{ hashFiles('client/yarn.lock','client/src-tauri/Cargo.lock') }}-client:manual
+    - name: Buildcache (gradle)
+      id: cache-primes
+      uses: pat-s/always-upload-cache@v3.0.1
+      with:
+        path: |
+          **/build/
+        key: ${{ runner.os }}-${{ hashFiles('**/build.gradle.kts','settings.gradle.kts') }}-client-gradle:manual
     - name: Install app dependencies
-      run: yarn && yarn build
+      working-directory: ./
+      run: ./gradlew client:install-shared-lib --no-daemon
     - name: Run Build
       if: matrix.platform != 'macos-latest'
       run: yarn tauri build
