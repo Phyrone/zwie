@@ -89,8 +89,8 @@ jobs:
             **/build/
           key: ${{ runner.os }}-${{ hashFiles('**/build.gradle.kts','settings.gradle.kts') }}-server
       - name: Run Build
-        run: ./gradlew build
+        run: ./gradlew server:build
       - name: Run Test
-        run: ./gradlew test
+        run: ./gradlew server:test
       - name: Stop Gradle
         run: ./gradlew --stop
