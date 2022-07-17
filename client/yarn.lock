@@ -4685,8 +4685,5 @@ zopflipng-bin@^6.0.0:
     bin-wrapper "^4.0.1"
     logalot "^2.1.0"
 
-"zwie-shared@file:../shared/build/productionLibrary":
-  version "0.0.0-unspecified"
-
 "zwie-shared@file:/Users/samuel/IdeaProjects/zwie/shared/build/productionLibrary/":
   version "0.0.0-unspecified"
