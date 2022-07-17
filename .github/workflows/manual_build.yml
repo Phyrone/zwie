@@ -37,8 +37,7 @@ jobs:
 #      if: matrix.platform == 'macos-latest'
 #      run: |
 #         brew install dbus
-    - name: Buildcache
-      id: cache-primes
+    - name: Buildcache (cargo and node)
       uses: actions/cache@v3
       with:
         path: |
@@ -47,7 +46,6 @@ jobs:
            client/node_modules
         key: ${{ runner.os }}-${{ hashFiles('client/yarn.lock','client/src-tauri/Cargo.lock') }}-client:manual
     - name: Buildcache (gradle)
-      id: cache-primes
       uses: pat-s/always-upload-cache@v3.0.1
       with:
         path: |
