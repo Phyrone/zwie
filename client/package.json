@@ -43,7 +43,7 @@
     "dompurify": "2.3.9",
     "marked": "4.0.18",
     "sockjs-client": "1.6.1",
-    "sweetalert2": "11.4.23",
+    "sweetalert2": "11.4.24",
     "zwie-shared": "file:/Users/samuel/IdeaProjects/zwie/shared/build/productionLibrary/"
   }
 }
