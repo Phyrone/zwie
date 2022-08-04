@@ -59,7 +59,7 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/build.gradle.kts','settings.gradle.kts') }}-client-gradle
       - name: Install app dependencies
         working-directory: ./
-        run: ./gradlew client:install-shared-lib --no-daemon
+        run: yarn install
       - name: Run WebContent Build
         run: yarn build
       - name: Run Tests
