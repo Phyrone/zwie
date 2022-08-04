@@ -15,7 +15,7 @@
     })
 
 </script>
-<div class="bg-base-300 w-16 flex flex-col px-2 pb-1 pt-4 flex-none">
+<div class="bg-base-300 w-16 flex flex-col px-2 pb-1 pt-2 flex-none">
     <div class="flex flex-col flex-auto overflow-y-auto w-full scrollbar-none overscroll-none">
         {#each items as item}
             <img src={createAvatar(initias_style,{
