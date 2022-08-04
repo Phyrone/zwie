@@ -52,8 +52,7 @@ jobs:
           **/build/
         key: ${{ runner.os }}-${{ hashFiles('**/build.gradle.kts','settings.gradle.kts') }}-client-gradle:manual
     - name: Install app dependencies
-      working-directory: ./
-      run: ./gradlew client:install-shared-lib --no-daemon
+      run: yarn install
     - name: Run Build
       if: matrix.platform != 'macos-latest'
       run: yarn tauri build
