@@ -1,11 +1,11 @@
-package de.phyrone.zwie.server.database
+package de.phyrone.zwie.server.database.tables
 
 import org.jetbrains.exposed.dao.id.UUIDTable
 import org.jetbrains.exposed.sql.ReferenceOption
-import org.jetbrains.exposed.sql.Table.Dual.clientDefault
 import org.jetbrains.exposed.sql.javatime.datetime
 import java.time.LocalDateTime
 
+@IndexTable
 object ChatMessagesTable : UUIDTable("chat_message") {
     val message = text("message")
     val sender = reference("sender", UsersTable, ReferenceOption.CASCADE, ReferenceOption.RESTRICT)

@@ -7,20 +7,11 @@ plugins {
 
 tasks {
 
-    create<YarnTask>("install-shared-lib") {
-        dependsOn(":shared:jsBrowserProductionLibraryDistribution")
-        inputs.dir("${project(":shared").buildDir.absolutePath}/productionLibrary")
-        outputs.dir("${projectDir.absolutePath}/node_modules/zwie-shared/")
-        this.args.set(
-            listOf(
-                "add",
-                "zwie-shared@file:${project(":shared").buildDir.absolutePath}/productionLibrary/"
-            )
-        )
+    create<YarnTask>("run"){
+        this.args.set(listOf("run","tauri","dev"))
     }
 
     create<YarnTask>("build-client"){
-        dependsOn("install-shared-lib")
         this.args.set(listOf("run","tauri","build"))
     }
     clean{

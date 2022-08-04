@@ -2,41 +2,75 @@
 
 package de.phyrone.zwie.server
 
-import de.phyrone.zwie.shared.PacketServerEventChannelUserJoin
-import io.vertx.core.Vertx
-import io.vertx.ext.web.Router
-import io.vertx.ext.web.handler.sockjs.SockJSHandler
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import de.phyrone.zwie.server.instance.ServerInstance
+import dev.onvoid.webrtc.PeerConnectionFactory
+import dev.onvoid.webrtc.PeerConnectionObserver
+import dev.onvoid.webrtc.RTCConfiguration
+import dev.onvoid.webrtc.RTCIceServer
+import dev.onvoid.webrtc.RTCIceTransportPolicy
+import io.ktor.server.engine.*
+import io.ktor.server.netty.*
+import io.ktor.server.routing.*
+import io.ktor.server.websocket.*
+import io.ktor.websocket.*
+import kotlinx.coroutines.Dispatchers
+import org.greenrobot.eventbus.EventBus
+import org.koin.core.context.startKoin
+import org.koin.dsl.module
+import java.util.UUID
+import java.util.concurrent.Executors
 
+
+val logger = logger()
 fun main(args: Array<String>) {
-    val v = Vertx.vertx()
-    val server = v.createHttpServer()
 
-    val sockeJS = SockJSHandler.create(v)
-    val router = Router.router(v)
 
-    router.route("/").handler {
-        it.response().end("Hello World");
-    }
-    router.route("/socket/*")
-        .subRouter(sockeJS.socketHandler { sockJSSocket ->
-            println("connected -> ${sockJSSocket.remoteAddress()}")
-            val wrapper = SocketJsConnectionWrapper(sockJSSocket)
-            GlobalScope.launch {
-                var counter = 0
-                var counter2 = Int.MAX_VALUE
-                while (true) {
-                    wrapper.send(PacketServerEventChannelUserJoin("CC:${counter2--}", "UU:${counter++}"))
-                    delay(1000)
-                }
+    logger.atInfo().log("Starting Zwie Server...")
+    val server = ServerInstance(Dispatchers.Default)
+    server.start()
+    /*
+    startKoin {
+        modules(module() {
+            single { Executors.newCachedThreadPool() }
+            single {
+                EventBus.builder()
+                    .eventInheritance(true)
+                    .sendNoSubscriberEvent(true)
+                    .sendSubscriberExceptionEvent(true)
+
+                    .logSubscriberExceptions(true)
+                    .logSubscriberExceptions(true)
+
+                    .executorService(get())
+                    .installDefaultEventBus()
             }
-
-
         })
 
-    server.requestHandler(router)
+    }
 
-    server.listen(4433)
+
+    val r = PeerConnectionFactory().createPeerConnection(
+        RTCConfiguration().also { rtcConfiguration ->
+            rtcConfiguration.iceTransportPolicy = RTCIceTransportPolicy.RELAY
+            rtcConfiguration.iceServers = listOf(
+                RTCIceServer().also { }
+            )
+            rtcConfiguration;
+        }, PeerConnectionObserver { candidate ->
+            candidate;
+        }
+    )
+    embeddedServer(Netty) {
+        routing {
+            webSocket {
+
+               val frame =  incoming.receive()
+
+                if(frame is Frame.Text){
+
+                }
+            }
+        }
+    }
+     */
 }
