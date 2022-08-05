@@ -19,19 +19,19 @@
   resolved "https://registry.yarnpkg.com/@dicebear/avatars-bottts-sprites/-/avatars-bottts-sprites-4.10.3.tgz#148d2c718e51bad0a8b9c6a6fc5d1aea2e25cff5"
   integrity sha512-BWLNHyWCYJ//qcE2/m4+hs9UAqLinFgAyt8n6hwl5NHFNRpBg4fFKhEDxJqWitLqZJzmxpU6+yUyPZ2VHBe/yA==
 
-"@dicebear/avatars-identicon-sprites@^4.10.3":
+"@dicebear/avatars-identicon-sprites@4.10.3":
   version "4.10.3"
   resolved "https://registry.yarnpkg.com/@dicebear/avatars-identicon-sprites/-/avatars-identicon-sprites-4.10.3.tgz#e6fc2ae2c1ea8f44bdd65672532246cef1dd8fbf"
   integrity sha512-HO/QWyALR8YOX75Zx8cLI9Z7Vh87/94KJ6dnYKyCPUZMDeLf05SNq+WluoBIz5VE1b/BcRvRJEUmd9BwiSQqxA==
 
-"@dicebear/avatars-initials-sprites@^4.10.3":
+"@dicebear/avatars-initials-sprites@4.10.3":
   version "4.10.3"
   resolved "https://registry.yarnpkg.com/@dicebear/avatars-initials-sprites/-/avatars-initials-sprites-4.10.3.tgz#6747ffa884b36cd02503c2d609f26cf11515fda2"
   integrity sha512-pkq4iQPUkfwFZReAfAfay79zDpqovfrmt7XUcl7ZUdXPk01s3RWY2TLwVNNpmxuposbXcrfJW1Yq3EUqBnDNEA==
   dependencies:
     initials "^3.0.1"
 
-"@dicebear/avatars@^4.10.3":
+"@dicebear/avatars@4.10.3":
   version "4.10.3"
   resolved "https://registry.yarnpkg.com/@dicebear/avatars/-/avatars-4.10.3.tgz#c4ffe9c1ac1c1b69faa875ca5f42f8134d658619"
   integrity sha512-6KEv3jxhXXUMN0ujnK0BjWTo10x+2V6yfRVgx59u14XaubWaCpjGrn4Tm0h6mUsW/vZQSdwoR3We6QT6wt0wkg==
@@ -436,19 +436,19 @@
   dependencies:
     defer-to-connect "^2.0.1"
 
-"@tailwindcss/aspect-ratio@^0.4.0":
+"@tailwindcss/aspect-ratio@0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@tailwindcss/aspect-ratio/-/aspect-ratio-0.4.0.tgz#c635dd7331cbcc1b111cebdc2647dd3493ebdd3e"
   integrity sha512-WJu0I4PpqNPuutpaA9zDUq2JXR+lorZ7PbLcKNLmb6GL9/HLfC7w3CRsMhJF4BbYd/lkY6CfXOvkYpuGnZfkpQ==
 
-"@tailwindcss/forms@^0.5.2":
+"@tailwindcss/forms@0.5.2":
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/@tailwindcss/forms/-/forms-0.5.2.tgz#4ef45f9916dcb37838cbe7fecdcc4ba7a7c2ab59"
   integrity sha512-pSrFeJB6Bg1Mrg9CdQW3+hqZXAKsBrSG9MAfFLKy1pVA4Mb4W7C0k7mEhlmS2Dfo/otxrQOET7NJiJ9RrS563w==
   dependencies:
     mini-svg-data-uri "^1.2.3"
 
-"@tailwindcss/line-clamp@^0.4.0":
+"@tailwindcss/line-clamp@0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@tailwindcss/line-clamp/-/line-clamp-0.4.0.tgz#03353e31e77636b785f2336e8c978502cec1de81"
   integrity sha512-HQZo6gfx1D0+DU3nWlNLD5iA6Ef4JAXh0LeD8lOGrJwEDBwwJNKQza6WoXhhY1uQrxOuU8ROxV7CqiQV4CoiLw==
