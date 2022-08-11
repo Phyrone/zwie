@@ -18,7 +18,7 @@ dependencies{
     */
 
     implementation("io.ktor:ktor-server-core:2.1.0")
-    implementation("io.ktor:ktor-server-netty:2.0.3")
+    implementation("io.ktor:ktor-server-netty:2.1.0")
     implementation("io.ktor:ktor-server-websockets:2.0.3")
     implementation("io.netty:netty-tcnative:2.0.54.Final")
 
