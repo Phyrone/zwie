@@ -40,6 +40,7 @@ dependencies{
     implementation("org.slf4j:slf4j-simple:1.7.36")
 
     implementation("info.picocli:picocli:4.6.3")
+    implementation("com.google.guava:guava:31.1-jre")
     //implementation("name.neuhalfen.projects.crypto.bouncycastle.openpgp:bouncy-gpg:2.3.0")
 
 
@@ -50,6 +51,12 @@ dependencies{
     implementation("com.google.flogger:flogger-slf4j-backend:0.7.4")
     implementation("dev.onvoid.webrtc:webrtc-java:0.6.0")
     kapt("org.atteo.classindex:classindex:3.11")
+
+
+    implementation("org.shredzone.acme4j:acme4j-client:2.14")
+    implementation("org.shredzone.acme4j:acme4j-utils:2.14")
+    implementation("org.shredzone.acme4j:acme4j-smime:2.14")
+
 }
 
 application{

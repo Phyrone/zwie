@@ -8,6 +8,4 @@ object ChannelsTable : UUIDTable("channel") {
     var type = varchar("type", 16)
     var order = integer("order").default(0)
     var parent = reference("parent", ChannelsTable).nullable().default(null)
-
-
 }
