@@ -52,6 +52,6 @@
     "elliptic": "6.5.4",
     "marked": "4.0.18",
     "sockjs-client": "1.6.1",
-    "sweetalert2": "11.4.26"
+    "sweetalert2": "11.4.27"
   }
 }
