@@ -37,7 +37,7 @@ dependencies{
     implementation("com.github.ben-manes.caffeine:caffeine:3.1.1")
 
     //TODO replace with log4j2 or logback
-    implementation("org.slf4j:slf4j-simple:1.7.36")
+    implementation("org.slf4j:slf4j-simple:2.0.0")
 
     implementation("info.picocli:picocli:4.6.3")
     implementation("com.google.guava:guava:31.1-jre")
