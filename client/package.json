@@ -12,7 +12,7 @@
     "tauricon": "tauricon src/assets/zwie.svg"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "1.0.1",
+    "@sveltejs/vite-plugin-svelte": "1.0.2",
     "@tailwindcss/aspect-ratio": "0.4.0",
     "@tailwindcss/forms": "0.5.2",
     "@tailwindcss/line-clamp": "0.4.0",
