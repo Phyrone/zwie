@@ -1,0 +1,12 @@
+spring:
+  output:
+    ansi:
+      enabled: ALWAYS
+
+  jpa:
+    generate-ddl: true
+  datasource:
+    url: jdbc:h2:./database
+    driver-class-name: org.h2.Driver
+  config:
+    name: Zwie

@@ -1,4 +1,5 @@
 package de.phyrone.zwie.server.event
 
-class StartupDoneEvent {
-}
+import org.springframework.context.ApplicationEvent
+
+class StartupDoneEvent
