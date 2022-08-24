@@ -48,7 +48,7 @@
     "@tauri-apps/api": "1.0.2",
     "@vertx/eventbus-bridge-client.js": "1.0.0-3-SNAPSHOT",
     "daisyui": "2.24.0",
-    "dompurify": "2.3.12",
+    "dompurify": "2.4.0",
     "elliptic": "6.5.4",
     "marked": "4.0.19",
     "sockjs-client": "1.6.1",
