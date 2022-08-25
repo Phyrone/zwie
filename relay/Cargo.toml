@@ -14,7 +14,7 @@ tokio = { version = "1.20.1", features = ["rt-multi-thread", "full", "macros"] }
 actix-web = { version = "4", features = ["openssl", "compress-gzip", "compress-zstd"] }
 openssl = { version = "0.10", features = ["v110", "v111"] }
 webrtc = "0.4.0"
-deno_core = "0.147.0"
+deno_core = "0.148.0"
 diesel = { version = "1.4.8", features = ["mysql", "32-column-tables", "64-column-tables", "128-column-tables","sqlite"] }
 actix-web-actors = "4.1.0"
 actix = "0.13.0"
