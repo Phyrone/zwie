@@ -15,7 +15,7 @@ actix-web = { version = "4", features = ["openssl", "compress-gzip", "compress-z
 openssl = { version = "0.10", features = ["v110", "v111"] }
 webrtc = "0.4.0"
 deno_core = "0.148.0"
-diesel = { version = "1.4.8", features = ["mysql", "32-column-tables", "64-column-tables", "128-column-tables","sqlite"] }
+diesel = { version = "2.0.0", features = ["mysql", "32-column-tables", "64-column-tables", "128-column-tables","sqlite"] }
 actix-web-actors = "4.1.0"
 actix = "0.13.0"
 rsocket_rust = "0.7.2"
