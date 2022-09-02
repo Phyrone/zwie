@@ -2380,10 +2380,10 @@ imagemin@8.0.1:
     replace-ext "^2.0.0"
     slash "^3.0.0"
 
-imagetools-core@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/imagetools-core/-/imagetools-core-3.1.1.tgz#78ce6dd61d726f34574ee2baafe49d611c6b917d"
-  integrity sha512-LNVnortLEgE0ATHaGZBt3WTccKBz8zNk+NWRHsuyhgMiZ1nCJwAA1I2QcHXUq7OMbsiYm/H5muTv+iSLXM2tiA==
+imagetools-core@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/imagetools-core/-/imagetools-core-3.2.0.tgz#e1b7acbe937f81bccf99f2348e1ceb6ff4a89bba"
+  integrity sha512-B3kkvEBCGBukOGT3ZEDQKxmN1iOnQAk0QzqihIQFMNjttZRfHWnPk6xThVrZ0T9+qv/m/TIInsH/BOO/faFPgQ==
   dependencies:
     sharp "^0.30.0"
 
@@ -4619,13 +4619,13 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-vite-imagetools@4.0.7:
-  version "4.0.7"
-  resolved "https://registry.yarnpkg.com/vite-imagetools/-/vite-imagetools-4.0.7.tgz#94653232174477b6b243e8b078c922cd1e87f955"
-  integrity sha512-QyT5J455oD0jzi+bIfP/QHNNTSVdyYeWLXZBS0XeI5hReZ/7U4fD7ypZM1qwEBTEJFte4hDrOsFeyin09wig2A==
+vite-imagetools@4.0.8:
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/vite-imagetools/-/vite-imagetools-4.0.8.tgz#69d70593e522cc24493a28a4e928edd51b0eb973"
+  integrity sha512-nxkQEFGPkfzZa9UqLzskDkQ2uWmnUK3t3XL38FuZauNJz1iuUAFyDR53KJ/FZW3hpTpx5cjIXyXasxqunW6BGw==
   dependencies:
     "@rollup/pluginutils" "^4.1.2"
-    imagetools-core "^3.1.1"
+    imagetools-core "^3.2.0"
     magic-string "^0.26.0"
 
 vite@3.0.9:
