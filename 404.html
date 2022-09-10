@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<!-- <link rel="icon" href="/favicon.png" /> -->
+
+		<meta name="viewport" content="width=device-width" />
+		<link rel="manifest" href="/manifest.webmanifest">
+		<meta http-equiv="content-security-policy" content="">
+	<link rel="modulepreload" href="/_app/immutable/start-d24f0246.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/index-6443e61f.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/singletons-9e33c3b9.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/index-8b1f785e.js">
+			<script>
+		if ('serviceWorker' in navigator) {
+			addEventListener('load', function () {
+				navigator.serviceWorker.register('/service-worker.js');
+			});
+		}
+	</script>
+	</head>
+	<body>
+		
+		<script type="module" data-sveltekit-hydrate="45h">
+		import { start } from "/_app/immutable/start-d24f0246.js";
+
+		start({
+			env: {},
+			hydrate: null,
+			paths: {"base":"","assets":""},
+			target: document.querySelector('[data-sveltekit-hydrate="45h"]').parentNode,
+			trailing_slash: "ignore"
+		});
+	</script>
+	</body>
+</html>

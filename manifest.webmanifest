@@ -1,0 +1,16 @@
+{
+  "id": "de.phyrone.zwie",
+  "name": "Zwie",
+  "short_name": "Zwie",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "scope": "/",
+  "icons": [],
+  "orientation": "any",
+  "categories": [
+    "VoIP",
+    "Chat",
+    "Internet"
+  ]
+}
