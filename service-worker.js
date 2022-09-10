@@ -1,10 +1,10 @@
 const _ = [
   "/_app/immutable/assets/fa-solid-900-d27bc752.woff2",
   "/_app/immutable/assets/fa-solid-900-6d53c706.ttf",
-  "/_app/immutable/start-bbf34fca.js",
+  "/_app/immutable/start-af7c6df2.js",
   "/_app/immutable/components/pages/_layout.svelte-7d3207f1.js",
   "/_app/immutable/assets/_layout-eb5d6723.css",
-  "/_app/immutable/components/error.svelte-79d21f04.js",
+  "/_app/immutable/components/error.svelte-75ee97e7.js",
   "/_app/immutable/components/pages/(main)/_layout.svelte-8155a57c.js",
   "/_app/immutable/components/pages/(main)/s/_server_/_layout.svelte-1be255f6.js",
   "/_app/immutable/components/pages/settings/_layout.svelte-ebc2269d.js",
@@ -13,14 +13,14 @@ const _ = [
   "/_app/immutable/components/pages/settings/_page.svelte-056ada1f.js",
   "/_app/immutable/modules/pages/_layout.ts-b8ee4d7c.js",
   "/_app/immutable/modules/pages/(main)/s/_layout.ts-82dbd318.js",
-  "/_app/immutable/chunks/singletons-56f2f0fc.js",
+  "/_app/immutable/chunks/singletons-49acf8fd.js",
   "/_app/immutable/chunks/index-6443e61f.js",
   "/_app/immutable/chunks/index-8b1f785e.js",
   "/_app/immutable/chunks/sweetalert2.all-4e992e51.js",
   "/_app/immutable/chunks/_layout-1daba58d.js",
   "/_app/immutable/chunks/_layout-05547402.js",
   "/_app/immutable/chunks/0-b4a92a55.js",
-  "/_app/immutable/chunks/1-34e3b68c.js",
+  "/_app/immutable/chunks/1-0a65847f.js",
   "/_app/immutable/chunks/2-ce526338.js",
   "/_app/immutable/chunks/3-ea14e688.js",
   "/_app/immutable/chunks/4-364b1256.js",
@@ -30,10 +30,10 @@ const _ = [
   "/_app/immutable/chunks/8-36c36dd9.js"
 ], u = [
   "/manifest.webmanifest"
-], r = [
+], d = [
   "/",
   "/settings"
-], s = "1662852105648", d = [..._, ...r, ...u];
+], s = "1662853443781", r = [..._, ...d, ...u];
 console.log("[ServiceWorker] Init...");
 const n = "offline::", l = n + s;
 let i = caches.open(l), c;
@@ -50,7 +50,7 @@ async function h() {
   let e = -1;
   try {
     let a = await i;
-    e = await Promise.all(d.map((t) => a.add(t))).then((t) => t.length), await o();
+    e = await Promise.all(r.map((t) => a.add(t))).then((t) => t.length), await o();
   } finally {
     console.timeEnd(`[ServiceWorker] Creating/Updating Cache... (${s})`);
   }
