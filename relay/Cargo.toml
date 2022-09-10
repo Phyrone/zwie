@@ -8,7 +8,7 @@ edition = "2021"
 [dependencies]
 log = { version = "0.4.17", features = ["release_max_level_info", "max_level_debug"] }
 simple_logger = { version = "2.3.0", features = ["threads"] }
-tokio = { version = "1.20.1", features = ["rt-multi-thread", "full", "macros"] }
+tokio = { version = "1.21.0", features = ["rt-multi-thread", "full", "macros"] }
 
 
 actix-web = { version = "4", features = ["openssl", "compress-gzip", "compress-zstd"] }
