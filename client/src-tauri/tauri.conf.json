@@ -1,10 +1,9 @@
 {
-  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
   "build": {
-    "beforeBuildCommand": "yarn run build",
-    "beforeDevCommand": "yarn run dev",
-    "devPath": "http://localhost:3000",
-    "distDir": "../dist"
+    "beforeBuildCommand": "yarn build",
+    "beforeDevCommand": "yarn dev",
+    "devPath": "http://localhost:5173",
+    "distDir": "../build"
   },
   "package": {
     "productName": "Zwie",
@@ -51,11 +50,7 @@
       "csp": null
     },
     "updater": {
-      "active": false,
-      "dialog": false,
-      "windows": {
-        "installMode": "basicUi"
-      }
+      "active": false
     },
     "windows": [
       {
