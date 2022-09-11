@@ -35,12 +35,12 @@ dependencies{
     implementation("io.vertx:vertx-service-proxy:4.3.2")
     */
 
-    implementation("io.ktor:ktor-server-core:2.1.0")
+    implementation("io.ktor:ktor-server-core:2.1.1")
     implementation("io.ktor:ktor-server-netty:2.1.0")
     implementation("io.ktor:ktor-server-websockets:2.1.0")
     implementation("io.netty:netty-tcnative:2.0.54.Final")
 
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.13.3")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.13.4")
 
 
 
