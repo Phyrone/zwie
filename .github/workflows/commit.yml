@@ -2,7 +2,10 @@ name: Commit
 
 on:
   push:
+    branches-ignore:
+      - 'gh-pages'
 #  pull_request:
+
 
 env:
   CARGO_TERM_COLOR: always
