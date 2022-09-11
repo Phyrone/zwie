@@ -1570,10 +1570,10 @@ currently-unhandled@^0.4.1:
   dependencies:
     array-find-index "^1.0.1"
 
-daisyui@2.25.0:
-  version "2.25.0"
-  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-2.25.0.tgz#9a7931cf1d8776a43ab24a41262c82af433bb283"
-  integrity sha512-tv2sFHMOCEr+3A2JOFMaFjV6O/tkXYrytCSptXU8GRS7FDCR0pUmHA/o6K+3nydor7rQ06gMyVbCDHE9WdMW0Q==
+daisyui@2.27.0:
+  version "2.27.0"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-2.27.0.tgz#145e75e17529f81a113c84e86cc5312e01799f88"
+  integrity sha512-AhFGhTore1Kdnae+5RGc2PGESSXOjAQDHJfvryP+KY41gxMcNErtuaGZG+nOmvOzNKgxViSDSaOn/VZq6H8kxA==
   dependencies:
     color "^4.2"
     css-selector-tokenizer "^0.8.0"
@@ -5614,10 +5614,15 @@ typedarray-to-buffer@^3.1.5:
   dependencies:
     is-typedarray "^1.0.0"
 
-typescript@*, typescript@4.8.2:
+typescript@*:
   version "4.8.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.8.2.tgz#e3b33d5ccfb5914e4eeab6699cf208adee3fd790"
   integrity sha512-C0I1UsrrDHo2fYI5oaCGbSejwX4ch+9Y5jTQELvovfmFkK3HHSZJB8MSJcWLmCUBzQBchCrZ9rMRV6GuNrvGtw==
+
+typescript@4.8.3:
+  version "4.8.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.8.3.tgz#d59344522c4bc464a65a730ac695007fdb66dd88"
+  integrity sha512-goMHfm00nWPa8UvR/CPSvykqf6dVV8x/dp0c5mFTMTIu0u0FlGWRioyy7Nn0PGAdHxpJZnuO/ut+PpQ8UiHAig==
 
 unbzip2-stream@1.4.3, unbzip2-stream@^1.0.9:
   version "1.4.3"
