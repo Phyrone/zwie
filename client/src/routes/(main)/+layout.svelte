@@ -1,6 +1,6 @@
-<div class="h-screen w-screen flex flex-row">
+<div class="h-full w-full flex flex-row">
     <div class="bg-base-300 flex flex-col flex-none align-middle justify-center px-1.5">
-        <div class="flex-auto flex flex-col pt-1 overflow-x-auto scrollbar-thin">
+        <div class="flex-auto flex flex-col pt-1 overflow-x-auto scrollbar-none overscroll-auto">
             <a href="/s/s1/" class="btn btn-circle my-0.5">S1</a>
             <a href="/s/s2/" class="btn btn-circle my-0.5">S2</a>
             <a href="/s/s3/" class="btn btn-circle my-0.5">S3</a>
@@ -20,11 +20,14 @@
             <button class=" btn btn-primary btn-ghost"><i class="fa-solid fa-user"></i></button>
         </div>
     </div>
-    <div class="flex-auto">
-        <nav class="navbar">
+    <div class="flex-auto overflow-auto">
+        <nav class="navbar bg-base-200 shadow-sm sticky top-0 py-0">
             <a href="/" sveltekit:prefetch class="btn btn-ghost">Home</a>
         </nav>
-        <slot/>
+        <div class="">
+            <slot/>
+        </div>
+
     </div>
 
 </div>
