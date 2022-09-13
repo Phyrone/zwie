@@ -1,11 +1,12 @@
 import Swal from 'sweetalert2'
-import {sendAlert} from "./messages.js";
+import {DispatchedAlert, sendAlert} from "./messages.js";
 
+
+//TODO optimize this
 
 let registration: ServiceWorkerRegistration;
 
-async function inform_update_availible() {
-
+function inform_update_availible() {
     sendAlert({
         text: "Update installed Click here to Restart",
         type: "info",
@@ -15,8 +16,6 @@ async function inform_update_availible() {
             await apply_update()
         }
     })
-
-
 }
 
 async function apply_update() {
@@ -52,7 +51,7 @@ export async function init() {
         if (c_registration) {
             registration = c_registration;
             if (registration.waiting || registration.installing)
-                await inform_update_availible()
+                inform_update_availible()
             else
                 registration.addEventListener('updatefound', inform_update_availible)
             //look for updates every 60 minutes (or on reload)
