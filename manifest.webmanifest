@@ -6,7 +6,10 @@
   "display": "standalone",
   "background_color": "#ffffff",
   "scope": "/",
-  "icons": [],
+  "icons": [{
+    "sizes": "1024x1024",
+    "src": "/app-icon-dev-rounded.png"
+  }],
   "orientation": "any",
   "categories": [
     "VoIP",
