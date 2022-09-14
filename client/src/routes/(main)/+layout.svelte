@@ -1,3 +1,7 @@
+<script>
+    import AppInstallButton from "../../components/AppInstallButton.svelte";
+</script>
+
 <div class="h-full w-full flex flex-row">
     <div class="bg-base-300 flex flex-col flex-none align-middle justify-center px-1.5">
         <div class="flex-auto flex flex-col pt-1 overflow-x-auto scrollbar-none overscroll-auto">
@@ -22,7 +26,14 @@
     </div>
     <div class="flex-auto overflow-auto">
         <nav class="navbar bg-base-200 shadow-sm sticky top-0 py-0">
-            <a href="/" sveltekit:prefetch class="btn btn-ghost">Home</a>
+            <div class="navbar-start">
+                <a href="/" sveltekit:prefetch class="btn btn-ghost">Home</a>
+            </div>
+            <div class="navbar-end">
+                <AppInstallButton/>
+            </div>
+
+
         </nav>
         <div class="">
             <slot/>
