@@ -1,11 +1,11 @@
 const u = [
   "/_app/immutable/assets/fa-solid-900-d27bc752.woff2",
   "/_app/immutable/assets/fa-solid-900-6d53c706.ttf",
-  "/_app/immutable/start-1ba7643f.js",
+  "/_app/immutable/start-30091b9b.js",
   "/_app/immutable/components/pages/_layout.svelte-231fc372.js",
-  "/_app/immutable/assets/_layout-5bab0b92.css",
-  "/_app/immutable/components/error.svelte-d62e18d8.js",
-  "/_app/immutable/components/pages/(main)/_layout.svelte-8a89a74c.js",
+  "/_app/immutable/assets/_layout-23c75ce5.css",
+  "/_app/immutable/components/error.svelte-6bdc23d2.js",
+  "/_app/immutable/components/pages/(main)/_layout.svelte-c8305d9f.js",
   "/_app/immutable/components/pages/(main)/s/_server_/_layout.svelte-fcf11360.js",
   "/_app/immutable/components/pages/settings/_layout.svelte-84d91536.js",
   "/_app/immutable/components/pages/(main)/_page.svelte-ad6b3503.js",
@@ -13,15 +13,15 @@ const u = [
   "/_app/immutable/components/pages/settings/_page.svelte-9347d66a.js",
   "/_app/immutable/modules/pages/_layout.ts-5ffbbe04.js",
   "/_app/immutable/modules/pages/(main)/s/_layout.ts-e6dc5166.js",
-  "/_app/immutable/chunks/singletons-927963de.js",
+  "/_app/immutable/chunks/singletons-fee54c57.js",
   "/_app/immutable/chunks/index-1eb7d44b.js",
   "/_app/immutable/chunks/index-d12f5de2.js",
   "/_app/immutable/chunks/sweetalert2.all-0fd2fd5e.js",
   "/_app/immutable/chunks/_layout-b711fdb6.js",
   "/_app/immutable/chunks/_layout-d81b7549.js",
   "/_app/immutable/chunks/0-e6478a3d.js",
-  "/_app/immutable/chunks/1-3dd11f4c.js",
-  "/_app/immutable/chunks/2-1efd23f1.js",
+  "/_app/immutable/chunks/1-6f24619f.js",
+  "/_app/immutable/chunks/2-fd2456c2.js",
   "/_app/immutable/chunks/3-fce019e4.js",
   "/_app/immutable/chunks/4-a4d61399.js",
   "/_app/immutable/chunks/5-23a8fd27.js",
@@ -35,14 +35,14 @@ const u = [
 ], d = [
   "/",
   "/settings"
-], s = "1663175445738", f = [...u, ...d, ..._];
+], s = "1663182152990", f = [...u, ...d, ..._];
 console.log("[ServiceWorker] Init...");
-const n = "offline::", l = n + s;
-let i = caches.open(l), c;
+const n = "offline::", c = n + s;
+let i = caches.open(c), l;
 o();
 async function r() {
   try {
-    console.time("[ServiceWorker] deleting old caches"), await Promise.all(await caches.keys().then((e) => e.filter((a) => a.startsWith(n) && a !== l)).then((e) => e.map((a) => caches.delete(a))));
+    console.time("[ServiceWorker] deleting old caches"), await Promise.all(await caches.keys().then((e) => e.filter((a) => a.startsWith(n) && a !== c)).then((e) => e.map((a) => caches.delete(a))));
   } finally {
     console.timeEnd("[ServiceWorker] deleting old caches");
   }
@@ -60,7 +60,7 @@ async function h() {
 }
 async function o() {
   let e = await i;
-  c = await Promise.all(await e.keys().then((a) => a.map((t) => t.url)));
+  l = await Promise.all(await e.keys().then((a) => a.map((t) => t.url)));
 }
 async function b(e) {
   let a = await i, t = await a.match(e);
@@ -80,7 +80,7 @@ addEventListener("activate", (e) => {
 addEventListener(
   "fetch",
   async (e) => {
-    c.includes(e.request.url) && e.respondWith(b(e.request));
+    l.includes(e.request.url) && e.respondWith(b(e.request));
   }
 );
 self.addEventListener("message", (e) => {
