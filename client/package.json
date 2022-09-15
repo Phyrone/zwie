@@ -18,7 +18,7 @@
 		"@tailwindcss/aspect-ratio": "0.4.2",
 		"@tailwindcss/forms": "0.5.3",
 		"@tailwindcss/line-clamp": "0.4.2",
-		"@tauri-apps/cli": "1.0.5",
+		"@tauri-apps/cli": "1.1.0",
 		"@tauri-apps/tauricon": "1.0.3",
 		"@types/serviceworker": "0.0.51",
 		"autoprefixer": "10.4.11",
