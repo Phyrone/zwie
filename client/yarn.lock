@@ -45,10 +45,10 @@
   resolved "https://registry.yarnpkg.com/@dicebear/avatars-identicon-sprites/-/avatars-identicon-sprites-4.10.5.tgz#5e39abaf34750a45b68d1f9b89599c0081300370"
   integrity sha512-gKvZR73sgPYH7PnZuMp7ACtBI/OzRYDz6kBReN1p9Mk/WaZ+3pgpLqhieEA47UVgLxkN3sm9cRjH7jN9VhNSpQ==
 
-"@dicebear/avatars-initials-sprites@4.10.3":
-  version "4.10.3"
-  resolved "https://registry.yarnpkg.com/@dicebear/avatars-initials-sprites/-/avatars-initials-sprites-4.10.3.tgz#6747ffa884b36cd02503c2d609f26cf11515fda2"
-  integrity sha512-pkq4iQPUkfwFZReAfAfay79zDpqovfrmt7XUcl7ZUdXPk01s3RWY2TLwVNNpmxuposbXcrfJW1Yq3EUqBnDNEA==
+"@dicebear/avatars-initials-sprites@4.10.5":
+  version "4.10.5"
+  resolved "https://registry.yarnpkg.com/@dicebear/avatars-initials-sprites/-/avatars-initials-sprites-4.10.5.tgz#8551c9ed67b01e15e44f94963516dd11939a7514"
+  integrity sha512-LgUO4u+vTPZgSffOYGaS9MP0uxwjD9yn2+lU5ASQ677/N+iXK+qh0gUr+OK0Mp0/sfy9hawzzVxJXXKFDAurBw==
   dependencies:
     initials "^3.0.1"
 
