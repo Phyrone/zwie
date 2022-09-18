@@ -37,7 +37,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@dicebear/adventurer": "4.10.3",
+		"@dicebear/adventurer": "4.10.5",
 		"@dicebear/avatars": "4.10.3",
 		"@dicebear/avatars-identicon-sprites": "4.10.3",
 		"@dicebear/avatars-initials-sprites": "4.10.3",
