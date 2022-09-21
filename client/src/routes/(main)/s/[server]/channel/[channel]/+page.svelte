@@ -3,13 +3,12 @@
     import {onDestroy, onMount,} from "svelte";
 
     onMount(()=>{
-
+        console.log("loading channel...")
     })
     onDestroy(()=>{
-        
+        console.log("closing channel...")
     })
 
 </script>
-<div class="bg-green-500">
 
-    <slot/> </div>
+<h1>Channel soon here</h1>
