@@ -4,6 +4,7 @@ import de.phyrone.zwie.server.event.WebSetupEvent
 import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import io.ktor.server.websocket.*
 import org.springframework.context.event.EventListener
 import org.springframework.stereotype.Component
 
@@ -22,6 +23,9 @@ class Api1Components {
                     route("/api/v1/") {
                         get("/") {
                             call.respond("api v1 here")
+                        }
+                        webSocket("/socket") {
+
                         }
                     }
                 }

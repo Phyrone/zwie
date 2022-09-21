@@ -12,16 +12,22 @@ log = { version = "0.4.17", features = ["max_level_trace","release_max_level_inf
 
 openssl = { version = "0.10", features = ["v110", "v111"] }
 
-webrtc = "0.4.0"
+webrtc = "0.5.0"
 
 actix-web = { version = "4.1.0", features = ["openssl"] }
 error-stack = "0.1.1"
 anyhow = "1.0.62"
 thiserror = "1.0.32"
 
-deno_core = "0.148.0"
+deno_core = "0.151.0"
 
 
 clap = { version = "3.2.17", features = ["env", "yaml", "cargo", "derive", "unicode", "color"] }
 clap_complete = "3.2.4"
 async-trait = "0.1.57"
+surrealdb = "1.0.0-beta.7"
+uuid = { version = "1.1.2", features = ["serde", "v4"] }
+futures = "0.3.24"
+actix = "0.13.0"
+actix-web-actors = "4.1.0"
+serde = { version = "1.0.144", features = ["rc", "derive"] }

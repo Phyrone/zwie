@@ -16,6 +16,7 @@ pub struct StartArguments {
 
     #[clap(short, long, about,default_value_t = Level::Info)]
     pub level: Level,
+
 }
 
 #[derive(Subcommand, Debug)]
