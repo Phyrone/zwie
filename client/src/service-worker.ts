@@ -49,7 +49,12 @@ async function offline_first_response(request: Request): Promise<Response> {
         let cache_add_promise = offline_cache.add(request)
 
         let fetched_promise = fetch(request)
-        await cache_add_promise
+        try {
+            await cache_add_promise
+        }catch (e) {
+            console.error(`[ServiceWorker] Failed to cache ${request.url}`, e)
+        }
+
         let fetched = await fetched_promise
 
         if (fetched.ok) {
