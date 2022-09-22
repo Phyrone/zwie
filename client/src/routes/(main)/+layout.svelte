@@ -21,7 +21,7 @@
         </div>
         <div class="flex-none py-1 px-0.5">
             <div class="divider my-0"></div>
-            <button class=" btn btn-primary btn-ghost"><i class="fa-solid fa-user"></i></button>
+            <a href="/profile" class=" btn btn-primary btn-ghost"><i class="fa-solid fa-user"></i></a>
         </div>
     </div>
     <div class="flex-auto overflow-auto">
