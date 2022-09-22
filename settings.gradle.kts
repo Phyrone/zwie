@@ -1,5 +1,4 @@
 include(
     "client",
     "server",
-    "relay"
 )

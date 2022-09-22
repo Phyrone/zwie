@@ -13,10 +13,13 @@ const config = {
     kit: {
 
         adapter: adapter({
-            fallback: '404.html',
+            fallback: 'index.html',
             pages: 'build',
         }),
         trailingSlash: "ignore",
+        serviceWorker: {
+            register: false,
+        }
     },
     compilerOptions: {
         enableSourcemap: {

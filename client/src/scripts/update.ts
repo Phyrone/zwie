@@ -1,12 +1,13 @@
 import Swal from 'sweetalert2'
-import {DispatchedAlert, sendAlert} from "./messages.js";
+import {sendAlert} from "./messages.js";
+import {browser, dev, prerendering} from '$app/environment';
 
 
 //TODO optimize this
 
 let registration: ServiceWorkerRegistration;
 
-function inform_update_availible() {
+function inform_update_available() {
     sendAlert({
         text: "Update installed Click here to Restart",
         type: "info",
@@ -37,6 +38,15 @@ async function apply_update_stage_2() {
 
 
 export async function init() {
+    if ('__TAURI__' in window) {
+        console.log("Service Worker not enabled in Tauri")
+        return
+    } else if (dev) {
+        console.log("Service Worker not enabled in dev mode")
+        return
+    }
+
+
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.addEventListener('controllerchange', () => {
             console.log("Controllerchange event -> reloading")
@@ -47,13 +57,13 @@ export async function init() {
             Swal.showLoading()
             window.location.reload()
         })
-        const c_registration = await navigator.serviceWorker.getRegistration()
+        const c_registration = await navigator.serviceWorker.register("/service-worker.js")
         if (c_registration) {
             registration = c_registration;
             if (registration.waiting || registration.installing)
-                inform_update_availible()
+                inform_update_available()
             else
-                registration.addEventListener('updatefound', inform_update_availible)
+                registration.addEventListener('updatefound', inform_update_available)
             //look for updates every 60 minutes (or on reload)
             setInterval(() => c_registration.update(), 1000 * 60 * 60)
         }
