@@ -1,6 +1,7 @@
 import Swal from 'sweetalert2'
 import {sendAlert} from "./messages.js";
 import {browser, dev, prerendering} from '$app/environment';
+import {platform} from "./platform.js";
 
 
 //TODO optimize this
@@ -38,7 +39,8 @@ async function apply_update_stage_2() {
 
 
 export async function init() {
-    if ('__TAURI__' in window) {
+
+    if (platform === "tauri") {
         console.log("Service Worker not enabled in Tauri")
         return
     } else if (dev) {
@@ -67,5 +69,7 @@ export async function init() {
             //look for updates every 60 minutes (or on reload)
             setInterval(() => c_registration.update(), 1000 * 60 * 60)
         }
+    } else {
+        console.log("Service Worker not supported")
     }
 }
