@@ -2,14 +2,15 @@
 
     import {onDestroy, onMount,} from "svelte";
 
-    onMount(()=>{
+    onMount(() => {
 
     })
-    onDestroy(()=>{
-        
+    onDestroy(() => {
+
     })
 
 </script>
-<div class="bg-green-500">
+<div class="bg-green-500 h-full">
 
-    <slot/> </div>
+    <slot/>
+</div>

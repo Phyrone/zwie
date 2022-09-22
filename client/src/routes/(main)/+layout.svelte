@@ -24,7 +24,7 @@
             <a href="/profile" class=" btn btn-primary btn-ghost"><i class="fa-solid fa-user"></i></a>
         </div>
     </div>
-    <div class="flex-auto overflow-auto">
+    <div class="min-h-screen flex-auto overflow-auto">
         <nav class="navbar bg-base-200 shadow-sm sticky top-0 py-0">
             <div class="navbar-start">
                 <a href="/" class="btn btn-ghost">Home</a>
@@ -35,10 +35,8 @@
 
 
         </nav>
-        <div class="">
-            <slot/>
-        </div>
 
+        <slot/>
     </div>
 
 </div>

@@ -46,16 +46,10 @@ async function offline_first_response(request: Request): Promise<Response> {
     if (cached) {
         return cached
     } else {
-
-        let fetched_promise = fetch(request)
         try {
-            let fetched = await fetched_promise
-
-            if (fetched.ok) {
-                await offline_cache.put(request, fetched.clone())
-                return fetched
-            } else return await offline_cache.match("/") ?? fetched
-
+            let fetched = await fetch(request)
+            await offline_cache.put(request, fetched.clone())
+            return fetched
         } catch (e) {
             return await offline_cache.match("/") ?? Response.error()
         }
