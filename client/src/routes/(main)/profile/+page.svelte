@@ -22,23 +22,24 @@ function on_avatar_click(){
 </script>
 
 
+ <span class="text-lg">Informations:</span> 
+<br>
 
-
-<div class="profile bg-black">
+<div class="profile bg-base-300 rounded-md border border-gray-200 dark:border-gray-600 leading-6">
     <span class="text-lg text-white">Name:</span> 
-    <span class="text-lg">ExampleName</span>   <input type="text" placeholder="Click to change" class="input input-bordered input-xs max-w-xs" />
+    <span class="text-lg">Name example</span>
     <br>
     <br>
     <span class="text-lg text-white">Your E-Mail:</span>
     <span class="text-lg">example@mail.com</span>
     <br>
     <br>
-    <span class="text-lg text-white">Your ID: (comming soon)</span>
+    <span class="text-lg text-white">Your ID: </span>
+    <span class="text-lg">(comming soon)</span>
     <br>
-    <br>
-    <div class="avatar">
-        <div class="w-24 mask mask-squircle" on:click={on_avatar_click}>
-            <img src={Images[imgID]} />
-        </div>
+     <div class="avatar absolute top-24 right-1 h-32 w-32 dark:hover:scale-95">
+         <div class="w-40 mask mask-squircle" on:click={on_avatar_click}>
+              <img src={Images[imgID]}/>
+         </div>
      </div>
-    </div>
+</div>
