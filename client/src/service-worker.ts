@@ -1,16 +1,15 @@
 import {version, build, prerendered, files} from '$service-worker'
 
-const static_files: string[] = [...build, ...prerendered, ...files];
 console.log('[ServiceWorker] Init...')
+
+const static_files: string[] = [...build, ...prerendered, ...files]
 const offline_cache_name_prefix = 'offline::'
 const offline_cache_name = offline_cache_name_prefix + version
 let offline_cache_promise = caches.open(offline_cache_name);
-let offline_cache_keys: string[];
+const current_host = self.location.host;
+console.debug("[ServiceWorker] host=" + current_host);
 
-// noinspection JSIgnoredPromiseFromCall
-pupulate_offline_cache_keys();
-
-async function gc_cache() {
+async function cleanup_old_caches() {
     try {
         console.time('[ServiceWorker] deleting old caches')
         await Promise.all(await caches.keys()
@@ -30,17 +29,15 @@ async function warm_cache() {
     let cache_size: number = -1;
     try {
         let offline_cache = await offline_cache_promise;
-        cache_size = await Promise.all(static_files.map((file) => offline_cache.add(file))).then((tasks) => tasks.length)
-        await pupulate_offline_cache_keys()
+        cache_size = await Promise.all(static_files.map((file) => {
+            offline_cache.add(file).catch((e) => {
+                console.error(`[ServiceWorker] Failed to cache ${file}`, e)
+            })
+        })).then((tasks) => tasks.length)
     } finally {
         console.timeEnd(`[ServiceWorker] Creating/Updating Cache... (${version})`)
     }
     console.log(`[ServiceWorker] Added ${cache_size} files to cache`)
-}
-
-async function pupulate_offline_cache_keys() {
-    let offline_cache = await offline_cache_promise;
-    offline_cache_keys = await Promise.all(await offline_cache.keys().then((keys) => keys.map((key) => key.url)))
 }
 
 async function offline_first_response(request: Request): Promise<Response> {
@@ -49,13 +46,18 @@ async function offline_first_response(request: Request): Promise<Response> {
     if (cached) {
         return cached
     } else {
-        let cache_add = offline_cache.add(request)
-        let fetched = fetch(request)
-        await cache_add
-        return await fetched
+        let cache_add_promise = offline_cache.add(request)
+
+        let fetched_promise = fetch(request)
+        await cache_add_promise
+        let fetched = await fetched_promise
+
+        if (fetched.ok) {
+            return fetched
+        } else {
+            return await offline_cache.match("/") ?? fetched
+        }
     }
-
-
 }
 
 addEventListener('install', (event) => {
@@ -65,13 +67,14 @@ addEventListener('install', (event) => {
 
 addEventListener('activate', (event) => {
     console.log('[ServiceWorker] Activate Event...')
-    event.waitUntil(gc_cache())
+    event.waitUntil(cleanup_old_caches())
 })
 
 addEventListener('fetch', async (event) => {
 
-        if (offline_cache_keys.includes(event.request.url)) {
+        let url = new URL(event.request.url)
 
+        if (url.host === current_host) {
             event.respondWith(offline_first_response(event.request))
         }
 
