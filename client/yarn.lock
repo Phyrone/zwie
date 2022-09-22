@@ -1881,7 +1881,7 @@ initials@^3.0.1:
   resolved "https://registry.yarnpkg.com/initials/-/initials-3.1.2.tgz#30a0f9f149f0654ddf1c6b36b588b525f882a4f8"
   integrity sha512-Sltg35nx8+GX1w4U86rmbxFEmqFiSuMJviS6cB2KChB+jcT2/8Td+nlImXD74HkqpZF5PMv8hN57AyrA/7ltXw==
 
-interactjs@^1.10.17:
+interactjs@1.10.17:
   version "1.10.17"
   resolved "https://registry.yarnpkg.com/interactjs/-/interactjs-1.10.17.tgz#aed66a63020cd092236133f9149e6448dc405d72"
   integrity sha512-grjHJgnWkCoQLmAlk2yalNd1r0ztUhXLJNVjSOfWn1wfNNgU2tx1cDEkro9WYerDNC9UG3MZTeD4O6zOM5gbIA==
@@ -2173,7 +2173,7 @@ matrix-events-sdk@^0.0.1-beta.7:
   resolved "https://registry.yarnpkg.com/matrix-events-sdk/-/matrix-events-sdk-0.0.1-beta.7.tgz#5ffe45eba1f67cc8d7c2377736c728b322524934"
   integrity sha512-9jl4wtWanUFSy2sr2lCjErN/oC8KTAtaeaozJtrgot1JiQcEI4Rda9OLgQ7nLKaqb4Z/QUx/fR3XpDzm5Jy1JA==
 
-matrix-js-sdk@^19.5.0:
+matrix-js-sdk@19.5.0:
   version "19.5.0"
   resolved "https://registry.yarnpkg.com/matrix-js-sdk/-/matrix-js-sdk-19.5.0.tgz#debc8e92b2e73204c8d5bc9a128a2d0ec0a92ade"
   integrity sha512-WTmXMwyhGjUVv3eR71P9wdZj4qqNPgzg9Ud7V6kB3avhZJTZlIpNdHuldXXUdPJ8WTDKY+/yDtEFLIg8pj2Q8A==
