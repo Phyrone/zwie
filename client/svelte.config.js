@@ -19,6 +19,9 @@ const config = {
         trailingSlash: "ignore",
         serviceWorker: {
             register: false,
+        },
+        files:{
+            lib: "src/components",
         }
     },
     compilerOptions: {
