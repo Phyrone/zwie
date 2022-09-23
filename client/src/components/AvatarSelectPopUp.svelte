@@ -5,4 +5,4 @@
     let int = 0;
 </script>
 
-<h1 on:click={()=>int++} class="select-none">Select here {int}</h1>
+<h1 on:click={()=>int++} class="select-none cursor-pointer">Select here {int}</h1>

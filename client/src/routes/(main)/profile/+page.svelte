@@ -11,10 +11,11 @@
         let AvatarSelectPopUp_promise = import("$lib/AvatarSelectPopUp.svelte");
         let alert = Swal.fire({
             title: "Select Avatar",
-            html: "<span></span>"
+            html: "<span class='animate-bounce'>Waiting for Select</span>"
         });
 
         let AvatarSelectPopUp = (await AvatarSelectPopUp_promise).default;
+        Swal.getHtmlContainer().innerHTML = "";
         let select_popup = new AvatarSelectPopUp({
             target: Swal.getHtmlContainer()
         })
