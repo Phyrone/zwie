@@ -26,21 +26,20 @@ repositories{
 
 dependencies{
 
-    /*
-    implementation(project(":shared"))
-    implementation("io.vertx:vertx-web:4.3.2")
-    implementation("io.vertx:vertx-lang-kotlin:4.3.2")
-    implementation("io.vertx:vertx-lang-kotlin-coroutines:4.3.2")
-    implementation("io.vertx:vertx-sockjs-service-proxy:4.3.2")
-    implementation("io.vertx:vertx-service-proxy:4.3.2")
-    */
+    implementation("io.vertx:vertx-web:4.3.3")
+    implementation("io.vertx:vertx-lang-kotlin:4.3.3")
+    implementation("io.vertx:vertx-lang-kotlin-coroutines:4.3.3")
+    implementation("io.vertx:vertx-sockjs-service-proxy:4.3.3")
+    implementation("io.vertx:vertx-service-proxy:4.3.3")
 
-    implementation("io.ktor:ktor-server-core:2.1.1")
-    implementation("io.ktor:ktor-server-netty:2.1.1")
-    implementation("io.ktor:ktor-server-websockets:2.1.1")
-    implementation("io.netty:netty-tcnative:2.0.54.Final")
+
+    //implementation("io.ktor:ktor-server-core:2.1.1")
+    //implementation("io.ktor:ktor-server-netty:2.1.1")
+    //implementation("io.ktor:ktor-server-websockets:2.1.1")
+    //implementation("io.netty:netty-tcnative:2.0.54.Final")
 
     implementation("com.fasterxml.jackson.core:jackson-databind:2.13.4")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.4")
 
 
 
@@ -67,7 +66,7 @@ dependencies{
 
 
 
-    //implementation("org.atteo.classindex:classindex:3.11")
+
     //implementation("io.insert-koin:koin-core:3.2.0")
     implementation("com.google.flogger:flogger:0.7.4")
     implementation("com.google.flogger:flogger-slf4j-backend:0.7.4")
@@ -75,6 +74,8 @@ dependencies{
 
     //implementation("com.google.flogger:flogger-log4j-backend:0.7.4")
     implementation("dev.onvoid.webrtc:webrtc-java:0.6.0")
+
+    implementation("org.atteo.classindex:classindex:3.11")
     kapt("org.atteo.classindex:classindex:3.11")
 
 

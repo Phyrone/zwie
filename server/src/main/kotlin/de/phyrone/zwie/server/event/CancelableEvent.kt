@@ -1,5 +1,5 @@
 package de.phyrone.zwie.server.event
 
-interface CanceableEvent {
+interface CancelableEvent {
     var isCancelled: Boolean
 }

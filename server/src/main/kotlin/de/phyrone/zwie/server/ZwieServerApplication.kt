@@ -1,13 +1,15 @@
 package de.phyrone.zwie.server
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.common.util.concurrent.ThreadFactoryBuilder
+import de.phyrone.zwie.server.data.packets.Packet
 import de.phyrone.zwie.server.event.StartupDoneEvent
+import de.phyrone.zwie.server.utils.JsonIndex
+import de.phyrone.zwie.server.utils.lazyArg
 import de.phyrone.zwie.server.utils.logger
 import kotlinx.coroutines.asCoroutineDispatcher
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import org.atteo.classindex.ClassIndex
 import org.springframework.beans.factory.annotation.Qualifier
-import org.springframework.beans.factory.getBean
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.context.annotation.Bean
@@ -20,8 +22,8 @@ import java.util.concurrent.TimeUnit
 import kotlin.time.ExperimentalTime
 import kotlin.time.measureTimedValue
 
-@EnableScheduling
 @EnableAsync
+@EnableScheduling
 @SpringBootApplication
 class ZwieServerApplication {
 
@@ -68,4 +70,15 @@ class ZwieServerApplication {
 
     @Bean
     fun coroutineContext(@Qualifier("workerPool") executor: Executor) = executor.asCoroutineDispatcher()
+
+    @Bean
+    fun objectMapper() = ObjectMapper().findAndRegisterModules().also { mapper ->
+        mapper.registerSubtypes(ClassIndex.getSubclasses(Packet::class.java).toSet())
+        mapper.registerSubtypes(ClassIndex.getAnnotated(JsonIndex::class.java).toSet())
+        logger.atFine().log(
+            "Registered %s json modules [%s]",
+            lazyArg { mapper.registeredModuleIds.size },
+            lazyArg { mapper.registeredModuleIds.joinToString(separator = ",") }
+        )
+    }
 }

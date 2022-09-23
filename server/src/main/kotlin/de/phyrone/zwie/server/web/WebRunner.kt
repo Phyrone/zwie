@@ -1,7 +1,9 @@
 package de.phyrone.zwie.server.web
 
 import de.phyrone.zwie.server.utils.logger
-import io.ktor.server.engine.*
+import io.vertx.core.http.HttpServer
+import io.vertx.kotlin.coroutines.await
+import kotlinx.coroutines.runBlocking
 import org.springframework.beans.factory.DisposableBean
 import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner
@@ -9,7 +11,7 @@ import org.springframework.stereotype.Component
 
 @Component
 class WebRunner(
-    val applicationEngine: ApplicationEngine,
+    val server: HttpServer,
 ) : DisposableBean, ApplicationRunner {
 
     companion object {
@@ -17,11 +19,13 @@ class WebRunner(
     }
 
     override fun destroy() {
-        applicationEngine.stop(300, 500)
+        runBlocking { server.close().await() }
     }
 
     override fun run(args: ApplicationArguments?) {
-        applicationEngine.start(false)
+        logger.atInfo().log("Starting WebServer...")
+        server.listen(3344)
+            .andThen { logger.atInfo().log("WebServer started!") }
     }
 
 }

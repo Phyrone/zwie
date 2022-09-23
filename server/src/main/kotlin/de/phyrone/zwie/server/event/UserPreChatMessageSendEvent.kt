@@ -6,6 +6,6 @@ import de.phyrone.zwie.server.user.User
 data class UserPreChatMessageSendEvent(
     var user: User,
     var message: AbstractChatMessage,
-) : CanceableEvent {
+) : CancelableEvent {
     override var isCancelled: Boolean = false
 }

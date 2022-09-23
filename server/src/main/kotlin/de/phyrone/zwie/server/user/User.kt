@@ -8,4 +8,5 @@ interface User : ChatParticipant, UniqeEntity {
     suspend fun setChannelLayout(layout: ChannelLayout?)
     suspend fun resetChannelLayout()
     suspend fun kick(message: String? = null)
+
 }

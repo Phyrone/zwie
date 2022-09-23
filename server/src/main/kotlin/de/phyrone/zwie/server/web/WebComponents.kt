@@ -1,13 +1,10 @@
 package de.phyrone.zwie.server.web
 
-import de.phyrone.zwie.server.event.WebSetupEvent
-import io.ktor.server.application.*
-import io.ktor.server.engine.*
-import io.ktor.server.netty.*
-import io.ktor.server.websocket.*
-import kotlinx.coroutines.CoroutineDispatcher
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
-import org.springframework.context.ApplicationEventPublisher
+import io.vertx.core.Vertx
+import io.vertx.core.http.HttpServerOptions
+import io.vertx.ext.web.Router
+import io.vertx.ext.web.handler.sockjs.SockJSHandler
+import io.vertx.kotlin.coroutines.await
 import org.springframework.context.annotation.Bean
 import org.springframework.stereotype.Component
 import java.security.KeyStore
@@ -15,31 +12,23 @@ import java.security.KeyStore
 @Component
 class WebComponents {
 
-    @Bean
-    @ConditionalOnMissingBean(ApplicationEngineEnvironment::class)
-    fun webEnv(
-        coroutineDispatcher: CoroutineDispatcher,
-        publisher: ApplicationEventPublisher,
-    ) = applicationEngineEnvironment {
-        connector { port = 8080 }
-        parentCoroutineContext = coroutineDispatcher
 
-        module {
-            install(WebSockets)
+    @Bean(destroyMethod = "close")
+    fun vertx() = Vertx.vertx()
 
-        }
-        publisher.publishEvent(WebSetupEvent(this))
-    }
 
     @Bean
-    @ConditionalOnMissingBean(ApplicationEngine::class)
-    fun server(
-        applicationEngineEnvironment: ApplicationEngineEnvironment,
-        publisher: ApplicationEventPublisher,
-    ) = embeddedServer(Netty, applicationEngineEnvironment) {
-        this.shareWorkGroup = true
-        this.tcpKeepAlive = true
-    }
+    fun httpServerOptions() = HttpServerOptions()
+
+    @Bean
+    fun httpServer(vertx: Vertx, router: Router, options: HttpServerOptions) = vertx.createHttpServer(options)
+        .also { it.requestHandler(router) }
+
+    @Bean
+    fun sockJsHandler(vertx: Vertx) = SockJSHandler.create(vertx)
+
+    @Bean
+    fun router(vertx: Vertx) = Router.router(vertx)
 
     @Bean
     fun keystore(): KeyStore = KeyStore.getInstance(KeyStore.getDefaultType())

@@ -1,32 +1,24 @@
 package de.phyrone.zwie.server.web.api1
 
-import de.phyrone.zwie.server.event.WebSetupEvent
-import io.ktor.server.application.*
-import io.ktor.server.response.*
-import io.ktor.server.routing.*
-import org.springframework.context.event.EventListener
+import de.phyrone.zwie.server.utils.logger
+import io.vertx.ext.web.Router
+import io.vertx.ext.web.handler.sockjs.SockJSHandler
+import org.springframework.beans.factory.DisposableBean
 import org.springframework.stereotype.Component
 
 @Component
-class Api1Components {
+class Api1Components(router: Router, sockJSHandler: SockJSHandler) : DisposableBean {
 
+    companion object {
+        val logger = logger()
+    }
 
-    @EventListener(classes = [WebSetupEvent::class])
-    fun WebSetupEvent.onWebSetupApi1() {
-        with(builder) {
-            module {
-                routing {
-                    get {
-                        call.respondText("Hello World")
-                    }
-                    route("/api/v1/") {
-                        get("/") {
-                            call.respond("api v1 here")
-                        }
-                    }
-                }
-            }
-        }
+    val handler = router.route("/api/v1/*").subRouter(sockJSHandler.socketHandler { socket ->
+        logger.atInfo().log("New Connection from ${socket.remoteAddress()}")
+    })
+
+    override fun destroy() {
+        handler.disable()
     }
 
 
