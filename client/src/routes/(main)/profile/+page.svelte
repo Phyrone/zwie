@@ -26,21 +26,24 @@
 
 
 <span class="text-lg">Informations:</span>
+ <span class="text-lg">Info about yourself:</span> 
 <br>
 
 <div class=" relative profile bg-base-300 rounded-md border border-gray-200 dark:border-gray-600 leading-6">
-    <span class="text-lg text-white">Name:</span>
-    <span class="text-lg">Name example</span>
+    <span class="text-lg text-white">Name:</span> 
+    <span class="text-lg">Name example</span> 
+    <button class="text-lg text-white rounded-md border border-gray-200 dark:border-gray-700">Change</button>
     <br>
     <br>
-    <span class="text-lg text-white">Your E-Mail:</span>
+    <span class="text-lg text-white">E-Mail:</span>
     <span class="text-lg">example@mail.com</span>
+    <button class="text-lg text-white rounded-md border border-gray-200 dark:border-gray-700">Change</button>
     <br>
     <br>
-    <span class="text-lg text-white">Your ID: </span>
+    <span class="text-lg text-white">ID: </span>
     <span class="text-lg">(comming soon)</span>
     <br>
-    <div class="avatar absolute top-1 right-1 h-32 w-32 transition hover:scale-95 active:scale-105">
+    <div class="avatar absolute top-1 right-1 h-32 w-32 transition hover:scale-95">
         <div class="w-40 mask mask-squircle hover:shadow-xl" on:click={on_avatar_click}>
             <img alt={Images[imgID]} src={Images[imgID]}/>
         </div>
