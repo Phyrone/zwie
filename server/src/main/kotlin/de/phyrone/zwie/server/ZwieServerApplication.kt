@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.common.util.concurrent.ThreadFactoryBuilder
 import de.phyrone.zwie.server.data.packets.Packet
 import de.phyrone.zwie.server.event.StartupDoneEvent
-import de.phyrone.zwie.server.utils.JsonIndex
+import de.phyrone.zwie.server.utils.JsonComponent
 import de.phyrone.zwie.server.utils.lazyArg
 import de.phyrone.zwie.server.utils.logger
 import kotlinx.coroutines.asCoroutineDispatcher
@@ -73,8 +73,7 @@ class ZwieServerApplication {
 
     @Bean
     fun objectMapper() = ObjectMapper().findAndRegisterModules().also { mapper ->
-        mapper.registerSubtypes(ClassIndex.getSubclasses(Packet::class.java).toSet())
-        mapper.registerSubtypes(ClassIndex.getAnnotated(JsonIndex::class.java).toSet())
+        mapper.registerSubtypes(ClassIndex.getSubclasses(JsonComponent::class.java).toSet())
         logger.atFine().log(
             "Registered %s json modules [%s]",
             lazyArg { mapper.registeredModuleIds.size },
