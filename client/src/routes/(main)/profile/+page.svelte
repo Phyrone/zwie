@@ -45,22 +45,22 @@
             <tr>
                 <td><span class="text-lg text-white">Name:</span></td>
                 <td><span class="text-lg">Name example</span></td>
-                <td><button class="text-lg text-white rounded-md border border-gray-200 dark:border-gray-700 transition hover:scale-95" on:click={on_Name_click}>Change</button></td>
+                <td><button class="btn btn-xs" on:click={on_Name_click}>Change</button></td>
             </tr>
             <br>
             <tr>
                 <td><span class="text-lg text-white">E-Mail:</span></td>
                 <td><span class="text-lg">example@mail.com</span></td>
-                <td><button class="text-lg text-white rounded-md border border-gray-200 dark:border-gray-700 transition hover:scale-95" on:click={on_E_Mail_click}>Change</button></td>
+                <td><button class="btn btn-xs" on:click={on_E_Mail_click}>Change</button></td>
             </tr>
             <br>
             <tr>
-                <td><span class="text-lg text-white">ID: </span></td>
+                <td><span class="text-lg text-white">Code:</span></td>
                 <td><span class="text-lg">(comming soon)</span></td>
             </tr>
         </tbody>
     </table>
-    <div class="avatar absolute top-2 right-1 h-32 w-32 transition hover:scale-95">
+    <div class="avatar absolute top-1 right-1 h-32 w-32 transition hover:scale-95">
         <div class="w-40 mask mask-squircle hover:shadow-xl" on:click={on_avatar_click}>
             <img alt={Images[imgID]} src={Images[imgID]}/>
         </div>
