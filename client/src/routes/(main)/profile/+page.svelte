@@ -22,28 +22,45 @@
         await alert;
         select_popup.$destroy();
     }
-</script>
 
+    async function on_E_Mail_click(){
+        let EMail_Change = import("$lib/E-Mail_Change.svelte");
+
+    }
+
+    async function on_Name_click(){
+        let NameChange = import("$lib/NameChange.svelte");
+
+    }
+
+</script>
+<!--TODO: -->
 
 <span class="text-lg">Informations:</span>
- <span class="text-lg">Info about yourself:</span> 
 <br>
 
 <div class=" relative profile bg-base-300 rounded-md border border-gray-200 dark:border-gray-600 leading-6">
-    <span class="text-lg text-white">Name:</span> 
-    <span class="text-lg">Name example</span> 
-    <button class="text-lg text-white rounded-md border border-gray-200 dark:border-gray-700">Change</button>
-    <br>
-    <br>
-    <span class="text-lg text-white">E-Mail:</span>
-    <span class="text-lg">example@mail.com</span>
-    <button class="text-lg text-white rounded-md border border-gray-200 dark:border-gray-700">Change</button>
-    <br>
-    <br>
-    <span class="text-lg text-white">ID: </span>
-    <span class="text-lg">(comming soon)</span>
-    <br>
-    <div class="avatar absolute top-1 right-1 h-32 w-32 transition hover:scale-95">
+    <table class="table-auto">
+        <tbody>
+            <tr>
+                <td><span class="text-lg text-white">Name:</span></td>
+                <td><span class="text-lg">Name example</span></td>
+                <td><button class="text-lg text-white rounded-md border border-gray-200 dark:border-gray-700 transition hover:scale-95" on:click={on_Name_click}>Change</button></td>
+            </tr>
+            <br>
+            <tr>
+                <td><span class="text-lg text-white">E-Mail:</span></td>
+                <td><span class="text-lg">example@mail.com</span></td>
+                <td><button class="text-lg text-white rounded-md border border-gray-200 dark:border-gray-700 transition hover:scale-95" on:click={on_E_Mail_click}>Change</button></td>
+            </tr>
+            <br>
+            <tr>
+                <td><span class="text-lg text-white">ID: </span></td>
+                <td><span class="text-lg">(comming soon)</span></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="avatar absolute top-2 right-1 h-32 w-32 transition hover:scale-95">
         <div class="w-40 mask mask-squircle hover:shadow-xl" on:click={on_avatar_click}>
             <img alt={Images[imgID]} src={Images[imgID]}/>
         </div>
