@@ -42,6 +42,7 @@
     "@dicebear/avatars-initials-sprites": "4.10.5",
     "@fortawesome/fontawesome-free": "6.2.0",
     "@sveltejs/adapter-static": "1.0.0-next.43",
+    "cbor-js": "0.1.0",
     "dompurify": "2.4.0",
     "elliptic": "6.5.4",
     "immortal-db": "1.1.0",

@@ -2,6 +2,7 @@ package de.phyrone.zwie.server.web
 
 import io.vertx.core.Vertx
 import io.vertx.core.http.HttpServerOptions
+import io.vertx.core.tracing.TracingPolicy
 import io.vertx.ext.web.Router
 import io.vertx.ext.web.handler.sockjs.SockJSHandler
 import io.vertx.kotlin.coroutines.await
@@ -19,6 +20,7 @@ class WebComponents {
 
     @Bean
     fun httpServerOptions() = HttpServerOptions()
+        .setCompressionSupported(true)
 
     @Bean
     fun httpServer(vertx: Vertx, router: Router, options: HttpServerOptions) = vertx.createHttpServer(options)

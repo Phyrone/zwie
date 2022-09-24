@@ -1,6 +1,7 @@
 package de.phyrone.zwie.server.utils
 
 import org.atteo.classindex.IndexSubclasses
+import java.io.Serializable
 
 @IndexSubclasses
-interface JsonComponent
+interface JsonComponent : Serializable

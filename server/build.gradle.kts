@@ -1,5 +1,6 @@
 plugins{
 
+    application
     kotlin("jvm")
     kotlin("kapt")
     kotlin("plugin.spring")
@@ -40,6 +41,8 @@ dependencies{
 
     implementation("com.fasterxml.jackson.core:jackson-databind:2.13.4")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.4")
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.13.4")
+    implementation("org.msgpack:jackson-dataformat-msgpack:0.9.3")
 
 
 
@@ -109,6 +112,9 @@ dependencies{
     implementation("com.mojang:brigadier:1.0.18")
     implementation("org.jline:jline:3.21.0")
 
+    implementation("org.fusesource.jansi:jansi:2.4.0")
+
+
 }
 allOpen{
     annotation("javax.persistence.Entity")
@@ -120,4 +126,6 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     }
 }
 
-//application{ mainClass.set("de.phyrone.zwie.server.Main") }
+application{
+    mainClass.set("de.phyrone.zwie.server.ZwieServerApplication")
+}

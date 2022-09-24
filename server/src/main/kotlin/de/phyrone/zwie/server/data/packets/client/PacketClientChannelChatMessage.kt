@@ -5,7 +5,7 @@ import de.phyrone.zwie.server.data.chat.ChatComponent
 import java.util.UUID
 
 @JsonTypeName("client/channel/chat/send")
-class PacketClientChatMessage(
+class PacketClientChannelChatMessage(
     val channel: UUID,
-    val components: List<ChatComponent>,
+    val components: ChatComponent,
 ) : PacketClient

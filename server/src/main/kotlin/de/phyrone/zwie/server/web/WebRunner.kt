@@ -2,6 +2,7 @@ package de.phyrone.zwie.server.web
 
 import de.phyrone.zwie.server.utils.logger
 import io.vertx.core.http.HttpServer
+import io.vertx.core.net.SocketAddress
 import io.vertx.kotlin.coroutines.await
 import kotlinx.coroutines.runBlocking
 import org.springframework.beans.factory.DisposableBean
@@ -23,9 +24,14 @@ class WebRunner(
     }
 
     override fun run(args: ApplicationArguments?) {
-        logger.atInfo().log("Starting WebServer...")
-        server.listen(3344)
-            .andThen { logger.atInfo().log("WebServer started!") }
+        logger.atFine().log("Starting WebServer...")
+
+        addListener(SocketAddress.inetSocketAddress(3344, "0.0.0.0"))
+    }
+
+    fun addListener(address: SocketAddress) {
+        server.listen(address)
+            .andThen { logger.atInfo().log("listening on %s", address) }
     }
 
 }

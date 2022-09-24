@@ -4,5 +4,8 @@ import de.phyrone.zwie.server.database.entity.UserEntity
 import org.springframework.data.repository.CrudRepository
 
 interface UserRepository : CrudRepository<UserEntity, Long> {
-    fun findByDisplayName(displayName: String): UserEntity?
+    fun findByLastDisplayName(displayName: String): UserEntity?
+
+    fun findByLastDisplayNameIgnoreCase(displayName: String): UserEntity?
+
 }
