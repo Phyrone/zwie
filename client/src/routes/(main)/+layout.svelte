@@ -28,9 +28,10 @@
         <nav class="navbar bg-base-200 shadow-sm sticky top-0 py-0">
             <div class="navbar-start">
                 <a href="/" class="btn btn-ghost">Home</a>
-                <a href="/Plugins/" class="btn btn-ghost">Plugins</a>
-                <a href="/Settings/" class="btn btn-ghost">Settings</a>
                 <a href="/Modus/" class="btn btn-ghost">Modus</a>
+                <a href="/Settings/" class="btn btn-ghost">Settings</a>
+                <a href="/Toolbox/" class="btn btn-ghost">Toolbox</a>
+                <a href="/Plugins/" class="btn btn-ghost">Plugins</a>
             </div>
             <div class="navbar-end">
                 <AppInstallButton/>
