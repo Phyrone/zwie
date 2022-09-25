@@ -10,9 +10,6 @@
                          <a href="/Settings/Video" class="btn btn-ghost border border-solid border-gray-500">Video</a>
                          <a href="/Settings/Audio" class="btn btn-ghost border border-solid border-gray-500">Audio</a>
                          <a href="/Settings/Language" class="btn btn-ghost border border-solid border-gray-500">Language</a>
-
-
-
                         </div>
                     </td>
                     

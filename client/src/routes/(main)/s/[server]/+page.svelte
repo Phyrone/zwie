@@ -3,7 +3,8 @@
 export let data: any;
 </script>
 
-<div class="bg-gray-700 h-full">
-    <h1>{JSON.stringify(data)}</h1>
-    <h1>asdasdasdasd</h1>
+<div class="relative h-32 w-32">
+        <div class="absolute inset-x-0 bottom-0 h-16">
+            <input type="text">
+        </div>
 </div>
