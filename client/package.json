@@ -51,6 +51,7 @@
     "matrix-js-sdk": "19.5.0",
     "openpgp": "5.5.0",
     "sockjs-client": "1.6.1",
-    "sweetalert2": "11.4.34"
+    "sweetalert2": "11.4.34",
+    "theme-change": "^2.2.0"
   }
 }
