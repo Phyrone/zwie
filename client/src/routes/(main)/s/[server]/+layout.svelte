@@ -11,7 +11,7 @@
 
 </script>
 
-<div class="bg-base-300 flex flex-row h-full bg-gray-400">
+<div class="bg-base-300 flex flex-row h-full ">
 
     <button class="btn btn-xs">Let´s talk a bit</button>
 
