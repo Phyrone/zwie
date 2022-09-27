@@ -1,10 +1,10 @@
 const o = [
   "/_app/immutable/assets/fa-solid-900-d27bc752.woff2",
   "/_app/immutable/assets/fa-solid-900-6d53c706.ttf",
-  "/_app/immutable/start-1f16646f.js",
+  "/_app/immutable/start-cc8dbe6f.js",
   "/_app/immutable/components/pages/_layout.svelte-288baa76.js",
   "/_app/immutable/assets/_layout-9b4ee339.css",
-  "/_app/immutable/components/error.svelte-35756112.js",
+  "/_app/immutable/components/error.svelte-1ab352f1.js",
   "/_app/immutable/components/pages/(main)/_layout.svelte-fc44aa74.js",
   "/_app/immutable/components/pages/(main)/Plugins/_layout.svelte-ca61074b.js",
   "/_app/immutable/components/pages/(main)/Settings/_layout.svelte-adf6b330.js",
@@ -28,7 +28,7 @@ const o = [
   "/_app/immutable/components/pages/(main)/server/_server_/channel/_channel_/_page.svelte-4e9b2b2b.js",
   "/_app/immutable/modules/pages/_layout.ts-d347cb9b.js",
   "/_app/immutable/modules/pages/(main)/_page.ts-a6b9ddf0.js",
-  "/_app/immutable/chunks/singletons-a7f708c4.js",
+  "/_app/immutable/chunks/singletons-4e6b4099.js",
   "/_app/immutable/chunks/preload-helper-aa6bc0ce.js",
   "/_app/immutable/chunks/index-c260c7ce.js",
   "/_app/immutable/chunks/index-49b214d9.js",
@@ -38,7 +38,7 @@ const o = [
   "/_app/immutable/chunks/_layout-d02ecff8.js",
   "/_app/immutable/chunks/_page-9468531c.js",
   "/_app/immutable/chunks/0-16ef5bb2.js",
-  "/_app/immutable/chunks/1-7ab6313f.js",
+  "/_app/immutable/chunks/1-d1a45f8d.js",
   "/_app/immutable/chunks/2-c9614fd9.js",
   "/_app/immutable/chunks/3-6ba8be40.js",
   "/_app/immutable/chunks/4-bd121359.js",
@@ -68,7 +68,7 @@ const o = [
   "/manifest.webmanifest"
 ], _ = [
   "/"
-], n = "1664264467706";
+], n = "1664299217954";
 console.log("[ServiceWorker] Init...");
 const b = [...o, ..._, ...u], m = "offline::", i = m + n;
 let l = caches.open(i);
