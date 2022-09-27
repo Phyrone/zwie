@@ -6,10 +6,10 @@
                          <div class="flex flex-col absolute border border-solid border-gray-500">
 
                          <span class="text-white-300 decoration-4">App-Settings</span>
-                         <a href="/Settings/Overlay" class="btn btn-ghost border border-solid border-gray-500">Overlay</a>
-                         <a href="/Settings/Video" class="btn btn-ghost border border-solid border-gray-500">Video</a>
-                         <a href="/Settings/Audio" class="btn btn-ghost border border-solid border-gray-500">Audio</a>
-                         <a href="/Settings/Language" class="btn btn-ghost border border-solid border-gray-500">Language</a>
+                         <a href="/settings/overlay" class="btn btn-ghost border border-solid border-gray-500">Overlay</a>
+                         <a href="/settings/video" class="btn btn-ghost border border-solid border-gray-500">Video</a>
+                         <a href="/settings/audio" class="btn btn-ghost border border-solid border-gray-500">Audio</a>
+                         <a href="/settings/language" class="btn btn-ghost border border-solid border-gray-500">Language</a>
                         </div>
                     </td>
                     
