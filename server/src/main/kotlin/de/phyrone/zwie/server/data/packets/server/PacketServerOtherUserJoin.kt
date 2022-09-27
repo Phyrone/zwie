@@ -6,5 +6,4 @@ import java.util.UUID
 @JsonTypeName("server/users/add")
 data class PacketServerOtherUserJoin(
     val uuid: UUID,
-    val name: String,
 ) : PacketServer
