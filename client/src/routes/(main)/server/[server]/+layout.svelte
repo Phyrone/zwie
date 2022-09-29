@@ -23,8 +23,8 @@
                 </ul>
             </details>
         </ul>
-
-        <div class="static h-auto w-full bg-gray-500 bottom-0 left-0 border border-solid border-gray-700">
+        
+        <div class="relative h-40 w-full bg-gray-500 bottom-0 left-0 border border-solid border-gray-700">
 
             <div class="relative bg-gray-500 h-auto w-full border border-solid border-gray-700 border-">
             <!--Platz für images der User--> 
@@ -33,7 +33,7 @@
             </div>
         
 
-            <div class="flex flex-row h-32 bg-gray-500 bottom-0 left-0">
+            <div class="flex flex-row h-auto bg-gray-500 bottom-0 left-0 ">
                 <button class="btn btn-circle bg-green-600">CALL</button>
                 <button class="btn btn-circle bg-red-600 w-auto">DISCONNECT</button>
                 <button class="btn btn-circle bg-gray-500">MUTE</button>
@@ -41,27 +41,26 @@
         </div>
     </div>
 
-
     <div class="flex flex-col relative w-8/12 bg-zinc-600 h-full">
-        <div class="h-auto w-full">
-            <card id="chat" name="chat">
+        <div class="h-auto w-full top-0">
+            <span>
                 User 1: Hallo
                 sassssssssssssssssssssssssssssssssssss
                 <br>
                 sssss
                 sssss
-            </card>
+            </span>
         </div>
-        <!--TODO: Die Inputbar muss auf den bottom-0 Wert; Ich finde den Fehler nicht-->
-        <div class="relative bottom-0">
-            <input type="text" placeholder="Type here" class="input w-full bg-gray-300 input-md bottom-0"/>
+
+        <div class="fixed w-8/12 bottom-0 h-20 bg-gray-800">
+                <input type="text" placeholder="Type here" class="absolute input w-full bg-gray-300 bottom-3.5 text-gray-800"/>
         </div>
     </div>
 
 
-    <div class="flex flex-col h-full w-2/12">
-        <div class="flex flex-auto h-full bg-gray-500">
-            <div class="h-32 w-full">
+    <div class="flex flex-col h-full w-2/12 -right-0">
+        <div class="flex flex-auto bg-gray-500 w-full">
+            <div class="h-auto w-full">
                 <div class="top-0 h-auto w-full bg-zinc-700">
                     <table class="w-full">
                         <tbody>
