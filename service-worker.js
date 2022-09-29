@@ -1,13 +1,13 @@
 const o = [
   "/_app/immutable/assets/fa-solid-900-d27bc752.woff2",
   "/_app/immutable/assets/fa-solid-900-6d53c706.ttf",
-  "/_app/immutable/start-0917b2c9.js",
+  "/_app/immutable/start-a7ce5b77.js",
   "/_app/immutable/components/pages/_layout.svelte-8dd12897.js",
-  "/_app/immutable/assets/_layout-9e650cc4.css",
-  "/_app/immutable/components/error.svelte-999fb2de.js",
+  "/_app/immutable/assets/_layout-e002bbc2.css",
+  "/_app/immutable/components/error.svelte-788407ad.js",
   "/_app/immutable/components/pages/(main)/_layout.svelte-84cf687c.js",
   "/_app/immutable/components/pages/(main)/plugins/_layout.svelte-69decf83.js",
-  "/_app/immutable/components/pages/(main)/server/_server_/_layout.svelte-14d4ba50.js",
+  "/_app/immutable/components/pages/(main)/server/_server_/_layout.svelte-ef475342.js",
   "/_app/immutable/components/pages/(main)/settings/_layout.svelte-a47ed18e.js",
   "/_app/immutable/components/pages/(main)/toolbox/_layout.svelte-87093681.js",
   "/_app/immutable/components/pages/(main)/_page.svelte-4ca106e2.js",
@@ -16,7 +16,7 @@ const o = [
   "/_app/immutable/components/pages/(main)/plugins/_page.svelte-65d7b9e3.js",
   "/_app/immutable/components/pages/(main)/profile/_page.svelte-fa2b1711.js",
   "/_app/immutable/components/pages/(main)/server/_server_/_page.svelte-57dd8361.js",
-  "/_app/immutable/components/pages/(main)/server/_server_/channel/_channel_/_page.svelte-4e9b2b2b.js",
+  "/_app/immutable/components/pages/(main)/server/_server_/channel/_channel_/_page.svelte-7f75c4e0.js",
   "/_app/immutable/components/pages/(main)/settings/_page.svelte-1c03e75e.js",
   "/_app/immutable/components/pages/(main)/settings/audio/_page.svelte-fcd642e2.js",
   "/_app/immutable/assets/_page-91244bf2.css",
@@ -26,7 +26,7 @@ const o = [
   "/_app/immutable/components/pages/(main)/toolbox/_page.svelte-4a6983ee.js",
   "/_app/immutable/modules/pages/_layout.ts-d347cb9b.js",
   "/_app/immutable/modules/pages/(main)/_page.ts-a6b9ddf0.js",
-  "/_app/immutable/chunks/singletons-3af415d4.js",
+  "/_app/immutable/chunks/singletons-52b9e9cd.js",
   "/_app/immutable/chunks/preload-helper-aa6bc0ce.js",
   "/_app/immutable/chunks/index-c260c7ce.js",
   "/_app/immutable/chunks/index-49b214d9.js",
@@ -36,10 +36,10 @@ const o = [
   "/_app/immutable/chunks/_layout-d02ecff8.js",
   "/_app/immutable/chunks/_page-9468531c.js",
   "/_app/immutable/chunks/0-ae451a78.js",
-  "/_app/immutable/chunks/1-4eb1bb44.js",
+  "/_app/immutable/chunks/1-25a8ac31.js",
   "/_app/immutable/chunks/2-c93610dc.js",
   "/_app/immutable/chunks/3-179f9a89.js",
-  "/_app/immutable/chunks/4-f5c6524d.js",
+  "/_app/immutable/chunks/4-93b69a4f.js",
   "/_app/immutable/chunks/5-65947d4e.js",
   "/_app/immutable/chunks/6-367ff65f.js",
   "/_app/immutable/chunks/7-67fb0f46.js",
@@ -48,7 +48,7 @@ const o = [
   "/_app/immutable/chunks/10-8dbb7893.js",
   "/_app/immutable/chunks/11-3df72b3c.js",
   "/_app/immutable/chunks/12-a0dee7fb.js",
-  "/_app/immutable/chunks/13-d7d2d957.js",
+  "/_app/immutable/chunks/13-b599a731.js",
   "/_app/immutable/chunks/14-81d21a21.js",
   "/_app/immutable/chunks/15-2cf59244.js",
   "/_app/immutable/chunks/16-7ece2be7.js",
@@ -64,15 +64,15 @@ const o = [
   "/manifest.webmanifest"
 ], _ = [
   "/"
-], n = "1664420844502";
+], n = "1664488226997";
 console.log("[ServiceWorker] Init...");
-const b = [...o, ..._, ...u], m = "offline::", i = m + n;
-let c = caches.open(i);
+const b = [...o, ..._, ...u], m = "offline::", c = m + n;
+let i = caches.open(c);
 const l = self.location.host;
 console.debug("[ServiceWorker] host=" + l);
 async function r() {
   try {
-    console.time("[ServiceWorker] deleting old caches"), await Promise.all(await caches.keys().then((e) => e.filter((a) => a.startsWith(m) && a !== i)).then((e) => e.map((a) => caches.delete(a))));
+    console.time("[ServiceWorker] deleting old caches"), await Promise.all(await caches.keys().then((e) => e.filter((a) => a.startsWith(m) && a !== c)).then((e) => e.map((a) => caches.delete(a))));
   } finally {
     console.timeEnd("[ServiceWorker] deleting old caches");
   }
@@ -81,7 +81,7 @@ async function d() {
   console.time(`[ServiceWorker] Creating/Updating Cache... (${n})`);
   let e = -1;
   try {
-    let a = await c;
+    let a = await i;
     e = await Promise.all(b.map((s) => {
       a.add(s).catch((t) => {
         console.error(`[ServiceWorker] Failed to cache ${s}`, t);
@@ -94,7 +94,7 @@ async function d() {
 }
 async function h(e) {
   var t;
-  let a = await c, s = await a.match(e);
+  let a = await i, s = await a.match(e);
   if (s)
     return s;
   try {
