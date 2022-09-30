@@ -109,7 +109,7 @@ dependencies{
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
 
-    implementation("com.mojang:brigadier:1.0.18")
+    implementation("com.mojang:brigadier:1.0.500")
     implementation("org.jline:jline:3.21.0")
 
     implementation("org.fusesource.jansi:jansi:2.4.0")
