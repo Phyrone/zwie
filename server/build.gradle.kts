@@ -29,7 +29,7 @@ dependencies{
 
     implementation("io.vertx:vertx-web:4.3.3")
     implementation("io.vertx:vertx-lang-kotlin:4.3.4")
-    implementation("io.vertx:vertx-lang-kotlin-coroutines:4.3.3")
+    implementation("io.vertx:vertx-lang-kotlin-coroutines:4.3.4")
     implementation("io.vertx:vertx-sockjs-service-proxy:4.3.3")
     implementation("io.vertx:vertx-service-proxy:4.3.4")
 
