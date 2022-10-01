@@ -1,14 +1,10 @@
 <script lang="ts">
     import {onMount} from "svelte";
-    import {themeChange} from "theme-change";
-    import {themes} from "../../../../scripts/const.js";
-
-    onMount(() => themeChange())
+    import {themes, theme} from "../../../../scripts/theme-selector.js";
 </script>
 <div>
     <span>Theme</span>
-    <select class="select" data-choose-theme>
-        <option value="default">default</option>
+    <select class="select" bind:value={$theme}>
         {#each themes as theme}
             <option value={theme}>{theme}</option>
         {/each}
