@@ -1,10 +1,10 @@
 const o = [
   "/_app/immutable/assets/fa-solid-900-d27bc752.woff2",
   "/_app/immutable/assets/fa-solid-900-6d53c706.ttf",
-  "/_app/immutable/start-ec2b5639.js",
+  "/_app/immutable/start-4961b039.js",
   "/_app/immutable/components/pages/_layout.svelte-34d470ca.js",
   "/_app/immutable/assets/_layout-e002bbc2.css",
-  "/_app/immutable/components/error.svelte-f941d6fb.js",
+  "/_app/immutable/components/error.svelte-82e416a7.js",
   "/_app/immutable/components/pages/(main)/_layout.svelte-b208c58f.js",
   "/_app/immutable/components/pages/(main)/plugins/_layout.svelte-7d06cb6d.js",
   "/_app/immutable/components/pages/(main)/server/_server_/_layout.svelte-db8fc76c.js",
@@ -26,7 +26,7 @@ const o = [
   "/_app/immutable/components/pages/(main)/toolbox/_page.svelte-633129c6.js",
   "/_app/immutable/modules/pages/_layout.ts-d347cb9b.js",
   "/_app/immutable/modules/pages/(main)/_page.ts-a6b9ddf0.js",
-  "/_app/immutable/chunks/singletons-dd8fe500.js",
+  "/_app/immutable/chunks/singletons-d07a707d.js",
   "/_app/immutable/chunks/preload-helper-aa6bc0ce.js",
   "/_app/immutable/chunks/index-44f1b790.js",
   "/_app/immutable/chunks/index-f2759465.js",
@@ -36,7 +36,7 @@ const o = [
   "/_app/immutable/chunks/_layout-d02ecff8.js",
   "/_app/immutable/chunks/_page-9468531c.js",
   "/_app/immutable/chunks/0-3405f261.js",
-  "/_app/immutable/chunks/1-89066341.js",
+  "/_app/immutable/chunks/1-b5851720.js",
   "/_app/immutable/chunks/2-08588ace.js",
   "/_app/immutable/chunks/3-5f3c89b6.js",
   "/_app/immutable/chunks/4-378ab5cc.js",
@@ -64,7 +64,7 @@ const o = [
   "/manifest.webmanifest"
 ], _ = [
   "/"
-], n = "1665099257995";
+], n = "1665409642625";
 console.log("[ServiceWorker] Init...");
 const b = [...o, ..._, ...u], c = "offline::", m = c + n;
 let i = caches.open(m);
@@ -77,7 +77,7 @@ async function r() {
     console.timeEnd("[ServiceWorker] deleting old caches");
   }
 }
-async function d() {
+async function h() {
   console.time(`[ServiceWorker] Creating/Updating Cache... (${n})`);
   let e = -1;
   try {
@@ -92,7 +92,7 @@ async function d() {
   }
   console.log(`[ServiceWorker] Added ${e} files to cache`);
 }
-async function f(e) {
+async function d(e) {
   var t;
   let a = await i, s = await a.match(e);
   if (s)
@@ -105,7 +105,7 @@ async function f(e) {
   }
 }
 addEventListener("install", (e) => {
-  console.log("[ServiceWorker] Install Event..."), e.waitUntil(d());
+  console.log("[ServiceWorker] Install Event..."), e.waitUntil(h());
 });
 addEventListener("activate", (e) => {
   console.log("[ServiceWorker] Activate Event..."), e.waitUntil(r());
@@ -113,7 +113,7 @@ addEventListener("activate", (e) => {
 addEventListener(
   "fetch",
   async (e) => {
-    new URL(e.request.url).host === l && e.respondWith(f(e.request));
+    new URL(e.request.url).host === l && e.respondWith(d(e.request));
   }
 );
 self.addEventListener("message", (e) => {
