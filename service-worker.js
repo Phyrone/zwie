@@ -1,10 +1,10 @@
 const o = [
   "/_app/immutable/assets/fa-solid-900-d27bc752.woff2",
   "/_app/immutable/assets/fa-solid-900-6d53c706.ttf",
-  "/_app/immutable/start-fd34dfac.js",
+  "/_app/immutable/start-4691cd7f.js",
   "/_app/immutable/components/pages/_layout.svelte-6953ead6.js",
   "/_app/immutable/assets/_layout-e002bbc2.css",
-  "/_app/immutable/components/error.svelte-6dd72db3.js",
+  "/_app/immutable/components/error.svelte-27a5b2db.js",
   "/_app/immutable/components/pages/(main)/_layout.svelte-b208c58f.js",
   "/_app/immutable/components/pages/(main)/plugins/_layout.svelte-7d06cb6d.js",
   "/_app/immutable/components/pages/(main)/server/_server_/_layout.svelte-db8fc76c.js",
@@ -26,7 +26,7 @@ const o = [
   "/_app/immutable/components/pages/(main)/toolbox/_page.svelte-633129c6.js",
   "/_app/immutable/modules/pages/_layout.ts-d347cb9b.js",
   "/_app/immutable/modules/pages/(main)/_page.ts-a6b9ddf0.js",
-  "/_app/immutable/chunks/singletons-4b1d13bb.js",
+  "/_app/immutable/chunks/singletons-5639dc44.js",
   "/_app/immutable/chunks/preload-helper-aa6bc0ce.js",
   "/_app/immutable/chunks/index-44f1b790.js",
   "/_app/immutable/chunks/index-f2759465.js",
@@ -36,7 +36,7 @@ const o = [
   "/_app/immutable/chunks/_layout-d02ecff8.js",
   "/_app/immutable/chunks/_page-9468531c.js",
   "/_app/immutable/chunks/0-ff4d7c72.js",
-  "/_app/immutable/chunks/1-fe7acac7.js",
+  "/_app/immutable/chunks/1-67341b58.js",
   "/_app/immutable/chunks/2-08588ace.js",
   "/_app/immutable/chunks/3-5f3c89b6.js",
   "/_app/immutable/chunks/4-378ab5cc.js",
@@ -64,7 +64,7 @@ const o = [
   "/manifest.webmanifest"
 ], _ = [
   "/"
-], n = "1665432976152";
+], n = "1665445689125";
 console.log("[ServiceWorker] Init...");
 const b = [...o, ..._, ...u], c = "offline::", m = c + n;
 let i = caches.open(m);
@@ -92,7 +92,7 @@ async function f() {
   }
   console.log(`[ServiceWorker] Added ${e} files to cache`);
 }
-async function d(e) {
+async function h(e) {
   var t;
   let a = await i, s = await a.match(e);
   if (s)
@@ -113,7 +113,7 @@ addEventListener("activate", (e) => {
 addEventListener(
   "fetch",
   async (e) => {
-    new URL(e.request.url).host === l && e.respondWith(d(e.request));
+    new URL(e.request.url).host === l && e.respondWith(h(e.request));
   }
 );
 self.addEventListener("message", (e) => {
