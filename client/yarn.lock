@@ -150,13 +150,21 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
   integrity sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==
 
-"@rollup/pluginutils@^4.1.2", "@rollup/pluginutils@^4.2.1":
+"@rollup/pluginutils@^4.2.1":
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-4.2.1.tgz#e6c6c3aba0744edce3fb2074922d3776c0af2a6d"
   integrity sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==
   dependencies:
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
+
+"@rollup/pluginutils@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-5.0.0.tgz#a9b1a3769a15ba501eff8c9bd8d2cd0767d6a690"
+  integrity sha512-LJAlpJhSH4cAoNrh5G4mQ7VJJgmGVN1A91Skwpd6uMT4CGmDbrZ59RQWwNB08WkLtKOzTHFj6pKgVn18zlDFrQ==
+  dependencies:
+    estree-walker "^2.0.2"
+    picomatch "^2.3.1"
 
 "@sveltejs/adapter-auto@next":
   version "1.0.0-next.71"
@@ -1416,7 +1424,7 @@ escape-string-regexp@^4.0.0:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
   integrity sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
 
-estree-walker@2.0.2, estree-walker@^2.0.1:
+estree-walker@2.0.2, estree-walker@^2.0.1, estree-walker@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-2.0.2.tgz#52f010178c2a4c117a7757cfe942adb7d2da4cac"
   integrity sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==
@@ -1841,10 +1849,10 @@ ieee754@^1.1.13:
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.2.1.tgz#8eb7a10a63fff25d15a57b001586d177d1b0d352"
   integrity sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==
 
-imagetools-core@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/imagetools-core/-/imagetools-core-3.2.1.tgz#f4dc2b5a6c12afef17ff9455de13df51fac0708e"
-  integrity sha512-cTa1cQqGUhw1eqBpz6Jdby7aYP4d18v1hLG9j3mS/223+gx/fmRv+B/E/zDYlX7NoZ5gh4Tvft6mcxek7suE/A==
+imagetools-core@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/imagetools-core/-/imagetools-core-3.2.2.tgz#faca22206b20e17e5496d6359f78d9ebfa67472c"
+  integrity sha512-qnqdKbavy712ZJoalZHzCqaSNGpXG5EUh90NNV27nWUxTXziX5E9cmgaSqt1X3ZhVOEDm980pVnUxJVVAcBQ4g==
   dependencies:
     sharp "^0.31.0"
 
@@ -2150,7 +2158,7 @@ magic-string@^0.25.7:
   dependencies:
     sourcemap-codec "^1.4.8"
 
-magic-string@^0.26.0, magic-string@^0.26.2, magic-string@^0.26.3:
+magic-string@^0.26.2, magic-string@^0.26.3:
   version "0.26.3"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.26.3.tgz#25840b875140f7b4785ab06bddc384270b7dd452"
   integrity sha512-u1Po0NDyFcwdg2nzHT88wSK0+Rih0N1M+Ph1Sp08k8yvFFU3KR72wryS7e1qMPJypt99WB7fIFVCA92mQrMjrg==
@@ -3521,14 +3529,13 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vite-imagetools@4.0.9:
-  version "4.0.9"
-  resolved "https://registry.yarnpkg.com/vite-imagetools/-/vite-imagetools-4.0.9.tgz#434769dbc260134b4a8e68cbf5d87b926859c8fc"
-  integrity sha512-MQZWqYH/dbliA1IC7jiARgzpn+NCT3LEGgmln+IIj2WJiVX/Ry+KgmJoIK1OvA6tUsGXNpQSLhAqBQKRA9NuGQ==
+vite-imagetools@4.0.10:
+  version "4.0.10"
+  resolved "https://registry.yarnpkg.com/vite-imagetools/-/vite-imagetools-4.0.10.tgz#cfe182ab82a474d2c80ebe0520745dfef06cc6e4"
+  integrity sha512-ZA9kvPq3HqSM7gKYQxN2wPoRXZ6rVr5pySvG7LBiZ12mRg6k8YlBKCoPAMBAwKiwubXdwoPlHtzwUzujwrZavg==
   dependencies:
-    "@rollup/pluginutils" "^4.1.2"
-    imagetools-core "^3.2.1"
-    magic-string "^0.26.0"
+    "@rollup/pluginutils" "^5.0.0"
+    imagetools-core "^3.2.2"
 
 vite@3.1.7:
   version "3.1.7"
