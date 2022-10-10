@@ -1,20 +1,20 @@
 const o = [
   "/_app/immutable/assets/fa-solid-900-d27bc752.woff2",
   "/_app/immutable/assets/fa-solid-900-6d53c706.ttf",
-  "/_app/immutable/start-4961b039.js",
-  "/_app/immutable/components/pages/_layout.svelte-34d470ca.js",
+  "/_app/immutable/start-480a673b.js",
+  "/_app/immutable/components/pages/_layout.svelte-6953ead6.js",
   "/_app/immutable/assets/_layout-e002bbc2.css",
-  "/_app/immutable/components/error.svelte-82e416a7.js",
+  "/_app/immutable/components/error.svelte-41098417.js",
   "/_app/immutable/components/pages/(main)/_layout.svelte-b208c58f.js",
   "/_app/immutable/components/pages/(main)/plugins/_layout.svelte-7d06cb6d.js",
   "/_app/immutable/components/pages/(main)/server/_server_/_layout.svelte-db8fc76c.js",
   "/_app/immutable/components/pages/(main)/settings/_layout.svelte-a0d63191.js",
   "/_app/immutable/components/pages/(main)/toolbox/_layout.svelte-d43f4d58.js",
-  "/_app/immutable/components/pages/(main)/_page.svelte-31d14259.js",
+  "/_app/immutable/components/pages/(main)/_page.svelte-1e7f2551.js",
   "/_app/immutable/components/pages/(main)/dm/_page.svelte-9a176f25.js",
   "/_app/immutable/components/pages/(main)/dm/_user_/_page.svelte-95c2be15.js",
   "/_app/immutable/components/pages/(main)/plugins/_page.svelte-f9d9a70f.js",
-  "/_app/immutable/components/pages/(main)/profile/_page.svelte-cd5312a2.js",
+  "/_app/immutable/components/pages/(main)/profile/_page.svelte-00ef421c.js",
   "/_app/immutable/components/pages/(main)/server/_server_/_page.svelte-7495eec7.js",
   "/_app/immutable/components/pages/(main)/server/_server_/channel/_channel_/_page.svelte-cb829131.js",
   "/_app/immutable/components/pages/(main)/settings/_page.svelte-984bf91e.js",
@@ -26,27 +26,27 @@ const o = [
   "/_app/immutable/components/pages/(main)/toolbox/_page.svelte-633129c6.js",
   "/_app/immutable/modules/pages/_layout.ts-d347cb9b.js",
   "/_app/immutable/modules/pages/(main)/_page.ts-a6b9ddf0.js",
-  "/_app/immutable/chunks/singletons-d07a707d.js",
+  "/_app/immutable/chunks/singletons-4bc2a22d.js",
   "/_app/immutable/chunks/preload-helper-aa6bc0ce.js",
   "/_app/immutable/chunks/index-44f1b790.js",
   "/_app/immutable/chunks/index-f2759465.js",
   "/_app/immutable/chunks/theme-selector-8c75a6e6.js",
   "/_app/immutable/chunks/messages-b65a77d2.js",
-  "/_app/immutable/chunks/sweetalert2.all-254d2c46.js",
+  "/_app/immutable/chunks/sweetalert2.all-7f7190b5.js",
   "/_app/immutable/chunks/_layout-d02ecff8.js",
   "/_app/immutable/chunks/_page-9468531c.js",
-  "/_app/immutable/chunks/0-3405f261.js",
-  "/_app/immutable/chunks/1-b5851720.js",
+  "/_app/immutable/chunks/0-ff4d7c72.js",
+  "/_app/immutable/chunks/1-3f23efab.js",
   "/_app/immutable/chunks/2-08588ace.js",
   "/_app/immutable/chunks/3-5f3c89b6.js",
   "/_app/immutable/chunks/4-378ab5cc.js",
   "/_app/immutable/chunks/5-de57fc9b.js",
   "/_app/immutable/chunks/6-1e8b4a8b.js",
-  "/_app/immutable/chunks/7-82e2a316.js",
+  "/_app/immutable/chunks/7-7bf016f5.js",
   "/_app/immutable/chunks/8-6e9066ab.js",
   "/_app/immutable/chunks/9-21b369f6.js",
   "/_app/immutable/chunks/10-28c0ccc1.js",
-  "/_app/immutable/chunks/11-4ad13e44.js",
+  "/_app/immutable/chunks/11-d804a112.js",
   "/_app/immutable/chunks/12-7b1acc51.js",
   "/_app/immutable/chunks/13-8b1b620a.js",
   "/_app/immutable/chunks/14-9e18f26c.js",
@@ -64,7 +64,7 @@ const o = [
   "/manifest.webmanifest"
 ], _ = [
   "/"
-], n = "1665409642625";
+], n = "1665418943069";
 console.log("[ServiceWorker] Init...");
 const b = [...o, ..._, ...u], c = "offline::", m = c + n;
 let i = caches.open(m);
@@ -77,7 +77,7 @@ async function r() {
     console.timeEnd("[ServiceWorker] deleting old caches");
   }
 }
-async function h() {
+async function f() {
   console.time(`[ServiceWorker] Creating/Updating Cache... (${n})`);
   let e = -1;
   try {
@@ -92,7 +92,7 @@ async function h() {
   }
   console.log(`[ServiceWorker] Added ${e} files to cache`);
 }
-async function d(e) {
+async function h(e) {
   var t;
   let a = await i, s = await a.match(e);
   if (s)
@@ -105,7 +105,7 @@ async function d(e) {
   }
 }
 addEventListener("install", (e) => {
-  console.log("[ServiceWorker] Install Event..."), e.waitUntil(h());
+  console.log("[ServiceWorker] Install Event..."), e.waitUntil(f());
 });
 addEventListener("activate", (e) => {
   console.log("[ServiceWorker] Activate Event..."), e.waitUntil(r());
@@ -113,7 +113,7 @@ addEventListener("activate", (e) => {
 addEventListener(
   "fetch",
   async (e) => {
-    new URL(e.request.url).host === l && e.respondWith(d(e.request));
+    new URL(e.request.url).host === l && e.respondWith(h(e.request));
   }
 );
 self.addEventListener("message", (e) => {
