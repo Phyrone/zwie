@@ -1849,10 +1849,10 @@ ieee754@^1.1.13:
   resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.2.1.tgz#8eb7a10a63fff25d15a57b001586d177d1b0d352"
   integrity sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==
 
-imagetools-core@^3.2.2:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/imagetools-core/-/imagetools-core-3.2.2.tgz#faca22206b20e17e5496d6359f78d9ebfa67472c"
-  integrity sha512-qnqdKbavy712ZJoalZHzCqaSNGpXG5EUh90NNV27nWUxTXziX5E9cmgaSqt1X3ZhVOEDm980pVnUxJVVAcBQ4g==
+imagetools-core@^3.2.3:
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/imagetools-core/-/imagetools-core-3.2.3.tgz#407abe2f506d7ed7010b5aec7d9c08a696a1ee9d"
+  integrity sha512-YbZhedg/zja34yV6iRDhfo4cmAYSwxaErkuzc/RpMMAELgszpDKf3MLH6VlsR+QkenPUEGkGAVpJAM2GbUls9Q==
   dependencies:
     sharp "^0.31.0"
 
@@ -3529,13 +3529,13 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-vite-imagetools@4.0.10:
-  version "4.0.10"
-  resolved "https://registry.yarnpkg.com/vite-imagetools/-/vite-imagetools-4.0.10.tgz#cfe182ab82a474d2c80ebe0520745dfef06cc6e4"
-  integrity sha512-ZA9kvPq3HqSM7gKYQxN2wPoRXZ6rVr5pySvG7LBiZ12mRg6k8YlBKCoPAMBAwKiwubXdwoPlHtzwUzujwrZavg==
+vite-imagetools@4.0.11:
+  version "4.0.11"
+  resolved "https://registry.yarnpkg.com/vite-imagetools/-/vite-imagetools-4.0.11.tgz#ffc376bb47575dc0ccb2e0a46de6c7e860995ffb"
+  integrity sha512-S6+vzsd/6kSBdPIdjJFGeZ4+UV/aIK09V7oLb/Z9soV3jNwKh60WBi6jF+RnKtY7F9FMU3W6xPbln+VPHI0icA==
   dependencies:
     "@rollup/pluginutils" "^5.0.0"
-    imagetools-core "^3.2.2"
+    imagetools-core "^3.2.3"
 
 vite@3.1.7:
   version "3.1.7"
