@@ -1,32 +1,32 @@
 const o = [
   "/_app/immutable/assets/fa-solid-900-d27bc752.woff2",
   "/_app/immutable/assets/fa-solid-900-6d53c706.ttf",
-  "/_app/immutable/start-cf25e239.js",
-  "/_app/immutable/components/pages/_layout.svelte-f1664e12.js",
+  "/_app/immutable/start-05326f61.js",
+  "/_app/immutable/components/pages/_layout.svelte-cd632d22.js",
   "/_app/immutable/assets/_layout-e002bbc2.css",
-  "/_app/immutable/components/error.svelte-eb5a0991.js",
-  "/_app/immutable/components/pages/(main)/_layout.svelte-2fc3f808.js",
-  "/_app/immutable/components/pages/(main)/plugins/_layout.svelte-eff5e340.js",
-  "/_app/immutable/components/pages/(main)/server/_server_/_layout.svelte-a309595c.js",
-  "/_app/immutable/components/pages/(main)/settings/_layout.svelte-6558d2fb.js",
-  "/_app/immutable/components/pages/(main)/toolbox/_layout.svelte-700ca416.js",
-  "/_app/immutable/components/pages/(main)/_page.svelte-48fee5a5.js",
+  "/_app/immutable/components/error.svelte-0059b55d.js",
+  "/_app/immutable/components/pages/(main)/_layout.svelte-61d2cf65.js",
+  "/_app/immutable/components/pages/(main)/plugins/_layout.svelte-17450b86.js",
+  "/_app/immutable/components/pages/(main)/server/_server_/_layout.svelte-b73916d2.js",
+  "/_app/immutable/components/pages/(main)/settings/_layout.svelte-42d1143f.js",
+  "/_app/immutable/components/pages/(main)/toolbox/_layout.svelte-178f3e19.js",
+  "/_app/immutable/components/pages/(main)/_page.svelte-4ed88d10.js",
   "/_app/immutable/components/pages/(main)/dm/_page.svelte-3b33fd40.js",
-  "/_app/immutable/components/pages/(main)/dm/_user_/_page.svelte-4f9420f7.js",
-  "/_app/immutable/components/pages/(main)/plugins/_page.svelte-263a3281.js",
-  "/_app/immutable/components/pages/(main)/profile/_page.svelte-f5215ae2.js",
-  "/_app/immutable/components/pages/(main)/server/_server_/_page.svelte-19617a80.js",
-  "/_app/immutable/components/pages/(main)/server/_server_/channel/_channel_/_page.svelte-a0501fc6.js",
-  "/_app/immutable/components/pages/(main)/settings/_page.svelte-a1d44145.js",
-  "/_app/immutable/components/pages/(main)/settings/audio/_page.svelte-5d29e7e9.js",
+  "/_app/immutable/components/pages/(main)/dm/_user_/_page.svelte-c4c7319d.js",
+  "/_app/immutable/components/pages/(main)/plugins/_page.svelte-829cdfab.js",
+  "/_app/immutable/components/pages/(main)/profile/_page.svelte-7c153540.js",
+  "/_app/immutable/components/pages/(main)/server/_server_/_page.svelte-530bcfe2.js",
+  "/_app/immutable/components/pages/(main)/server/_server_/channel/_channel_/_page.svelte-182516ea.js",
+  "/_app/immutable/components/pages/(main)/settings/_page.svelte-50112e17.js",
+  "/_app/immutable/components/pages/(main)/settings/audio/_page.svelte-bcae7e23.js",
   "/_app/immutable/assets/_page-91244bf2.css",
-  "/_app/immutable/components/pages/(main)/settings/language/_page.svelte-687d315e.js",
-  "/_app/immutable/components/pages/(main)/settings/overlay/_page.svelte-08a271cc.js",
-  "/_app/immutable/components/pages/(main)/settings/video/_page.svelte-286d36b2.js",
-  "/_app/immutable/components/pages/(main)/toolbox/_page.svelte-fb1b2a41.js",
+  "/_app/immutable/components/pages/(main)/settings/language/_page.svelte-1e378e39.js",
+  "/_app/immutable/components/pages/(main)/settings/overlay/_page.svelte-30dfca51.js",
+  "/_app/immutable/components/pages/(main)/settings/video/_page.svelte-d5d0d1c2.js",
+  "/_app/immutable/components/pages/(main)/toolbox/_page.svelte-769cfce9.js",
   "/_app/immutable/modules/pages/_layout.ts-d347cb9b.js",
   "/_app/immutable/modules/pages/(main)/_page.ts-a6b9ddf0.js",
-  "/_app/immutable/chunks/singletons-609afebe.js",
+  "/_app/immutable/chunks/singletons-3c5e9ff7.js",
   "/_app/immutable/chunks/preload-helper-aa6bc0ce.js",
   "/_app/immutable/chunks/index-46970648.js",
   "/_app/immutable/chunks/index-bc01506a.js",
@@ -35,54 +35,54 @@ const o = [
   "/_app/immutable/chunks/sweetalert2.all-8e9d061a.js",
   "/_app/immutable/chunks/_layout-d02ecff8.js",
   "/_app/immutable/chunks/_page-9468531c.js",
-  "/_app/immutable/chunks/0-bb39eb1e.js",
-  "/_app/immutable/chunks/1-cd6dc8b1.js",
-  "/_app/immutable/chunks/2-cf493d06.js",
-  "/_app/immutable/chunks/3-b94c73ba.js",
-  "/_app/immutable/chunks/4-22383c7b.js",
-  "/_app/immutable/chunks/5-ca942d3e.js",
-  "/_app/immutable/chunks/6-1be27d27.js",
-  "/_app/immutable/chunks/7-67903d8c.js",
+  "/_app/immutable/chunks/0-175539d7.js",
+  "/_app/immutable/chunks/1-027ec171.js",
+  "/_app/immutable/chunks/2-211d429a.js",
+  "/_app/immutable/chunks/3-8ac24845.js",
+  "/_app/immutable/chunks/4-1bc2b554.js",
+  "/_app/immutable/chunks/5-a10657d3.js",
+  "/_app/immutable/chunks/6-b535f312.js",
+  "/_app/immutable/chunks/7-f4308c64.js",
   "/_app/immutable/chunks/8-9b54694d.js",
-  "/_app/immutable/chunks/9-85fe252a.js",
-  "/_app/immutable/chunks/10-c95fb5b9.js",
-  "/_app/immutable/chunks/11-50467926.js",
-  "/_app/immutable/chunks/12-16657f50.js",
-  "/_app/immutable/chunks/13-316b8575.js",
-  "/_app/immutable/chunks/14-09c45082.js",
-  "/_app/immutable/chunks/15-ff452ff9.js",
-  "/_app/immutable/chunks/16-4ce78513.js",
-  "/_app/immutable/chunks/17-22b7aa83.js",
-  "/_app/immutable/chunks/18-80f0f14d.js",
-  "/_app/immutable/chunks/19-a036449f.js",
-  "/_app/immutable/chunks/E-Mail_Change-602edb7f.js",
-  "/_app/immutable/chunks/NameChange-a4602b38.js",
-  "/_app/immutable/chunks/AvatarSelectPopUp-71aecb53.js"
+  "/_app/immutable/chunks/9-29769497.js",
+  "/_app/immutable/chunks/10-f8d033a5.js",
+  "/_app/immutable/chunks/11-71f22a13.js",
+  "/_app/immutable/chunks/12-3fb3d434.js",
+  "/_app/immutable/chunks/13-0d83decf.js",
+  "/_app/immutable/chunks/14-c032f1b2.js",
+  "/_app/immutable/chunks/15-ae200b38.js",
+  "/_app/immutable/chunks/16-136a1bd5.js",
+  "/_app/immutable/chunks/17-1b4426fe.js",
+  "/_app/immutable/chunks/18-79c93c26.js",
+  "/_app/immutable/chunks/19-4b192531.js",
+  "/_app/immutable/chunks/E-Mail_Change-78c1f71b.js",
+  "/_app/immutable/chunks/NameChange-d55b314f.js",
+  "/_app/immutable/chunks/AvatarSelectPopUp-74ce1421.js"
 ], u = [
   "/app-icon-dev-rounded.png",
   "/favicon.ico",
   "/manifest.webmanifest"
 ], _ = [
   "/"
-], n = "1665845407897";
+], n = "1665855071420";
 console.log("[ServiceWorker] Init...");
-const b = [...o, ..._, ...u], m = "offline::", i = m + n;
-let l = caches.open(i);
-const c = self.location.host;
-console.debug("[ServiceWorker] host=" + c);
-async function r() {
+const r = [...o, ..._, ...u], m = "offline::", c = m + n;
+let i = caches.open(c);
+const l = self.location.host;
+console.debug("[ServiceWorker] host=" + l);
+async function b() {
   try {
-    console.time("[ServiceWorker] deleting old caches"), await Promise.all(await caches.keys().then((e) => e.filter((a) => a.startsWith(m) && a !== i)).then((e) => e.map((a) => caches.delete(a))));
+    console.time("[ServiceWorker] deleting old caches"), await Promise.all(await caches.keys().then((e) => e.filter((a) => a.startsWith(m) && a !== c)).then((e) => e.map((a) => caches.delete(a))));
   } finally {
     console.timeEnd("[ServiceWorker] deleting old caches");
   }
 }
-async function f() {
+async function d() {
   console.time(`[ServiceWorker] Creating/Updating Cache... (${n})`);
   let e = -1;
   try {
-    let a = await l;
-    e = await Promise.all(b.map((s) => {
+    let a = await i;
+    e = await Promise.all(r.map((s) => {
       a.add(s).catch((t) => {
         console.error(`[ServiceWorker] Failed to cache ${s}`, t);
       });
@@ -94,7 +94,7 @@ async function f() {
 }
 async function h(e) {
   var t;
-  let a = await l, s = await a.match(e);
+  let a = await i, s = await a.match(e);
   if (s)
     return s;
   try {
@@ -105,15 +105,15 @@ async function h(e) {
   }
 }
 addEventListener("install", (e) => {
-  console.log("[ServiceWorker] Install Event..."), e.waitUntil(f());
+  console.log("[ServiceWorker] Install Event..."), e.waitUntil(d());
 });
 addEventListener("activate", (e) => {
-  console.log("[ServiceWorker] Activate Event..."), e.waitUntil(r());
+  console.log("[ServiceWorker] Activate Event..."), e.waitUntil(b());
 });
 addEventListener(
   "fetch",
   async (e) => {
-    new URL(e.request.url).host === c && e.respondWith(h(e.request));
+    new URL(e.request.url).host === l && e.respondWith(h(e.request));
   }
 );
 self.addEventListener("message", (e) => {
