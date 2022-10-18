@@ -8,7 +8,7 @@ plugins{
     kotlin("plugin.allopen")
 
     id("org.springframework.boot") version "2.7.4"
-    id("io.spring.dependency-management") version "1.0.14.RELEASE"
+    id("io.spring.dependency-management") version "1.1.0"
 }
 
 java.sourceCompatibility = JavaVersion.VERSION_11
