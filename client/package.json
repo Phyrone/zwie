@@ -20,7 +20,7 @@
     "@tauri-apps/cli": "1.1.1",
     "@types/serviceworker": "0.0.54",
     "@types/sockjs-client": "1.5.1",
-    "autoprefixer": "10.4.12",
+    "autoprefixer": "10.4.13",
     "daisyui": "2.33.0",
     "pwa-asset-generator": "6.2.0",
     "sass": "1.55.0",
