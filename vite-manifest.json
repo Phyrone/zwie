@@ -8,13 +8,13 @@
     "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf"
   },
   "node_modules/@sveltejs/kit/src/runtime/client/start.js": {
-    "file": "_app/immutable/start-4dffc509.js",
+    "file": "_app/immutable/start-3142eea5.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/client/start.js",
     "isEntry": true,
     "imports": [
       "_preload-helper-b21cceae.js",
       "_index-46970648.js",
-      "_singletons-8d7e5b48.js"
+      "_singletons-42c2b07a.js"
     ],
     "dynamicImports": [
       ".svelte-kit/generated/nodes/0.js",
@@ -50,7 +50,7 @@
       "_theme-selector-7a652417.js"
     ],
     "css": [
-      "_app/immutable/assets/_layout-8aa643b0.css"
+      "_app/immutable/assets/_layout-73c2878c.css"
     ],
     "assets": [
       "_app/immutable/assets/fa-solid-900-d27bc752.woff2",
@@ -58,12 +58,12 @@
     ]
   },
   "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
-    "file": "_app/immutable/components/error.svelte-026f1428.js",
+    "file": "_app/immutable/components/error.svelte-ed26f330.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
     "isEntry": true,
     "imports": [
       "_index-46970648.js",
-      "_singletons-8d7e5b48.js"
+      "_singletons-42c2b07a.js"
     ]
   },
   "src/routes/(main)/+layout.svelte": {
@@ -240,8 +240,8 @@
       "__page-9468531c.js"
     ]
   },
-  "_singletons-8d7e5b48.js": {
-    "file": "_app/immutable/chunks/singletons-8d7e5b48.js",
+  "_singletons-42c2b07a.js": {
+    "file": "_app/immutable/chunks/singletons-42c2b07a.js",
     "imports": [
       "_index-bc01506a.js"
     ]
@@ -289,7 +289,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/1.js": {
-    "file": "_app/immutable/chunks/1-963795c0.js",
+    "file": "_app/immutable/chunks/1-53dea0dc.js",
     "src": ".svelte-kit/generated/nodes/1.js",
     "isDynamicEntry": true,
     "imports": [
@@ -465,12 +465,12 @@
       "_index-46970648.js"
     ]
   },
-  "src/routes/+layout.css": {
-    "file": "_app/immutable/assets/_layout-8aa643b0.css",
-    "src": "src/routes/+layout.css"
-  },
   "src/routes/(main)/settings/audio/+page.css": {
     "file": "_app/immutable/assets/_page-91244bf2.css",
     "src": "src/routes/(main)/settings/audio/+page.css"
+  },
+  "src/routes/+layout.css": {
+    "file": "_app/immutable/assets/_layout-73c2878c.css",
+    "src": "src/routes/+layout.css"
   }
 }
