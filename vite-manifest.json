@@ -8,13 +8,13 @@
     "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf"
   },
   "node_modules/@sveltejs/kit/src/runtime/client/start.js": {
-    "file": "_app/immutable/start-59376c8d.js",
+    "file": "_app/immutable/start-1ad1fef5.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/client/start.js",
     "isEntry": true,
     "imports": [
       "_preload-helper-b21cceae.js",
       "_index-46970648.js",
-      "_singletons-6e77b843.js"
+      "_singletons-b0e6459a.js"
     ],
     "dynamicImports": [
       ".svelte-kit/generated/nodes/0.js",
@@ -58,12 +58,12 @@
     ]
   },
   "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
-    "file": "_app/immutable/components/error.svelte-5a963c6d.js",
+    "file": "_app/immutable/components/error.svelte-525d363d.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
     "isEntry": true,
     "imports": [
       "_index-46970648.js",
-      "_singletons-6e77b843.js"
+      "_singletons-b0e6459a.js"
     ]
   },
   "src/routes/(main)/+layout.svelte": {
@@ -240,8 +240,8 @@
       "__page-9468531c.js"
     ]
   },
-  "_singletons-6e77b843.js": {
-    "file": "_app/immutable/chunks/singletons-6e77b843.js",
+  "_singletons-b0e6459a.js": {
+    "file": "_app/immutable/chunks/singletons-b0e6459a.js",
     "imports": [
       "_index-bc01506a.js"
     ]
@@ -289,7 +289,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/1.js": {
-    "file": "_app/immutable/chunks/1-401c0fc1.js",
+    "file": "_app/immutable/chunks/1-c974578a.js",
     "src": ".svelte-kit/generated/nodes/1.js",
     "isDynamicEntry": true,
     "imports": [
@@ -465,12 +465,12 @@
       "_index-46970648.js"
     ]
   },
-  "src/routes/+layout.css": {
-    "file": "_app/immutable/assets/_layout-73c2878c.css",
-    "src": "src/routes/+layout.css"
-  },
   "src/routes/(main)/settings/audio/+page.css": {
     "file": "_app/immutable/assets/_page-91244bf2.css",
     "src": "src/routes/(main)/settings/audio/+page.css"
+  },
+  "src/routes/+layout.css": {
+    "file": "_app/immutable/assets/_layout-73c2878c.css",
+    "src": "src/routes/+layout.css"
   }
 }
