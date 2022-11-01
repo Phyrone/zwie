@@ -63,7 +63,7 @@ dependencies{
     //implementation("org.slf4j:slf4j-simple:1.7.36")
 
     implementation("info.picocli:picocli:4.7.0")
-    implementation("info.picocli:picocli-shell-jline3:4.6.3")
+    implementation("info.picocli:picocli-shell-jline3:4.7.0")
     implementation("com.google.guava:guava:31.1-jre")
     //implementation("name.neuhalfen.projects.crypto.bouncycastle.openpgp:bouncy-gpg:2.3.0")
 
