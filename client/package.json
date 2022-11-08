@@ -48,7 +48,7 @@
     "immortal-db": "1.1.0",
     "interactjs": "1.10.17",
     "marked": "4.2.2",
-    "matrix-js-sdk": "21.0.1",
+    "matrix-js-sdk": "21.1.0",
     "openpgp": "5.5.0",
     "sockjs-client": "1.6.1",
     "sweetalert2": "11.6.7"
