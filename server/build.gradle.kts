@@ -128,9 +128,16 @@ tasks {
             jvmTarget = "11"
         }
     }
+
+    jar {
+        archiveAppendix.set("no-dependencies")
+    }
+
     shadowJar {
         mergeServiceFiles()
         mergeServiceFiles("/META-INF/annotations")
+
+        archiveAppendix.set("")
     }
 
 

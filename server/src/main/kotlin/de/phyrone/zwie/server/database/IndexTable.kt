@@ -5,4 +5,4 @@ import org.atteo.classindex.IndexAnnotated
 @IndexAnnotated
 @Retention(AnnotationRetention.SOURCE)
 @Target(AnnotationTarget.CLASS)
-annotation class IndexTable()
+annotation class IndexTable
