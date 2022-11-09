@@ -23,6 +23,8 @@ import org.koin.dsl.module
 import java.lang.Exception
 import java.lang.RuntimeException
 import kotlin.system.exitProcess
+import kotlin.system.measureNanoTime
+import kotlin.time.Duration.Companion.nanoseconds
 
 class BootstrapTask(private val arguments: StartupArguments) : KoinComponent, Runnable {
 
@@ -31,34 +33,46 @@ class BootstrapTask(private val arguments: StartupArguments) : KoinComponent, Ru
     private val shutdownManager by inject<ShutdownManager>()
 
     override fun run(): Unit = runBlocking {
-        koinApplication.modules(module {
-            single { arguments }
-            single(named("core::boot::modules")) {
-                InstanceLoader.getAll(ClassIndex.getAnnotated(Module::class.java)).toList()
-            }
-            single { ModuleLoader(get(named("core::boot::modules"))) }
-            single { ShutdownManager(get()) }
-            single { MainThreadExecutor() } bind MainCoroutineDispatcher::class
-        })
-        shutdownManager.init()
-        withContext(Dispatchers.Default) {
-            val errors = moduleLoader.handleOrdered(EnableTaskRunner)
-            if (errors.isNotEmpty()) {
-                logger.atSevere().log("%d modules failed to enable! %s", errors.size, lazyArg {
-                    errors.joinToString(
-                        separator = ",",
-                        prefix = "[",
-                        postfix = "]",
-                        limit = 4,
-                        truncated = "..."
-                    ) { it.first }
-                })
-                errors.forEach { (module, error) ->
-                    logger.atSevere().withCause(error).log("Module %s failed to enable!", module)
+        suspend fun start() {
+            koinApplication.modules(module {
+                single { arguments }
+                single(named("core::boot::modules")) {
+                    InstanceLoader.getAll(ClassIndex.getAnnotated(Module::class.java)).toList()
                 }
-                exitProcess(1)
+                single { ModuleLoader(get(named("core::boot::modules"))) }
+                single { ShutdownManager(get()) }
+                single { MainThreadExecutor() } bind MainCoroutineDispatcher::class
+            })
+            shutdownManager.init()
+            withContext(Dispatchers.Default) {
+                val errors = moduleLoader.handleOrdered(EnableTaskRunner)
+                if (errors.isNotEmpty()) {
+                    logger.atSevere().log("%d modules failed to enable! %s", errors.size, lazyArg {
+                        errors.joinToString(
+                            separator = ",",
+                            prefix = "[",
+                            postfix = "]",
+                            limit = 4,
+                            truncated = "..."
+                        ) { it.first }
+                    })
+                    errors.forEach { (module, error) ->
+                        logger.atSevere().withCause(error).log("Module %s failed to enable!", module)
+                    }
+                    exitProcess(1)
+                }
             }
         }
+        if (logger.atInfo().isEnabled) {
+            val startupTime = measureNanoTime {
+                start()
+            }.nanoseconds
+            logger.atInfo().log("Startup Done! (%s)", startupTime)
+        } else {
+            start()
+        }
+
+
     }
 
     companion object {

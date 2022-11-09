@@ -5,6 +5,7 @@ plugins {
     //kotlin("plugin.jpa") version "1.7.20" apply false
     kotlin("plugin.allopen") version "1.7.20" apply false
     kotlin("kapt") version "1.7.20" apply false
+    id("com.github.johnrengelman.shadow") version "7.1.2" apply false
 }
 
 repositories {

@@ -16,7 +16,7 @@ import kotlin.system.exitProcess
 
 private val logger = logger()
 fun main(args: Array<String>) {
-    if (System.getProperty("ansi.disable")?.toBooleanStrictOrNull() != true)
+    if (System.getProperty("jansi.disable")?.toBooleanStrictOrNull() != true)
         AnsiConsole.systemInstall()
 
     startKoin {

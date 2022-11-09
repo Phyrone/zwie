@@ -1,5 +1,6 @@
 package de.phyrone.zwie.server.utils
 
+
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.common.flogger.FluentLogger
 import com.google.common.flogger.LazyArg
@@ -10,6 +11,10 @@ import de.phyrone.zwie.server.command.CommandContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.atteo.classindex.ClassIndex
+import ch.qos.logback.classic.Logger as LogbackLogger
+import org.slf4j.Logger as Slf4jLogger
+import ch.qos.logback.classic.Level as LogbackLevel
+import org.slf4j.LoggerFactory
 import kotlin.reflect.KClass
 import kotlin.reflect.jvm.jvmName
 
@@ -24,6 +29,11 @@ private val floggerConsturctor by lazy {
 fun <T : ObjectMapper> T.findAndRegisterSubclasses(): T {
     registerSubtypes(*ClassIndex.getSubclasses(JsonComponent::class.java).toList().toTypedArray())
     return this
+}
+
+fun setLogLevel(level: LogbackLevel) {
+    (LoggerFactory.getLogger(Slf4jLogger.ROOT_LOGGER_NAME) as? LogbackLogger)
+        ?.level = level
 }
 
 suspend inline fun <T : Any> ioTask(crossinline ioTask: () -> T): T = withContext(Dispatchers.IO) { ioTask() }

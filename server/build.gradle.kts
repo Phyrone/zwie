@@ -6,7 +6,7 @@ plugins {
     //kotlin("plugin.spring")
     //kotlin("plugin.jpa")
     kotlin("plugin.allopen")
-
+    id("com.github.johnrengelman.shadow")
     //id("org.springframework.boot") version "2.7.5"
     //id("io.spring.dependency-management") version "1.1.0"
 }
@@ -85,6 +85,8 @@ dependencies {
 
     runtimeOnly("com.h2database:h2:2.1.214")
 
+    implementation("com.coreoz:wisp:2.3.0")
+
     //implementation("org.apache.logging.log4j:log4j-core:2.18.0")
     //implementation("org.apache.logging.log4j:log4j-api:2.18.0")
     //implementation("org.apache.logging.log4j:log4j-slf4j-impl:2.18.0")
@@ -115,18 +117,29 @@ dependencies {
 
     implementation("org.fusesource.jansi:jansi:2.4.0")
 
+    implementation("com.typesafe:config:1.4.2")
+
 
 }
-allOpen {
-    annotation("javax.persistence.Entity")
-}
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "11"
+tasks {
+    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        kotlinOptions {
+            freeCompilerArgs = listOf("-Xjsr305=strict")
+            jvmTarget = "11"
+        }
     }
+    shadowJar {
+        mergeServiceFiles()
+        mergeServiceFiles("/META-INF/annotations")
+    }
+
+
+}
+
+allOpen {
+    //annotation("javax.persistence.Entity")
 }
 
 application {
-    mainClass.set("de.phyrone.zwie.server.ZwieServerApplication")
+    mainClass.set("de.phyrone.zwie.server.main.Main")
 }

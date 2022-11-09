@@ -20,11 +20,11 @@ import org.koin.core.component.inject
 import org.koin.dsl.bind
 import org.koin.dsl.module
 import java.io.Closeable
+import java.util.concurrent.ScheduledExecutorService
 import javax.sql.DataSource
 
 @Module(
     name = "core::database",
-    dependencies = [Module.Dependency(name = "core::scheduler")]
 )
 class DatabaseModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
 
@@ -63,7 +63,6 @@ class DatabaseModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
             config.maximumPoolSize = 10
             config.minimumIdle = 1
 
-            config.isAutoCommit = true
             return config
         }
 
@@ -74,6 +73,7 @@ class DatabaseModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
         }
         private val logger = logger()
     }
+
 
 
 }
