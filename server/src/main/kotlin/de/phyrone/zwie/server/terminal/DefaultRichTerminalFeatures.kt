@@ -10,12 +10,10 @@ import org.jline.reader.ParsedLine
 import org.jline.utils.AttributedString
 import org.jline.utils.AttributedStringBuilder
 import org.jline.utils.AttributedStyle
-import org.springframework.stereotype.Component
 import java.util.regex.Pattern
 import kotlin.math.min
 
-@Component
-class DefaultRichTerminalFeatures(val dispatcher: ZwieCommandDispatcher) : Highlighter, Completer {
+class DefaultRichTerminalFeatures(private val dispatcher: ZwieCommandDispatcher) : Highlighter, Completer {
 
 
     override fun highlight(reader: LineReader, buffer: String): AttributedString {

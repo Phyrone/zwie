@@ -1,5 +1,6 @@
 package de.phyrone.zwie.server.utils
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.common.flogger.FluentLogger
 import com.google.common.flogger.LazyArg
 import com.google.common.flogger.backend.LoggerBackend
@@ -8,6 +9,7 @@ import com.mojang.brigadier.CommandDispatcher
 import de.phyrone.zwie.server.command.CommandContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import org.atteo.classindex.ClassIndex
 import kotlin.reflect.KClass
 import kotlin.reflect.jvm.jvmName
 
@@ -17,6 +19,11 @@ private val floggerConsturctor by lazy {
     FluentLogger::class.java.getDeclaredConstructor(LoggerBackend::class.java).also {
         it.isAccessible = true
     }
+}
+
+fun <T : ObjectMapper> T.findAndRegisterSubclasses(): T {
+    registerSubtypes(*ClassIndex.getSubclasses(JsonComponent::class.java).toList().toTypedArray())
+    return this
 }
 
 suspend inline fun <T : Any> ioTask(crossinline ioTask: () -> T): T = withContext(Dispatchers.IO) { ioTask() }
