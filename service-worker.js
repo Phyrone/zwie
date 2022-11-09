@@ -1,10 +1,10 @@
 const o = [
   "/_app/immutable/assets/fa-solid-900-d27bc752.woff2",
   "/_app/immutable/assets/fa-solid-900-6d53c706.ttf",
-  "/_app/immutable/start-2e1086ff.js",
+  "/_app/immutable/start-cf01dbf1.js",
   "/_app/immutable/components/pages/_layout.svelte-78b11539.js",
   "/_app/immutable/assets/_layout-21c05cbd.css",
-  "/_app/immutable/components/error.svelte-3fd9c48f.js",
+  "/_app/immutable/components/error.svelte-3c790938.js",
   "/_app/immutable/components/pages/(main)/_layout.svelte-61d2cf65.js",
   "/_app/immutable/components/pages/(main)/plugins/_layout.svelte-17450b86.js",
   "/_app/immutable/components/pages/(main)/server/_server_/_layout.svelte-b73916d2.js",
@@ -26,7 +26,7 @@ const o = [
   "/_app/immutable/components/pages/(main)/toolbox/_page.svelte-769cfce9.js",
   "/_app/immutable/modules/pages/_layout.ts-d347cb9b.js",
   "/_app/immutable/modules/pages/(main)/_page.ts-a6b9ddf0.js",
-  "/_app/immutable/chunks/singletons-8ab59770.js",
+  "/_app/immutable/chunks/singletons-ce5f7f92.js",
   "/_app/immutable/chunks/preload-helper-b21cceae.js",
   "/_app/immutable/chunks/index-46970648.js",
   "/_app/immutable/chunks/index-bc01506a.js",
@@ -36,7 +36,7 @@ const o = [
   "/_app/immutable/chunks/_layout-d02ecff8.js",
   "/_app/immutable/chunks/_page-9468531c.js",
   "/_app/immutable/chunks/0-04d410e0.js",
-  "/_app/immutable/chunks/1-121a616b.js",
+  "/_app/immutable/chunks/1-459a9d50.js",
   "/_app/immutable/chunks/2-211d429a.js",
   "/_app/immutable/chunks/3-8ac24845.js",
   "/_app/immutable/chunks/4-1bc2b554.js",
@@ -64,13 +64,13 @@ const o = [
   "/manifest.webmanifest"
 ], _ = [
   "/"
-], n = "1667945747228";
+], n = "1667970101037";
 console.log("[ServiceWorker] Init...");
-const b = [...o, ..._, ...u], m = "offline::", c = m + n;
+const r = [...o, ..._, ...u], m = "offline::", c = m + n;
 let i = caches.open(c);
 const l = self.location.host;
 console.debug("[ServiceWorker] host=" + l);
-async function r() {
+async function b() {
   try {
     console.time("[ServiceWorker] deleting old caches"), await Promise.all(await caches.keys().then((e) => e.filter((a) => a.startsWith(m) && a !== c)).then((e) => e.map((a) => caches.delete(a))));
   } finally {
@@ -82,7 +82,7 @@ async function d() {
   let e = -1;
   try {
     let a = await i;
-    e = await Promise.all(b.map((s) => {
+    e = await Promise.all(r.map((s) => {
       a.add(s).catch((t) => {
         console.error(`[ServiceWorker] Failed to cache ${s}`, t);
       });
@@ -108,7 +108,7 @@ addEventListener("install", (e) => {
   console.log("[ServiceWorker] Install Event..."), e.waitUntil(d());
 });
 addEventListener("activate", (e) => {
-  console.log("[ServiceWorker] Activate Event..."), e.waitUntil(r());
+  console.log("[ServiceWorker] Activate Event..."), e.waitUntil(b());
 });
 addEventListener(
   "fetch",
