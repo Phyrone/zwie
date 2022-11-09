@@ -21,7 +21,7 @@
     "@types/serviceworker": "0.0.56",
     "@types/sockjs-client": "1.5.1",
     "autoprefixer": "10.4.13",
-    "daisyui": "2.38.1",
+    "daisyui": "2.39.0",
     "pwa-asset-generator": "6.2.0",
     "sass": "1.56.0",
     "svelte": "3.52.0",
