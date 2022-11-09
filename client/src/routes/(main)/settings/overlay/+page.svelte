@@ -8,5 +8,4 @@
             <option value={theme}>{theme}</option>
         {/each}
     </select>
-
 </div>
