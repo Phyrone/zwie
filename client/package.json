@@ -17,8 +17,8 @@
     "@tailwindcss/aspect-ratio": "0.4.2",
     "@tailwindcss/forms": "0.5.3",
     "@tailwindcss/line-clamp": "0.4.2",
-    "@tauri-apps/cli": "1.1.1",
-    "@types/serviceworker": "0.0.55",
+    "@tauri-apps/cli": "1.2.0",
+    "@types/serviceworker": "0.0.56",
     "@types/sockjs-client": "1.5.1",
     "autoprefixer": "10.4.13",
     "daisyui": "2.38.1",
@@ -31,7 +31,7 @@
     "tailwindcss": "3.2.2",
     "tslib": "2.4.1",
     "typescript": "4.8.4",
-    "vite": "3.2.2",
+    "vite": "3.2.3",
     "vite-imagetools": "4.0.11"
   },
   "type": "module",
@@ -49,10 +49,10 @@
     "immortal-db": "1.1.0",
     "interactjs": "1.10.17",
     "marked": "4.2.2",
-    "matrix-js-sdk": "21.0.1",
+    "matrix-js-sdk": "21.1.0",
     "node-polyglot": "^2.4.2",
     "openpgp": "5.5.0",
     "sockjs-client": "1.6.1",
-    "sweetalert2": "11.6.5"
+    "sweetalert2": "11.6.7"
   }
 }
