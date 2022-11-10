@@ -24,7 +24,7 @@
     "daisyui": "2.39.0",
     "pwa-asset-generator": "6.2.0",
     "sass": "1.56.1",
-    "svelte": "3.52.0",
+    "svelte": "3.53.0",
     "svelte-check": "2.9.2",
     "svelte-preprocess": "4.10.7",
     "tailwind-scrollbar": "2.0.1",
