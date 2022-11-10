@@ -20,6 +20,7 @@ import org.koin.core.component.inject
 import org.koin.dsl.bind
 import org.koin.dsl.module
 import java.time.Duration
+import de.phyrone.zwie.server.utils.DEFAULT_PORT
 
 @Module("core::web")
 @DependsOn("core::config")
