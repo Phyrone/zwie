@@ -1,5 +1,6 @@
 package de.phyrone.zwie.server.terminal
 
+import de.phyrone.zwie.server.module.DependsOn
 import de.phyrone.zwie.server.module.DisableTaskRunner
 import de.phyrone.zwie.server.module.EnableTaskRunner
 import de.phyrone.zwie.server.module.Module
@@ -23,22 +24,11 @@ import org.koin.dsl.binds
 import org.koin.dsl.module
 import kotlin.system.exitProcess
 
-@Module(
-    name = "core::terminal",
-    dependencies = [
-        Module.Dependency(
-            name = "core::commands",
-        )
-    ]
-)
+@Module("core::terminal")
+@DependsOn("core::commands")
 class TerminalModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
-
     private val koinApplication by inject<KoinApplication>()
     private val promtFixer by inject<PromtFixer>()
-
-
-
-
 
 
     private var terminalReaderThread: Thread? = null
@@ -126,8 +116,6 @@ class TerminalModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
         }
 
     }
-
-
 
 
 }

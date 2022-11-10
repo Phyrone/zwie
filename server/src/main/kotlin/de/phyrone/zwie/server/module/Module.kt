@@ -7,12 +7,7 @@ import org.atteo.classindex.IndexAnnotated
 @Target(AnnotationTarget.CLASS)
 annotation class Module(
     val name: String,
-    val dependencies: Array<Dependency> = [],
+    //val dependencies: Array<Dependency> = [],
 
-    ) {
-    annotation class Dependency(
-        val name: String,
-        val optional: Boolean = false,
-        val reversed: Boolean = false,
-    )
-}
+)
+

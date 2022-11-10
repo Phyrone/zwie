@@ -11,5 +11,5 @@ interface ModuleTaskHandler {
     val order: ModuleOrder
 
     @Throws(Exception::class)
-    suspend fun runTask(module: Any, metadata: Module)
+    suspend fun runTask(module: Any, metadata: ModuleMetadata)
 }

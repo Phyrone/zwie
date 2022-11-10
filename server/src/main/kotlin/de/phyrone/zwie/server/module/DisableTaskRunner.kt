@@ -7,7 +7,7 @@ interface DisableTaskRunner {
         override val name: String = "disable"
         override val order: ModuleOrder = ModuleOrder.DESC
 
-        override suspend fun runTask(module: Any, metadata: Module) {
+        override suspend fun runTask(module: Any, metadata: ModuleMetadata) {
             if (module is DisableTaskRunner) {
                 module.onDisable()
             }

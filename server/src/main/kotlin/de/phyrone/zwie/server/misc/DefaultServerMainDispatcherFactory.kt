@@ -1,4 +1,4 @@
-package de.phyrone.musicnova.misc
+package de.phyrone.zwie.server.misc
 
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.MainCoroutineDispatcher

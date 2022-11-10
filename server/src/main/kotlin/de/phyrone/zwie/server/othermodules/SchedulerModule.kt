@@ -1,21 +1,19 @@
-package de.phyrone.zwie.server.misc
+package de.phyrone.zwie.server.othermodules
 
 import com.coreoz.wisp.Scheduler
 import com.coreoz.wisp.SchedulerConfig
-import de.phyrone.zwie.server.module.DisableTaskRunner
-import de.phyrone.zwie.server.module.EnableTaskRunner
+import de.phyrone.zwie.server.module.CommonModule
 import de.phyrone.zwie.server.module.Module
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.koin.core.KoinApplication
-import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import org.koin.dsl.module
 
 @Module(
     name = "core::scheduler"
 )
-class SchedulerModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
+class SchedulerModule : CommonModule {
 
 
     private val koinApplication by inject<KoinApplication>()

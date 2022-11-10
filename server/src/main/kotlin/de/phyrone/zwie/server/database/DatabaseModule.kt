@@ -12,6 +12,7 @@ import kotlinx.coroutines.withContext
 import org.atteo.classindex.ClassIndex
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
+import org.jetbrains.exposed.sql.SchemaUtils.withDataBaseLock
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
 import org.koin.core.KoinApplication
@@ -39,7 +40,13 @@ class DatabaseModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
 
         logger.atFine().log("SQL Dialect: %s", database.dialect.name)
         newSuspendedTransaction(Dispatchers.IO, database) {
-            SchemaUtils.createMissingTablesAndColumns(tables = tables, withLogs = true, inBatch = true)
+            withDataBaseLock {
+                SchemaUtils.createMissingTablesAndColumns(
+                    tables = tables,
+                    withLogs = true,
+                    inBatch = true
+                )
+            }
         }
     }
 

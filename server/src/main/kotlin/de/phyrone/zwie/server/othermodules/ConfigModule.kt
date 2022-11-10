@@ -1,17 +1,13 @@
-package de.phyrone.zwie.server.misc
+package de.phyrone.zwie.server.othermodules
 
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
 import com.typesafe.config.ConfigRenderOptions
 import de.phyrone.zwie.server.main.StartupArguments
-import de.phyrone.zwie.server.module.DisableTaskRunner
-import de.phyrone.zwie.server.module.EnableTaskRunner
+import de.phyrone.zwie.server.module.CommonModule
 import de.phyrone.zwie.server.module.Module
 import de.phyrone.zwie.server.utils.logger
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import org.koin.core.KoinApplication
-import org.koin.core.component.KoinComponent
 import org.koin.core.component.get
 import org.koin.core.component.inject
 import org.koin.core.qualifier.named
@@ -19,10 +15,8 @@ import org.koin.dsl.module
 import java.io.IOException
 import org.koin.core.module.Module as KoinModule
 
-@Module(
-    name = "core::config"
-)
-class ConfigModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
+@Module("core::config")
+class ConfigModule : CommonModule {
 
     private val koinApplication by inject<KoinApplication>()
 

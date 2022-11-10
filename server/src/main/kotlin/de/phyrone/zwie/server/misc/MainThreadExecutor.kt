@@ -1,4 +1,4 @@
-package de.phyrone.musicnova.misc
+package de.phyrone.zwie.server.misc
 
 import de.phyrone.zwie.server.utils.logger
 import kotlinx.coroutines.MainCoroutineDispatcher
@@ -8,8 +8,6 @@ import java.util.concurrent.LinkedBlockingQueue
 import kotlin.coroutines.CoroutineContext
 
 class MainThreadExecutor : Executor, MainCoroutineDispatcher() {
-
-    private val logger = logger()
     private val queue = LinkedBlockingQueue<Runnable>()
 
     init {
@@ -34,11 +32,13 @@ class MainThreadExecutor : Executor, MainCoroutineDispatcher() {
         thread = Thread.currentThread()
         while (true) {
             val command = queue.take()
+
+            @Suppress("TOO_GENERIC_EXCEPTION_THROWN") //intended
             try {
                 command.run()
             } catch (e: InterruptedException) {
                 throw e
-            } catch (e: Exception) {
+            } catch (e: Throwable) {
                 logger.atSevere().withCause(e).log("Uncaught Exception in MainThreadExecutor")
             }
         }

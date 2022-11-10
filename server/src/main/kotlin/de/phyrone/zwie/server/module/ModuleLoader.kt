@@ -11,10 +11,10 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.jvm.Throws
 import kotlin.reflect.full.findAnnotation
+import kotlin.reflect.full.findAnnotations
 import kotlin.system.measureNanoTime
 import kotlin.time.Duration.Companion.nanoseconds
 import kotlin.time.ExperimentalTime
-import kotlin.time.measureTime
 import kotlin.time.measureTimedValue
 
 class ModuleLoader(
@@ -24,8 +24,20 @@ class ModuleLoader(
         private val logger = logger()
     }
 
-    val moduleMetadataPair =
-        modules.mapNotNull { Pair(it, it::class.findAnnotation<Module>() ?: return@mapNotNull null) }
+    private val moduleMetadataPair =
+        modules.mapNotNull { Pair(it, ModuleMetadataContainer.from(it) ?: return@mapNotNull null) }
+
+    private data class ModuleMetadataContainer(
+        override val name: String,
+        val dependencies: List<DependsOn>,
+    ) : ModuleMetadata {
+        companion object {
+            fun from(module: Any): ModuleMetadataContainer? {
+                val annotation = module::class.findAnnotation<Module>() ?: return null
+                return ModuleMetadataContainer(annotation.name, module::class.findAnnotations())
+            }
+        }
+    }
 
 
     @OptIn(ExperimentalTime::class)
@@ -39,7 +51,7 @@ class ModuleLoader(
         NOT_STARTED, STARTED, WAITING, FINISHED, FAILED
     }
 
-    inner class ModuleTaskProgress(private val handler: ModuleTaskHandler) {
+    private inner class ModuleTaskProgress(private val handler: ModuleTaskHandler) {
 
         val order = handler.order
         val subProgresses = moduleMetadataPair.map { (module, metadata) -> ModuleTaskSubProgress(module, metadata) }
@@ -53,7 +65,7 @@ class ModuleLoader(
             return@coroutineScope subProgresses.mapNotNull { Pair(it.name, it.exception ?: return@mapNotNull null) }
         }
 
-        inner class ModuleTaskSubProgress(val module: Any, private val metadata: Module) {
+        private inner class ModuleTaskSubProgress(val module: Any, private val metadata: ModuleMetadataContainer) {
             val name = metadata.name
 
             private var state = LifecycleState.NOT_STARTED
@@ -71,7 +83,7 @@ class ModuleLoader(
                     val pr = nameToSubProgress[dependency.name]
                     when {
                         pr != null -> {
-                            if (dependency.reversed) {
+                            if (dependency.loadBefore) {
                                 pr.parents.add(this)
                                 this.childs.add(pr)
                             } else {
@@ -81,7 +93,7 @@ class ModuleLoader(
                         }
 
                         dependency.optional -> continue
-                        else -> throw IllegalStateException("Dependency ${dependency.name} not found for module $name")
+                        else -> error("Dependency ${dependency.name} not found for module $name")
                     }
                 }
 

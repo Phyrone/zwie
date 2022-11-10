@@ -1,7 +1,10 @@
+@file:JvmMultifileClass
+
 package de.phyrone.zwie.server.utils
 
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.google.common.flogger.FluentLogger
 import com.google.common.flogger.LazyArg
 import com.google.common.flogger.backend.LoggerBackend
@@ -26,7 +29,16 @@ private val floggerConsturctor by lazy {
     }
 }
 
-fun <T : ObjectMapper> T.findAndRegisterSubclasses(): T {
+
+fun <T : ObjectMapper> T.findAndRegisterSubtypesAndModules(): T {
+    findAndRegisterSubtypes()
+    findAndRegisterModules()
+    registerKotlinModule()
+    return this
+}
+
+@Suppress("SpreadOperator")
+fun <T : ObjectMapper> T.findAndRegisterSubtypes(): T {
     registerSubtypes(*ClassIndex.getSubclasses(JsonComponent::class.java).toList().toTypedArray())
     return this
 }
@@ -43,6 +55,8 @@ inline fun <T> lazyArg(crossinline lazy: () -> T?) = LazyArg<T> { lazy() }
 @Suppress("NOTHING_TO_INLINE")
 inline fun logger(): FluentLogger = FluentLogger.forEnclosingClass()
 inline fun <reified T> loggerOf() = logger(T::class)
-fun logger(clazz: KClass<*>) = floggerConsturctor.newInstance(Platform.getBackend(clazz.qualifiedName ?: clazz.jvmName))
-fun logger(clazz: Class<*>) = floggerConsturctor.newInstance(Platform.getBackend(clazz.name))
-fun logger(name: String) = floggerConsturctor.newInstance(Platform.getBackend(name))
+fun logger(clazz: KClass<*>): FluentLogger =
+    floggerConsturctor.newInstance(Platform.getBackend(clazz.qualifiedName ?: clazz.jvmName))
+
+fun logger(clazz: Class<*>): FluentLogger = floggerConsturctor.newInstance(Platform.getBackend(clazz.name))
+fun logger(name: String): FluentLogger = floggerConsturctor.newInstance(Platform.getBackend(name))

@@ -1,6 +1,6 @@
 package de.phyrone.zwie.server.main
 
-import de.phyrone.musicnova.misc.MainThreadExecutor
+import de.phyrone.zwie.server.misc.MainThreadExecutor
 import de.phyrone.zwie.server.misc.InstanceLoader
 import de.phyrone.zwie.server.misc.ShutdownManager
 import de.phyrone.zwie.server.module.EnableTaskRunner
@@ -15,13 +15,10 @@ import kotlinx.coroutines.withContext
 import org.atteo.classindex.ClassIndex
 import org.koin.core.KoinApplication
 import org.koin.core.component.KoinComponent
-import org.koin.core.component.get
 import org.koin.core.component.inject
 import org.koin.core.qualifier.named
 import org.koin.dsl.bind
 import org.koin.dsl.module
-import java.lang.Exception
-import java.lang.RuntimeException
 import kotlin.system.exitProcess
 import kotlin.system.measureNanoTime
 import kotlin.time.Duration.Companion.nanoseconds

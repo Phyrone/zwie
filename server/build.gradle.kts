@@ -77,6 +77,9 @@ dependencies {
     implementation("dev.onvoid.webrtc:webrtc-java:0.6.0")
 
     implementation("org.atteo.classindex:classindex:3.11")
+    implementation("io.ktor:ktor-server-core-jvm:2.1.3")
+    implementation("io.ktor:ktor-server-websockets-jvm:2.1.3")
+    implementation("io.ktor:ktor-server-cors-jvm:2.1.3")
     kapt("org.atteo.classindex:classindex:3.11")
 
 
@@ -87,6 +90,7 @@ dependencies {
     runtimeOnly("com.h2database:h2:2.1.214")
 
     implementation("com.coreoz:wisp:2.3.0")
+    implementation("org.apache.commons:commons-lang3:3.12.0")
 
     //implementation("org.apache.logging.log4j:log4j-core:2.18.0")
     //implementation("org.apache.logging.log4j:log4j-api:2.18.0")
