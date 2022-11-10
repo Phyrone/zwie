@@ -153,7 +153,7 @@ application {
 }
 detekt{
     parallel = true
-    //ignoreFailures = true
+    ignoreFailures = true
     configurations{
 
     }

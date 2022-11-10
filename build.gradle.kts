@@ -13,8 +13,3 @@ repositories {
     mavenCentral()
 
 }
-tasks {
-    task("setup") {
-        dependsOn("client:install-shared-lib")
-    }
-}
