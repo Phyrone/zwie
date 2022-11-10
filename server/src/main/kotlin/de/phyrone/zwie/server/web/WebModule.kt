@@ -68,7 +68,7 @@ class WebModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
                         this.host = host
                         this.port = port
                     }
-                } catch (e: ConfigException) {
+                } catch (_: ConfigException) {
                     connector {
                         port = DEFAULT_PORT
                     }

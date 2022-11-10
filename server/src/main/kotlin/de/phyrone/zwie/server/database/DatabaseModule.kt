@@ -37,11 +37,10 @@ class DatabaseModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
         koinApplication.modules(koinModule)
         val tables =
             InstanceLoader.getAll(ClassIndex.getAnnotated(IndexTable::class.java)).mapNotNull { it as? Table }.toList()
-                .toTypedArray()
 
         logger.atFine().log("SQL Dialect: %s", database.dialect.name)
         newSuspendedTransaction(Dispatchers.IO, database) {
-            SchemaUtils.createMissingTablesAndColumns(*tables, withLogs = true)
+            SchemaUtils.createMissingTablesAndColumns(*tables.toTypedArray(), withLogs = true)
         }
     }
 
@@ -73,7 +72,6 @@ class DatabaseModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
         }
         private val logger = logger()
     }
-
 
 
 }

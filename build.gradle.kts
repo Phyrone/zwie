@@ -6,6 +6,7 @@ plugins {
     kotlin("plugin.allopen") version "1.7.21" apply false
     kotlin("kapt") version "1.7.21" apply false
     id("com.github.johnrengelman.shadow") version "7.1.2" apply false
+    id("io.gitlab.arturbosch.detekt") version "1.22.0-RC3" apply false
 }
 
 repositories {

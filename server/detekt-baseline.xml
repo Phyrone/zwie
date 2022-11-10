@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>EmptyClassBlock:PacketClient.kt$PacketClient${ }</ID>
+    <ID>EmptyFunctionBlock:DefaultRichTerminalFeatures.kt$DefaultRichTerminalFeatures${}</ID>
+    <ID>InvalidPackageDeclaration:DefaultServerMainDispatcherFactory.kt$package de.phyrone.musicnova.misc</ID>
+    <ID>InvalidPackageDeclaration:MainThreadExecutor.kt$package de.phyrone.musicnova.misc</ID>
+    <ID>MagicNumber:BansTable.kt$BansTable$16</ID>
+    <ID>MagicNumber:BansTable.kt$BansTable$4</ID>
+    <ID>MagicNumber:ChannelsTable.kt$ChannelsTable$128</ID>
+    <ID>MagicNumber:DatabaseModule.kt$DatabaseModule.Companion$10</ID>
+    <ID>MagicNumber:UsersTable.kt$UsersTable$128</ID>
+    <ID>MagicNumber:WebModule.kt$WebModule$200</ID>
+    <ID>MagicNumber:WebModule.kt$WebModule$400</ID>
+    <ID>NewLineAtEndOfFile:BansTable.kt$de.phyrone.zwie.server.database.tables.BansTable.kt</ID>
+    <ID>NewLineAtEndOfFile:BootstrapTask.kt$de.phyrone.zwie.server.main.BootstrapTask.kt</ID>
+    <ID>NewLineAtEndOfFile:ChatComponent.kt$de.phyrone.zwie.server.data.chat.ChatComponent.kt</ID>
+    <ID>NewLineAtEndOfFile:ChatComponentSpacer.kt$de.phyrone.zwie.server.data.chat.ChatComponentSpacer.kt</ID>
+    <ID>NewLineAtEndOfFile:ComandsCoreModule.kt$de.phyrone.zwie.server.command.ComandsCoreModule.kt</ID>
+    <ID>NewLineAtEndOfFile:CommandContext.kt$de.phyrone.zwie.server.command.CommandContext.kt</ID>
+    <ID>NewLineAtEndOfFile:ConfigModule.kt$de.phyrone.zwie.server.misc.ConfigModule.kt</ID>
+    <ID>NewLineAtEndOfFile:DatabaseModule.kt$de.phyrone.zwie.server.database.DatabaseModule.kt</ID>
+    <ID>NewLineAtEndOfFile:DefaultRichTerminalFeatures.kt$de.phyrone.zwie.server.terminal.DefaultRichTerminalFeatures.kt</ID>
+    <ID>NewLineAtEndOfFile:DefaultServerMainDispatcherFactory.kt$de.phyrone.musicnova.misc.DefaultServerMainDispatcherFactory.kt</ID>
+    <ID>NewLineAtEndOfFile:DefaultTerminalCommandHandler.kt$de.phyrone.zwie.server.terminal.DefaultTerminalCommandHandler.kt</ID>
+    <ID>NewLineAtEndOfFile:DependencyFailedException.kt$de.phyrone.zwie.server.module.DependencyFailedException.kt</ID>
+    <ID>NewLineAtEndOfFile:DisableTaskRunner.kt$de.phyrone.zwie.server.module.DisableTaskRunner.kt</ID>
+    <ID>NewLineAtEndOfFile:DummyIdentityData.kt$de.phyrone.zwie.server.data.proto01.verify.DummyIdentityData.kt</ID>
+    <ID>NewLineAtEndOfFile:EnableTaskRunner.kt$de.phyrone.zwie.server.module.EnableTaskRunner.kt</ID>
+    <ID>NewLineAtEndOfFile:IdentityData.kt$de.phyrone.zwie.server.data.proto01.verify.IdentityData.kt</ID>
+    <ID>NewLineAtEndOfFile:InstanceLoader.kt$de.phyrone.zwie.server.misc.InstanceLoader.kt</ID>
+    <ID>NewLineAtEndOfFile:JsonComponent.kt$de.phyrone.zwie.server.utils.JsonComponent.kt</ID>
+    <ID>NewLineAtEndOfFile:LineOutputStream.kt$de.phyrone.zwie.server.utils.LineOutputStream.kt</ID>
+    <ID>NewLineAtEndOfFile:Main.kt$de.phyrone.zwie.server.main.Main.kt</ID>
+    <ID>NewLineAtEndOfFile:MainThreadExecutor.kt$de.phyrone.musicnova.misc.MainThreadExecutor.kt</ID>
+    <ID>NewLineAtEndOfFile:ModuleLoader.kt$de.phyrone.zwie.server.module.ModuleLoader.kt</ID>
+    <ID>NewLineAtEndOfFile:ModuleOrder.kt$de.phyrone.zwie.server.module.ModuleOrder.kt</ID>
+    <ID>NewLineAtEndOfFile:ModuleTaskHandler.kt$de.phyrone.zwie.server.module.ModuleTaskHandler.kt</ID>
+    <ID>NewLineAtEndOfFile:Packet.kt$de.phyrone.zwie.server.data.proto01.packets.Packet.kt</ID>
+    <ID>NewLineAtEndOfFile:PacketClient.kt$de.phyrone.zwie.server.data.proto01.packets.PacketClient.kt</ID>
+    <ID>NewLineAtEndOfFile:PacketClientServerPing.kt$de.phyrone.zwie.server.data.proto01.packets.PacketClientServerPing.kt</ID>
+    <ID>NewLineAtEndOfFile:PacketClientServerPong.kt$de.phyrone.zwie.server.data.proto01.packets.PacketClientServerPong.kt</ID>
+    <ID>NewLineAtEndOfFile:PacketServer.kt$de.phyrone.zwie.server.data.proto01.packets.PacketServer.kt</ID>
+    <ID>NewLineAtEndOfFile:PacketServerChannelChatMessage.kt$de.phyrone.zwie.server.data.proto01.packets.server.PacketServerChannelChatMessage.kt</ID>
+    <ID>NewLineAtEndOfFile:PacketServerChannelVoiceJoin.kt$de.phyrone.zwie.server.data.proto01.packets.server.PacketServerChannelVoiceJoin.kt</ID>
+    <ID>NewLineAtEndOfFile:PacketServerChannelVoiceLeave.kt$de.phyrone.zwie.server.data.proto01.packets.server.PacketServerChannelVoiceLeave.kt</ID>
+    <ID>NewLineAtEndOfFile:PacketServerServerHello.kt$de.phyrone.zwie.server.data.proto01.packets.server.PacketServerServerHello.kt</ID>
+    <ID>NewLineAtEndOfFile:PromtFixer.kt$de.phyrone.zwie.server.terminal.PromtFixer.kt</ID>
+    <ID>NewLineAtEndOfFile:SchedulerModule.kt$de.phyrone.zwie.server.misc.SchedulerModule.kt</ID>
+    <ID>NewLineAtEndOfFile:ShutdownManager.kt$de.phyrone.zwie.server.misc.ShutdownManager.kt</ID>
+    <ID>NewLineAtEndOfFile:SlfKoinLogger.kt$de.phyrone.zwie.server.misc.SlfKoinLogger.kt</ID>
+    <ID>NewLineAtEndOfFile:StartupArguments.kt$de.phyrone.zwie.server.main.StartupArguments.kt</ID>
+    <ID>NewLineAtEndOfFile:TerminalCommandHandler.kt$de.phyrone.zwie.server.terminal.TerminalCommandHandler.kt</ID>
+    <ID>NewLineAtEndOfFile:TerminalModule.kt$de.phyrone.zwie.server.terminal.TerminalModule.kt</ID>
+    <ID>NewLineAtEndOfFile:UsersTable.kt$de.phyrone.zwie.server.database.tables.UsersTable.kt</ID>
+    <ID>NewLineAtEndOfFile:WebModule.kt$de.phyrone.zwie.server.web.WebModule.kt</ID>
+    <ID>NewLineAtEndOfFile:cost.kt$de.phyrone.zwie.server.utils.cost.kt</ID>
+    <ID>NewLineAtEndOfFile:utils.kt$de.phyrone.zwie.server.utils.utils.kt</ID>
+    <ID>PrintStackTrace:ShutdownManager.kt$ShutdownManager.WorkerThread$e</ID>
+    <ID>SpreadOperator:DatabaseModule.kt$DatabaseModule$(*tables.toTypedArray(), withLogs = true)</ID>
+    <ID>SpreadOperator:Main.kt$(*args)</ID>
+    <ID>SpreadOperator:utils.kt$(*ClassIndex.getSubclasses(JsonComponent::class.java).toList().toTypedArray())</ID>
+    <ID>SwallowedException:TerminalModule.kt$TerminalModule.TerminalReaderThread$e: EndOfFileException</ID>
+    <ID>SwallowedException:TerminalModule.kt$TerminalModule.TerminalReaderThread$e: UserInterruptException</ID>
+    <ID>SwallowedException:WebModule.kt$WebModule.Companion$e: ConfigException</ID>
+    <ID>TooGenericExceptionCaught:Main.kt$e: Throwable</ID>
+    <ID>TooGenericExceptionCaught:MainThreadExecutor.kt$MainThreadExecutor$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:ModuleLoader.kt$ModuleLoader.ModuleTaskProgress.ModuleTaskSubProgress$e: Throwable</ID>
+    <ID>TooGenericExceptionCaught:ShutdownManager.kt$ShutdownManager.WorkerThread$e: Throwable</ID>
+    <ID>TooGenericExceptionCaught:TerminalModule.kt$TerminalModule.TerminalReaderThread$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:TerminalModule.kt$TerminalModule.TerminalReaderThread$e: Throwable</ID>
+    <ID>UnusedPrivateMember:TerminalModule.kt$TerminalModule.Companion$private const val MAX_RESTARTS = 10</ID>
+    <ID>UseCheckOrError:ModuleLoader.kt$ModuleLoader.ModuleTaskProgress.ModuleTaskSubProgress$throw IllegalStateException("Dependency ${dependency.name} not found for module $name")</ID>
+    <ID>VariableNaming:DefaultRichTerminalFeatures.kt$DefaultRichTerminalFeatures$val read_line = line.line().trimStart()</ID>
+    <ID>WildcardImport:WebModule.kt$import io.ktor.http.*</ID>
+    <ID>WildcardImport:WebModule.kt$import io.ktor.server.engine.*</ID>
+    <ID>WildcardImport:WebModule.kt$import io.ktor.server.netty.*</ID>
+  </CurrentIssues>
+</SmellBaseline>

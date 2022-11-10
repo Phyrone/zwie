@@ -7,6 +7,7 @@ plugins {
     //kotlin("plugin.jpa")
     kotlin("plugin.allopen")
     id("com.github.johnrengelman.shadow")
+    id("io.gitlab.arturbosch.detekt")
     //id("org.springframework.boot") version "2.7.5"
     //id("io.spring.dependency-management") version "1.1.0"
 }
@@ -149,4 +150,11 @@ allOpen {
 
 application {
     mainClass.set("de.phyrone.zwie.server.main.Main")
+}
+detekt{
+    parallel = true
+    //ignoreFailures = true
+    configurations{
+
+    }
 }
