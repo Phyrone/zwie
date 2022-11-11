@@ -1,10 +1,10 @@
 const o = [
   "/_app/immutable/assets/fa-solid-900-d27bc752.woff2",
   "/_app/immutable/assets/fa-solid-900-6d53c706.ttf",
-  "/_app/immutable/start-b41ccd78.js",
+  "/_app/immutable/start-1571c1d1.js",
   "/_app/immutable/components/pages/_layout.svelte-c4484854.js",
-  "/_app/immutable/assets/_layout-5ce8428f.css",
-  "/_app/immutable/components/error.svelte-003210ba.js",
+  "/_app/immutable/assets/_layout-a11e3e23.css",
+  "/_app/immutable/components/error.svelte-0012ef96.js",
   "/_app/immutable/components/pages/(main)/_layout.svelte-a14cb4a9.js",
   "/_app/immutable/components/pages/(main)/plugins/_layout.svelte-bd4317c7.js",
   "/_app/immutable/components/pages/(main)/server/_server_/_layout.svelte-15ee1cc0.js",
@@ -26,7 +26,7 @@ const o = [
   "/_app/immutable/components/pages/(main)/toolbox/_page.svelte-c8f46089.js",
   "/_app/immutable/modules/pages/_layout.ts-d347cb9b.js",
   "/_app/immutable/modules/pages/(main)/_page.ts-a6b9ddf0.js",
-  "/_app/immutable/chunks/singletons-18d4d015.js",
+  "/_app/immutable/chunks/singletons-82909fbf.js",
   "/_app/immutable/chunks/index-5a6d03c0.js",
   "/_app/immutable/chunks/index-c9e3a8b1.js",
   "/_app/immutable/chunks/preload-helper-b21cceae.js",
@@ -36,7 +36,7 @@ const o = [
   "/_app/immutable/chunks/_layout-d02ecff8.js",
   "/_app/immutable/chunks/_page-9468531c.js",
   "/_app/immutable/chunks/0-64a5f904.js",
-  "/_app/immutable/chunks/1-a7edeff9.js",
+  "/_app/immutable/chunks/1-1e131f34.js",
   "/_app/immutable/chunks/2-e21780bf.js",
   "/_app/immutable/chunks/3-7e240590.js",
   "/_app/immutable/chunks/4-681091c8.js",
@@ -64,7 +64,7 @@ const o = [
   "/manifest.webmanifest"
 ], _ = [
   "/"
-], n = "1668180345694";
+], n = "1668196440825";
 console.log("[ServiceWorker] Init...");
 const r = [...o, ..._, ...u], m = "offline::", c = m + n;
 let i = caches.open(c);
@@ -92,7 +92,7 @@ async function f() {
   }
   console.log(`[ServiceWorker] Added ${e} files to cache`);
 }
-async function d(e) {
+async function h(e) {
   var t;
   let a = await i, s = await a.match(e);
   if (s)
@@ -113,7 +113,7 @@ addEventListener("activate", (e) => {
 addEventListener(
   "fetch",
   async (e) => {
-    new URL(e.request.url).host === l && e.respondWith(d(e.request));
+    new URL(e.request.url).host === l && e.respondWith(h(e.request));
   }
 );
 self.addEventListener("message", (e) => {
