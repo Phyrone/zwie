@@ -1,20 +1,20 @@
 const o = [
   "/_app/immutable/assets/fa-solid-900-d27bc752.woff2",
   "/_app/immutable/assets/fa-solid-900-6d53c706.ttf",
-  "/_app/immutable/start-1b50961d.js",
-  "/_app/immutable/components/pages/_layout.svelte-ded2c253.js",
+  "/_app/immutable/start-88a21967.js",
+  "/_app/immutable/components/pages/_layout.svelte-c4484854.js",
   "/_app/immutable/assets/_layout-efac16e9.css",
-  "/_app/immutable/components/error.svelte-70df47c1.js",
+  "/_app/immutable/components/error.svelte-264c32a8.js",
   "/_app/immutable/components/pages/(main)/_layout.svelte-a14cb4a9.js",
   "/_app/immutable/components/pages/(main)/plugins/_layout.svelte-bd4317c7.js",
   "/_app/immutable/components/pages/(main)/server/_server_/_layout.svelte-15ee1cc0.js",
   "/_app/immutable/components/pages/(main)/settings/_layout.svelte-17aae81e.js",
   "/_app/immutable/components/pages/(main)/toolbox/_layout.svelte-f9f22f52.js",
-  "/_app/immutable/components/pages/(main)/_page.svelte-8b04ad64.js",
+  "/_app/immutable/components/pages/(main)/_page.svelte-3ca8f5a1.js",
   "/_app/immutable/components/pages/(main)/dm/_page.svelte-32b08d5e.js",
   "/_app/immutable/components/pages/(main)/dm/_user_/_page.svelte-77d05129.js",
   "/_app/immutable/components/pages/(main)/plugins/_page.svelte-aa2fb4c1.js",
-  "/_app/immutable/components/pages/(main)/profile/_page.svelte-ebd29cc2.js",
+  "/_app/immutable/components/pages/(main)/profile/_page.svelte-e7b6b098.js",
   "/_app/immutable/components/pages/(main)/server/_server_/_page.svelte-ab470da7.js",
   "/_app/immutable/components/pages/(main)/server/_server_/channel/_channel_/_page.svelte-ad45c885.js",
   "/_app/immutable/components/pages/(main)/settings/_page.svelte-cf12e923.js",
@@ -26,27 +26,27 @@ const o = [
   "/_app/immutable/components/pages/(main)/toolbox/_page.svelte-c8f46089.js",
   "/_app/immutable/modules/pages/_layout.ts-d347cb9b.js",
   "/_app/immutable/modules/pages/(main)/_page.ts-a6b9ddf0.js",
-  "/_app/immutable/chunks/singletons-2937e384.js",
+  "/_app/immutable/chunks/singletons-86f2b985.js",
   "/_app/immutable/chunks/index-5a6d03c0.js",
   "/_app/immutable/chunks/index-c9e3a8b1.js",
   "/_app/immutable/chunks/preload-helper-b21cceae.js",
   "/_app/immutable/chunks/theme-selector-78bffc28.js",
   "/_app/immutable/chunks/messages-002a3112.js",
-  "/_app/immutable/chunks/sweetalert2.all-652a4ed8.js",
+  "/_app/immutable/chunks/sweetalert2.all-18882f45.js",
   "/_app/immutable/chunks/_layout-d02ecff8.js",
   "/_app/immutable/chunks/_page-9468531c.js",
-  "/_app/immutable/chunks/0-5d9767b9.js",
-  "/_app/immutable/chunks/1-a8694228.js",
+  "/_app/immutable/chunks/0-64a5f904.js",
+  "/_app/immutable/chunks/1-9785cd5a.js",
   "/_app/immutable/chunks/2-e21780bf.js",
   "/_app/immutable/chunks/3-7e240590.js",
   "/_app/immutable/chunks/4-681091c8.js",
   "/_app/immutable/chunks/5-8acdf6f3.js",
   "/_app/immutable/chunks/6-25288720.js",
-  "/_app/immutable/chunks/7-9f418785.js",
+  "/_app/immutable/chunks/7-7159f4a0.js",
   "/_app/immutable/chunks/8-11917eab.js",
   "/_app/immutable/chunks/9-6dbe384e.js",
   "/_app/immutable/chunks/10-68d08d9e.js",
-  "/_app/immutable/chunks/11-7d6d3d67.js",
+  "/_app/immutable/chunks/11-f43a7a35.js",
   "/_app/immutable/chunks/12-c49f11e8.js",
   "/_app/immutable/chunks/13-00f734de.js",
   "/_app/immutable/chunks/14-ae80cb35.js",
@@ -64,7 +64,7 @@ const o = [
   "/manifest.webmanifest"
 ], _ = [
   "/"
-], n = "1668138416661";
+], n = "1668146508014";
 console.log("[ServiceWorker] Init...");
 const r = [...o, ..._, ...u], m = "offline::", c = m + n;
 let i = caches.open(c);
@@ -77,7 +77,7 @@ async function b() {
     console.timeEnd("[ServiceWorker] deleting old caches");
   }
 }
-async function d() {
+async function f() {
   console.time(`[ServiceWorker] Creating/Updating Cache... (${n})`);
   let e = -1;
   try {
@@ -105,7 +105,7 @@ async function h(e) {
   }
 }
 addEventListener("install", (e) => {
-  console.log("[ServiceWorker] Install Event..."), e.waitUntil(d());
+  console.log("[ServiceWorker] Install Event..."), e.waitUntil(f());
 });
 addEventListener("activate", (e) => {
   console.log("[ServiceWorker] Activate Event..."), e.waitUntil(b());
