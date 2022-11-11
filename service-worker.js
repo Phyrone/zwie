@@ -1,10 +1,10 @@
 const o = [
   "/_app/immutable/assets/fa-solid-900-d27bc752.woff2",
   "/_app/immutable/assets/fa-solid-900-6d53c706.ttf",
-  "/_app/immutable/start-559e588b.js",
+  "/_app/immutable/start-1b50961d.js",
   "/_app/immutable/components/pages/_layout.svelte-ded2c253.js",
   "/_app/immutable/assets/_layout-efac16e9.css",
-  "/_app/immutable/components/error.svelte-ecb3f319.js",
+  "/_app/immutable/components/error.svelte-70df47c1.js",
   "/_app/immutable/components/pages/(main)/_layout.svelte-a14cb4a9.js",
   "/_app/immutable/components/pages/(main)/plugins/_layout.svelte-bd4317c7.js",
   "/_app/immutable/components/pages/(main)/server/_server_/_layout.svelte-15ee1cc0.js",
@@ -26,7 +26,7 @@ const o = [
   "/_app/immutable/components/pages/(main)/toolbox/_page.svelte-c8f46089.js",
   "/_app/immutable/modules/pages/_layout.ts-d347cb9b.js",
   "/_app/immutable/modules/pages/(main)/_page.ts-a6b9ddf0.js",
-  "/_app/immutable/chunks/singletons-0b32e784.js",
+  "/_app/immutable/chunks/singletons-2937e384.js",
   "/_app/immutable/chunks/index-5a6d03c0.js",
   "/_app/immutable/chunks/index-c9e3a8b1.js",
   "/_app/immutable/chunks/preload-helper-b21cceae.js",
@@ -36,7 +36,7 @@ const o = [
   "/_app/immutable/chunks/_layout-d02ecff8.js",
   "/_app/immutable/chunks/_page-9468531c.js",
   "/_app/immutable/chunks/0-5d9767b9.js",
-  "/_app/immutable/chunks/1-99d9c22d.js",
+  "/_app/immutable/chunks/1-a8694228.js",
   "/_app/immutable/chunks/2-e21780bf.js",
   "/_app/immutable/chunks/3-7e240590.js",
   "/_app/immutable/chunks/4-681091c8.js",
@@ -64,15 +64,15 @@ const o = [
   "/manifest.webmanifest"
 ], _ = [
   "/"
-], n = "1668116951653";
+], n = "1668138416661";
 console.log("[ServiceWorker] Init...");
-const r = [...o, ..._, ...u], c = "offline::", m = c + n;
-let i = caches.open(m);
+const r = [...o, ..._, ...u], m = "offline::", c = m + n;
+let i = caches.open(c);
 const l = self.location.host;
 console.debug("[ServiceWorker] host=" + l);
 async function b() {
   try {
-    console.time("[ServiceWorker] deleting old caches"), await Promise.all(await caches.keys().then((e) => e.filter((a) => a.startsWith(c) && a !== m)).then((e) => e.map((a) => caches.delete(a))));
+    console.time("[ServiceWorker] deleting old caches"), await Promise.all(await caches.keys().then((e) => e.filter((a) => a.startsWith(m) && a !== c)).then((e) => e.map((a) => caches.delete(a))));
   } finally {
     console.timeEnd("[ServiceWorker] deleting old caches");
   }
