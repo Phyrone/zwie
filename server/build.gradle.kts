@@ -74,7 +74,7 @@ dependencies {
 
 
     //implementation("com.google.flogger:flogger-log4j-backend:0.7.4")
-    implementation("dev.onvoid.webrtc:webrtc-java:0.6.0")
+    implementation("dev.onvoid.webrtc:webrtc-java:0.7.0")
 
     implementation("org.atteo.classindex:classindex:3.11")
     implementation("io.ktor:ktor-server-core-jvm:2.1.3")
