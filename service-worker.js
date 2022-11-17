@@ -1,20 +1,20 @@
 const o = [
   "/_app/immutable/assets/fa-solid-900-8f06540f.woff2",
   "/_app/immutable/assets/fa-solid-900-e4f6a7e9.ttf",
-  "/_app/immutable/start-05faf433.js",
-  "/_app/immutable/components/pages/_layout.svelte-c4484854.js",
+  "/_app/immutable/start-081fc478.js",
+  "/_app/immutable/components/pages/_layout.svelte-6fd3a941.js",
   "/_app/immutable/assets/_layout-4b106cc6.css",
-  "/_app/immutable/components/error.svelte-67c2907b.js",
+  "/_app/immutable/components/error.svelte-0ab5da48.js",
   "/_app/immutable/components/pages/(main)/_layout.svelte-a14cb4a9.js",
   "/_app/immutable/components/pages/(main)/plugins/_layout.svelte-bd4317c7.js",
   "/_app/immutable/components/pages/(main)/server/_server_/_layout.svelte-15ee1cc0.js",
   "/_app/immutable/components/pages/(main)/settings/_layout.svelte-17aae81e.js",
   "/_app/immutable/components/pages/(main)/toolbox/_layout.svelte-f9f22f52.js",
-  "/_app/immutable/components/pages/(main)/_page.svelte-3ca8f5a1.js",
+  "/_app/immutable/components/pages/(main)/_page.svelte-ae6e54a3.js",
   "/_app/immutable/components/pages/(main)/dm/_page.svelte-32b08d5e.js",
   "/_app/immutable/components/pages/(main)/dm/_user_/_page.svelte-77d05129.js",
   "/_app/immutable/components/pages/(main)/plugins/_page.svelte-aa2fb4c1.js",
-  "/_app/immutable/components/pages/(main)/profile/_page.svelte-e7b6b098.js",
+  "/_app/immutable/components/pages/(main)/profile/_page.svelte-a6a6e877.js",
   "/_app/immutable/components/pages/(main)/server/_server_/_page.svelte-ab470da7.js",
   "/_app/immutable/components/pages/(main)/server/_server_/channel/_channel_/_page.svelte-ad45c885.js",
   "/_app/immutable/components/pages/(main)/settings/_page.svelte-cf12e923.js",
@@ -26,27 +26,27 @@ const o = [
   "/_app/immutable/components/pages/(main)/toolbox/_page.svelte-c8f46089.js",
   "/_app/immutable/modules/pages/_layout.ts-d347cb9b.js",
   "/_app/immutable/modules/pages/(main)/_page.ts-a6b9ddf0.js",
-  "/_app/immutable/chunks/singletons-3fd41b2d.js",
+  "/_app/immutable/chunks/singletons-1fbb382a.js",
   "/_app/immutable/chunks/index-5a6d03c0.js",
   "/_app/immutable/chunks/index-c9e3a8b1.js",
   "/_app/immutable/chunks/preload-helper-b21cceae.js",
   "/_app/immutable/chunks/theme-selector-78bffc28.js",
   "/_app/immutable/chunks/messages-002a3112.js",
-  "/_app/immutable/chunks/sweetalert2.all-18882f45.js",
+  "/_app/immutable/chunks/sweetalert2.all-56f420c1.js",
   "/_app/immutable/chunks/_layout-d02ecff8.js",
   "/_app/immutable/chunks/_page-9468531c.js",
-  "/_app/immutable/chunks/0-64a5f904.js",
-  "/_app/immutable/chunks/1-8b62aeeb.js",
+  "/_app/immutable/chunks/0-86ef9685.js",
+  "/_app/immutable/chunks/1-8c2f1ec9.js",
   "/_app/immutable/chunks/2-e21780bf.js",
   "/_app/immutable/chunks/3-7e240590.js",
   "/_app/immutable/chunks/4-681091c8.js",
   "/_app/immutable/chunks/5-8acdf6f3.js",
   "/_app/immutable/chunks/6-25288720.js",
-  "/_app/immutable/chunks/7-7159f4a0.js",
+  "/_app/immutable/chunks/7-bf897dcd.js",
   "/_app/immutable/chunks/8-11917eab.js",
   "/_app/immutable/chunks/9-6dbe384e.js",
   "/_app/immutable/chunks/10-68d08d9e.js",
-  "/_app/immutable/chunks/11-f43a7a35.js",
+  "/_app/immutable/chunks/11-8c9f09c0.js",
   "/_app/immutable/chunks/12-c49f11e8.js",
   "/_app/immutable/chunks/13-00f734de.js",
   "/_app/immutable/chunks/14-ae80cb35.js",
@@ -64,15 +64,15 @@ const o = [
   "/manifest.webmanifest"
 ], _ = [
   "/"
-], n = "1668602121838";
+], n = "1668693300550";
 console.log("[ServiceWorker] Init...");
-const r = [...o, ..._, ...u], m = "offline::", c = m + n;
-let i = caches.open(c);
+const r = [...o, ..._, ...u], c = "offline::", m = c + n;
+let i = caches.open(m);
 const l = self.location.host;
 console.debug("[ServiceWorker] host=" + l);
 async function b() {
   try {
-    console.time("[ServiceWorker] deleting old caches"), await Promise.all(await caches.keys().then((e) => e.filter((a) => a.startsWith(m) && a !== c)).then((e) => e.map((a) => caches.delete(a))));
+    console.time("[ServiceWorker] deleting old caches"), await Promise.all(await caches.keys().then((e) => e.filter((a) => a.startsWith(c) && a !== m)).then((e) => e.map((a) => caches.delete(a))));
   } finally {
     console.timeEnd("[ServiceWorker] deleting old caches");
   }
