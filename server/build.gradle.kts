@@ -60,7 +60,7 @@ dependencies {
     //implementation("org.greenrobot:eventbus-java:3.3.1")
     implementation("com.github.ben-manes.caffeine:caffeine:3.1.1")
 
-    implementation("ch.qos.logback:logback-classic:1.4.4")
+    implementation("ch.qos.logback:logback-classic:1.4.5")
 
     implementation("info.picocli:picocli:4.7.0")
     implementation("info.picocli:picocli-shell-jline3:4.7.0")
