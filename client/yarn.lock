@@ -315,6 +315,11 @@
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-1.0.0.tgz#5fb2e536c1ae9bf35366eed879e827fa59ca41c2"
   integrity sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==
 
+"@types/events@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/events/-/events-3.0.0.tgz#2862f3f58a9a7f7c3e78d79f130dd4d71c25c2a7"
+  integrity sha512-EaObqwIvayI5a8dCzhFrjKzVwKLxjoG9T6Ppd5CEo07LRKfQ8Yokw54r5+Wq7FaBQ+yXRvQAYPrHwya1/UFt9g==
+
 "@types/json-schema@^7.0.7":
   version "7.0.11"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.11.tgz#d421b6c527a3037f7c84433fd2c4229e016863d3"
@@ -351,6 +356,11 @@
   integrity sha512-BPdoIt1lfJ6B7rw35ncdwBZrAssjcwzI5LByIrYs+tpXlj/CAkuVdRsgZDdP4lq5EjyWzwxZCqAoFyHKFwp32g==
   dependencies:
     "@types/node" "*"
+
+"@types/sdp-transform@^2.4.5":
+  version "2.4.5"
+  resolved "https://registry.yarnpkg.com/@types/sdp-transform/-/sdp-transform-2.4.5.tgz#3167961e0a1a5265545e278627aa37c606003f53"
+  integrity sha512-GVO0gnmbyO3Oxm2HdPsYUNcyihZE3GyCY8ysMYHuQGfLhGZq89Nm4lSzULWTzZoyHtg+VO/IdrnxZHPnPSGnAg==
 
 "@types/serviceworker@0.0.57":
   version "0.0.57"
@@ -1293,6 +1303,11 @@ eventemitter3@^2.0.0:
   resolved "https://registry.yarnpkg.com/eventemitter3/-/eventemitter3-2.0.3.tgz#b5e1079b59fb5e1ba2771c0a993be060a58c99ba"
   integrity sha512-jLN68Dx5kyFHaePoXWPsCGW5qdyZQtLYHkxkg02/Mz6g0kYpDx4FyP6XfArhQdlOC4b8Mv+EMxPo/8La7Tzghg==
 
+events@^3.2.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/events/-/events-3.3.0.tgz#31a95ad0a924e2d2c419a813aeb2c4e878ea7400"
+  integrity sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==
+
 eventsource@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/eventsource/-/eventsource-2.0.2.tgz#76dfcc02930fb2ff339520b6d290da573a9e8508"
@@ -2056,25 +2071,36 @@ marky@^1.2.2:
   resolved "https://registry.yarnpkg.com/marky/-/marky-1.2.5.tgz#55796b688cbd72390d2d399eaaf1832c9413e3c0"
   integrity sha512-q9JtQJKjpsVxCRVgQ+WapguSbKC3SQ5HEzFGPAJMStgh3QjCawp00UKv3MTTAArTmGmmPUvllHZoNbZ3gs0I+Q==
 
-matrix-events-sdk@^0.0.1-beta.7:
+matrix-events-sdk@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/matrix-events-sdk/-/matrix-events-sdk-0.0.1.tgz#c8c38911e2cb29023b0bbac8d6f32e0de2c957dd"
   integrity sha512-1QEOsXO+bhyCroIe2/A5OwaxHvBm7EsSQ46DEDn8RBIfQwN5HWBpFvyWWR4QY0KHPPnnJdI99wgRiAl7Ad5qaA==
 
-matrix-js-sdk@21.1.0:
-  version "21.1.0"
-  resolved "https://registry.yarnpkg.com/matrix-js-sdk/-/matrix-js-sdk-21.1.0.tgz#f365df6490e7085f98f1294bcf2a6db39e95a4fe"
-  integrity sha512-4HTEZKt/LlX4045H5JVACBMirPboRWM7E/OabaRCcBoEssgWrPw/z7am6FXH2ZRDw0xp50WhPjCNOGZqdf81Mg==
+matrix-js-sdk@21.2.0:
+  version "21.2.0"
+  resolved "https://registry.yarnpkg.com/matrix-js-sdk/-/matrix-js-sdk-21.2.0.tgz#380d50510b08cede504db720fe4b9597bb72dc60"
+  integrity sha512-5aHWkWve+/5dmRJGIAzwe2hFNHX/2LBFWVqHh6YOTSViWlAbBxQsylBIhsNppgmHUN1YjBhvBlW206UnYCk6zg==
   dependencies:
     "@babel/runtime" "^7.12.5"
+    "@types/sdp-transform" "^2.4.5"
     another-json "^0.2.0"
     bs58 "^5.0.0"
     content-type "^1.0.4"
     loglevel "^1.7.1"
-    matrix-events-sdk "^0.0.1-beta.7"
+    matrix-events-sdk "0.0.1"
+    matrix-widget-api "^1.0.0"
     p-retry "4"
     qs "^6.9.6"
+    sdp-transform "^2.14.1"
     unhomoglyph "^1.0.6"
+
+matrix-widget-api@^1.0.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/matrix-widget-api/-/matrix-widget-api-1.1.1.tgz#d3fec45033d0cbc14387a38ba92dac4dbb1be962"
+  integrity sha512-gNSgmgSwvOsOcWK9k2+tOhEMYBiIMwX95vMZu0JqY7apkM02xrOzUBuPRProzN8CnbIALH7e3GAhatF6QCNvtA==
+  dependencies:
+    "@types/events" "^3.0.0"
+    events "^3.2.0"
 
 meow@^9.0.0:
   version "9.0.0"
@@ -2880,6 +2906,11 @@ sass@1.56.1:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
     source-map-js ">=0.6.2 <2.0.0"
+
+sdp-transform@^2.14.1:
+  version "2.14.1"
+  resolved "https://registry.yarnpkg.com/sdp-transform/-/sdp-transform-2.14.1.tgz#2bb443583d478dee217df4caa284c46b870d5827"
+  integrity sha512-RjZyX3nVwJyCuTo5tGPx+PZWkDMCg7oOLpSlhjDdZfwUoNqG1mM8nyj31IGHyaPWXhjbP7cdK3qZ2bmkJ1GzRw==
 
 "semver@2 || 3 || 4 || 5", semver@^5.6.0:
   version "5.7.1"
