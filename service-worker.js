@@ -1,20 +1,20 @@
 const o = [
   "/_app/immutable/assets/fa-solid-900-8f06540f.woff2",
   "/_app/immutable/assets/fa-solid-900-e4f6a7e9.ttf",
-  "/_app/immutable/start-23e468a3.js",
-  "/_app/immutable/components/pages/_layout.svelte-021e3b8f.js",
+  "/_app/immutable/start-5319214a.js",
+  "/_app/immutable/components/pages/_layout.svelte-f22c26b0.js",
   "/_app/immutable/assets/_layout-4b106cc6.css",
-  "/_app/immutable/components/error.svelte-3e3469a4.js",
+  "/_app/immutable/components/error.svelte-c636acd7.js",
   "/_app/immutable/components/pages/(main)/_layout.svelte-a14cb4a9.js",
   "/_app/immutable/components/pages/(main)/plugins/_layout.svelte-bd4317c7.js",
   "/_app/immutable/components/pages/(main)/server/_server_/_layout.svelte-15ee1cc0.js",
   "/_app/immutable/components/pages/(main)/settings/_layout.svelte-17aae81e.js",
   "/_app/immutable/components/pages/(main)/toolbox/_layout.svelte-f9f22f52.js",
-  "/_app/immutable/components/pages/(main)/_page.svelte-1b997f8b.js",
+  "/_app/immutable/components/pages/(main)/_page.svelte-2f28ee63.js",
   "/_app/immutable/components/pages/(main)/dm/_page.svelte-32b08d5e.js",
   "/_app/immutable/components/pages/(main)/dm/_user_/_page.svelte-77d05129.js",
   "/_app/immutable/components/pages/(main)/plugins/_page.svelte-aa2fb4c1.js",
-  "/_app/immutable/components/pages/(main)/profile/_page.svelte-280f4224.js",
+  "/_app/immutable/components/pages/(main)/profile/_page.svelte-a80f218d.js",
   "/_app/immutable/components/pages/(main)/server/_server_/_page.svelte-ab470da7.js",
   "/_app/immutable/components/pages/(main)/server/_server_/channel/_channel_/_page.svelte-ad45c885.js",
   "/_app/immutable/components/pages/(main)/settings/_page.svelte-cf12e923.js",
@@ -26,27 +26,27 @@ const o = [
   "/_app/immutable/components/pages/(main)/toolbox/_page.svelte-c8f46089.js",
   "/_app/immutable/modules/pages/_layout.ts-d347cb9b.js",
   "/_app/immutable/modules/pages/(main)/_page.ts-a6b9ddf0.js",
-  "/_app/immutable/chunks/singletons-e94ba50f.js",
+  "/_app/immutable/chunks/singletons-215a750a.js",
   "/_app/immutable/chunks/index-5a6d03c0.js",
   "/_app/immutable/chunks/index-c9e3a8b1.js",
   "/_app/immutable/chunks/preload-helper-b21cceae.js",
   "/_app/immutable/chunks/theme-selector-78bffc28.js",
   "/_app/immutable/chunks/messages-002a3112.js",
-  "/_app/immutable/chunks/sweetalert2.all-93c9c707.js",
+  "/_app/immutable/chunks/sweetalert2.all-d762abf5.js",
   "/_app/immutable/chunks/_layout-d02ecff8.js",
   "/_app/immutable/chunks/_page-9468531c.js",
-  "/_app/immutable/chunks/0-f7e3c5b8.js",
-  "/_app/immutable/chunks/1-26aba60c.js",
+  "/_app/immutable/chunks/0-5155fdec.js",
+  "/_app/immutable/chunks/1-3ef08cdf.js",
   "/_app/immutable/chunks/2-e21780bf.js",
   "/_app/immutable/chunks/3-7e240590.js",
   "/_app/immutable/chunks/4-681091c8.js",
   "/_app/immutable/chunks/5-8acdf6f3.js",
   "/_app/immutable/chunks/6-25288720.js",
-  "/_app/immutable/chunks/7-6ef3c89d.js",
+  "/_app/immutable/chunks/7-569d7a6a.js",
   "/_app/immutable/chunks/8-11917eab.js",
   "/_app/immutable/chunks/9-6dbe384e.js",
   "/_app/immutable/chunks/10-68d08d9e.js",
-  "/_app/immutable/chunks/11-44b3e67f.js",
+  "/_app/immutable/chunks/11-fa373596.js",
   "/_app/immutable/chunks/12-c49f11e8.js",
   "/_app/immutable/chunks/13-00f734de.js",
   "/_app/immutable/chunks/14-ae80cb35.js",
@@ -64,7 +64,7 @@ const o = [
   "/manifest.webmanifest"
 ], _ = [
   "/"
-], n = "1669013034759";
+], n = "1669080581756";
 console.log("[ServiceWorker] Init...");
 const r = [...o, ..._, ...u], m = "offline::", c = m + n;
 let i = caches.open(c);
@@ -92,7 +92,7 @@ async function f() {
   }
   console.log(`[ServiceWorker] Added ${e} files to cache`);
 }
-async function h(e) {
+async function d(e) {
   var t;
   let a = await i, s = await a.match(e);
   if (s)
@@ -113,7 +113,7 @@ addEventListener("activate", (e) => {
 addEventListener(
   "fetch",
   async (e) => {
-    new URL(e.request.url).host === l && e.respondWith(h(e.request));
+    new URL(e.request.url).host === l && e.respondWith(d(e.request));
   }
 );
 self.addEventListener("message", (e) => {
