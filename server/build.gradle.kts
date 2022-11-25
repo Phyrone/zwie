@@ -83,7 +83,7 @@ dependencies {
     kapt("org.atteo.classindex:classindex:3.12")
 
 
-    implementation("org.shredzone.acme4j:acme4j-client:2.14")
+    implementation("org.shredzone.acme4j:acme4j-client:2.15")
     implementation("org.shredzone.acme4j:acme4j-utils:2.14")
     implementation("org.shredzone.acme4j:acme4j-smime:2.14")
 
