@@ -1,8 +1,10 @@
 package de.phyrone.zwie.server.database
 
+import com.typesafe.config.Config
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import de.phyrone.zwie.server.misc.InstanceLoader
+import de.phyrone.zwie.server.module.DependsOn
 import de.phyrone.zwie.server.module.DisableTaskRunner
 import de.phyrone.zwie.server.module.EnableTaskRunner
 import de.phyrone.zwie.server.module.Module
@@ -12,20 +14,22 @@ import kotlinx.coroutines.withContext
 import org.atteo.classindex.ClassIndex
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
-import org.jetbrains.exposed.sql.SchemaUtils.withDataBaseLock
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.transactions.experimental.newSuspendedTransaction
 import org.koin.core.KoinApplication
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
+import org.koin.core.qualifier.named
 import org.koin.dsl.bind
 import org.koin.dsl.module
 import java.io.Closeable
+import java.util.concurrent.ScheduledExecutorService
 import javax.sql.DataSource
 
 @Module(
     name = "core::database",
 )
+@DependsOn("core::config")
 class DatabaseModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
 
     private val koinApplication by inject<KoinApplication>()
@@ -40,13 +44,11 @@ class DatabaseModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
 
         logger.atFine().log("SQL Dialect: %s", database.dialect.name)
         newSuspendedTransaction(Dispatchers.IO, database) {
-            withDataBaseLock {
-                SchemaUtils.createMissingTablesAndColumns(
-                    tables = tables,
-                    withLogs = true,
-                    inBatch = true
-                )
-            }
+            SchemaUtils.createMissingTablesAndColumns(
+                tables = tables,
+                withLogs = true,
+                inBatch = true
+            )
         }
     }
 
@@ -58,18 +60,21 @@ class DatabaseModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
     }
 
     companion object {
-        private fun createHikariConfig(): HikariConfig {
-            val config = HikariConfig()
-            config.jdbcUrl = "jdbc:h2:./zwie;AUTO_SERVER=TRUE"
-            config.driverClassName = "org.h2.Driver"
-            config.maximumPoolSize = 10
-            config.minimumIdle = 1
+        private fun createHikariConfig(executor: ScheduledExecutorService, config: Config): HikariConfig {
+            val hikariConfig = HikariConfig()
+            //TODO configurable
+            hikariConfig.jdbcUrl = "jdbc:h2:./zwie;AUTO_SERVER=TRUE"
+            hikariConfig.driverClassName = "org.h2.Driver"
+            hikariConfig.maximumPoolSize = 15
+            hikariConfig.minimumIdle = 1
+            hikariConfig.scheduledExecutor = executor
 
-            return config
+            hikariConfig.validate()
+            return hikariConfig
         }
 
         private val koinModule = module {
-            single { createHikariConfig() }
+            single { createHikariConfig(get(named("core::threadpool::async")), get()) }
             single { HikariDataSource(get()) } bind DataSource::class
             single { Database.connect(get<DataSource>()) }
         }

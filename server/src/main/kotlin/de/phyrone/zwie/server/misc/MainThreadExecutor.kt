@@ -1,18 +1,27 @@
 package de.phyrone.zwie.server.misc
 
+import de.phyrone.zwie.server.event.MainThreadStartedEvent
 import de.phyrone.zwie.server.utils.logger
 import kotlinx.coroutines.MainCoroutineDispatcher
 import kotlinx.coroutines.Runnable
+import org.greenrobot.eventbus.EventBus
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 import java.util.concurrent.Executor
 import java.util.concurrent.LinkedBlockingQueue
 import kotlin.coroutines.CoroutineContext
+import org.greenrobot.eventbus.MainThreadExecutor as EventBusMainThreadExecutor
 
-class MainThreadExecutor : Executor, MainCoroutineDispatcher() {
+class MainThreadExecutor : Executor, MainCoroutineDispatcher(), EventBusMainThreadExecutor, KoinComponent {
     private val queue = LinkedBlockingQueue<Runnable>()
+    private val eventBus by inject<EventBus>()
 
+    /*
     init {
         queue.add(Runnable { logger.atFine().log("Started...") })
     }
+    */
+
 
     override fun execute(command: Runnable) {
         queue.add(command)
@@ -24,16 +33,19 @@ class MainThreadExecutor : Executor, MainCoroutineDispatcher() {
         queue.add(block)
     }
 
-    var thread: Thread? = null
+    var mainThread: Thread? = null
         private set
+
+    override fun isMainThread(): Boolean {
+        return if (mainThread == null) true else Thread.currentThread() == mainThread
+    }
 
     @Synchronized
     fun runLoop(): Nothing {
-        thread = Thread.currentThread()
+        mainThread = Thread.currentThread()
+        eventBus.postSticky(MainThreadStartedEvent)
         while (true) {
             val command = queue.take()
-
-            @Suppress("TOO_GENERIC_EXCEPTION_THROWN") //intended
             try {
                 command.run()
             } catch (e: InterruptedException) {

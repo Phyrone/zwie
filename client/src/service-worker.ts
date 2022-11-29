@@ -6,8 +6,8 @@ const static_files: string[] = [...build, ...prerendered, ...files]
 const offline_cache_name_prefix = 'offline::'
 const offline_cache_name = offline_cache_name_prefix + version
 let offline_cache_promise = caches.open(offline_cache_name);
-const current_host = self.location.host;
-console.debug("[ServiceWorker] host=" + current_host);
+//const current_host = self.location.host;
+//console.debug("[ServiceWorker] host=" + current_host);
 
 async function cleanup_old_caches() {
     try {
@@ -70,7 +70,7 @@ addEventListener('fetch', async (event) => {
 
         let url = new URL(event.request.url)
 
-        if (url.host === current_host) {
+        if (url.host === self.location.host) {
             event.respondWith(offline_first_response(event.request))
         }
 
@@ -79,6 +79,5 @@ addEventListener('fetch', async (event) => {
 self.addEventListener('message', (event) => {
     if (event.data === 'APPLY_UPDATE') {
         self.skipWaiting();
-
     }
 });

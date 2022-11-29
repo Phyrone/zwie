@@ -4,6 +4,10 @@
 
 <div class="h-full w-full flex flex-row">
     <div class="bg-base-300 flex flex-col flex-none align-middle justify-center px-1.5">
+
+        <!-- <div class="flex-none">
+            <a href="/dm/" class="btn btn-circle my-0.5"><i class="fa-solid fa-message"></i></a>
+        </div> -->
         <div class="flex-auto flex flex-col pt-1 overflow-x-auto scrollbar-none overscroll-auto">
             <a href="/server/s1/" class="btn btn-circle my-0.5">S1</a>
             <a href="/server/s2/" class="btn btn-circle my-0.5">S2</a>
@@ -24,7 +28,7 @@
             <a href="/profile" class=" btn btn-primary btn-ghost"><i class="fa-solid fa-user"></i></a>
         </div>
     </div>
-    <div class="min-h-screen flex-auto overflow-auto">
+    <div class="min-h-screen flex-auto overflow-auto flex flex-col">
         <nav class="navbar bg-base-200 shadow-sm sticky top-0 py-0">
             <div class="navbar-start">
                 <a href="/" class="btn btn-ghost">Home</a>

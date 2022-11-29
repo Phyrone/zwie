@@ -44,9 +44,11 @@ dependencies {
 
     implementation("com.fasterxml.jackson.core:jackson-databind:2.14.0")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.0")
-    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.14.0")
-    implementation("org.msgpack:jackson-dataformat-msgpack:0.9.3")
+    //implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.14.0")
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-ion:2.14.0")
+    //implementation("org.msgpack:jackson-dataformat-msgpack:0.9.3")
 
+    implementation("com.esotericsoftware.kryo:kryo5:5.3.0")
 
 
     implementation("org.jetbrains.exposed:exposed-core:0.40.1")
@@ -74,12 +76,13 @@ dependencies {
 
 
     //implementation("com.google.flogger:flogger-log4j-backend:0.7.4")
-    implementation("dev.onvoid.webrtc:webrtc-java:0.6.0")
+    implementation("dev.onvoid.webrtc:webrtc-java:0.7.0")
 
     implementation("org.atteo.classindex:classindex:3.11")
     implementation("io.ktor:ktor-server-core-jvm:2.1.3")
     implementation("io.ktor:ktor-server-websockets-jvm:2.1.3")
     implementation("io.ktor:ktor-server-cors-jvm:2.1.3")
+    implementation("io.ktor:ktor-server-call-logging-jvm:2.1.3")
     kapt("org.atteo.classindex:classindex:3.11")
 
 
@@ -87,10 +90,20 @@ dependencies {
     implementation("org.shredzone.acme4j:acme4j-utils:2.14")
     implementation("org.shredzone.acme4j:acme4j-smime:2.14")
 
+    implementation("org.greenrobot:eventbus-java:3.3.1")
+    kapt("org.greenrobot:eventbus-annotation-processor:3.3.1")
+    kapt("org.greenrobot:eventbus-annotation-processor:3.3.1")
+
     runtimeOnly("com.h2database:h2:2.1.214")
 
     implementation("com.coreoz:wisp:2.3.0")
     implementation("org.apache.commons:commons-lang3:3.12.0")
+
+    //for client
+    implementation("io.rsocket.kotlin:rsocket-ktor-client:0.15.4")
+
+    //for server
+    implementation("io.rsocket.kotlin:rsocket-ktor-server:0.15.4")
 
     //implementation("org.apache.logging.log4j:log4j-core:2.18.0")
     //implementation("org.apache.logging.log4j:log4j-api:2.18.0")
@@ -123,6 +136,21 @@ dependencies {
     implementation("org.fusesource.jansi:jansi:2.4.0")
 
     implementation("com.typesafe:config:1.4.2")
+    implementation("io.github.config4k:config4k:0.5.0")
+
+    //implementation("org.bouncycastle:bcpg-jdk15on:1.70")
+    //implementation("org.bouncycastle:bcprov-jdk15on:1.70")
+    //implementation("name.neuhalfen.projects.crypto.bouncycastle.openpgp:bouncy-gpg:2.3.0")
+
+    implementation("com.github.oshi:oshi-core:6.3.2")
+
+    implementation("org.pgpainless:pgpainless-core:1.4.0-rc1")
+
+
+    implementation("net.folivo:trixnity-core:3.0.0-beta3")
+    implementation("net.folivo:trixnity-client:3.0.0-beta3")
+    implementation("net.folivo:trixnity-olm:3.0.0-beta3")
+    //implementation("org.jobrunr:jobrunr:5.3.1")
 
 
 }
@@ -155,10 +183,15 @@ allOpen {
 application {
     mainClass.set("de.phyrone.zwie.server.main.Main")
 }
-detekt{
+detekt {
     parallel = true
     ignoreFailures = true
-    configurations{
+    configurations {
 
+    }
+}
+kapt{
+    arguments {
+        arg("eventBusIndex", "de.phyrone.zwie.server.gen.EventBusIndex")
     }
 }

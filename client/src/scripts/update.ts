@@ -1,6 +1,7 @@
+import {writable} from "svelte/store";
 import Swal from 'sweetalert2'
 import {sendAlert} from "./messages.js";
-import {browser, dev, prerendering} from '$app/environment';
+import {dev} from '$app/environment';
 import {platform} from "./platform.js";
 
 
@@ -9,15 +10,16 @@ import {platform} from "./platform.js";
 let registration: ServiceWorkerRegistration;
 
 function inform_update_available() {
-    sendAlert({
-        text: "Update installed Click here to Restart",
-        type: "info",
-        showCloseButton: false,
-        onClick: async (alert) => {
-            alert.text.set('Installing Please wait...')
-            await apply_update()
-        }
-    })
+    if (registration.active)
+        sendAlert({
+            text: "Update installed Click here to Restart",
+            type: "info",
+            showCloseButton: false,
+            onClick: async (alert) => {
+                alert.text.set('Installing Please wait...')
+                await apply_update()
+            }
+        })
 }
 
 async function apply_update() {
@@ -41,10 +43,10 @@ async function apply_update_stage_2() {
 export async function init() {
 
     if (platform === "tauri") {
-        console.log("Service Worker not enabled in Tauri")
+        console.log("Service Worker skipped! (Tauri)")
         return
     } else if (dev) {
-        console.log("Service Worker not enabled in dev mode")
+        console.log("Service Worker skipped! (dev mode)")
         return
     }
 
@@ -56,20 +58,28 @@ export async function init() {
                 title: 'Restarting',
                 text: 'Please Wait'
             })
-            Swal.showLoading()
+            Swal.showLoading(null)
             window.location.reload()
         })
         const c_registration = await navigator.serviceWorker.register("/service-worker.js")
         if (c_registration) {
             registration = c_registration;
+
             if (registration.waiting || registration.installing)
                 inform_update_available()
             else
                 registration.addEventListener('updatefound', inform_update_available)
-            //look for updates every 60 minutes (or on reload)
+            //look for updates every 60 minutes
             setInterval(() => c_registration.update(), 1000 * 60 * 60)
         }
     } else {
-        console.log("Service Worker not supported")
+        console.log("Service Worker not supported by browser")
     }
 }
+
+export const installPromt = writable<Event | null>()
+
+window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    installPromt.set(event)
+})

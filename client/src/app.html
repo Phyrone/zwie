@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<!-- <link rel="icon" href="%sveltekit.assets%/favicon.png" /> -->
+<head>
+    <meta charset="utf-8"/>
+    <!-- <link rel="icon" href="%sveltekit.assets%/favicon.png" /> -->
 
-		<meta name="viewport" content="width=device-width" />
-		<link rel="manifest" href="/manifest.webmanifest">
-		%sveltekit.head%
-	</head>
-	<body class="h-screen w-screen overflow-hidden">
-		%sveltekit.body%
-	</body>
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="manifest" href="/manifest.webmanifest">
+    <script>window.global = window;</script>
+    %sveltekit.head%
+</head>
+<body class="h-screen w-screen overflow-hidden overscroll-none">
+    %sveltekit.body%
+</body>
 </html>

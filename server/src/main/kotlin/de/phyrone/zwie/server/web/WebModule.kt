@@ -2,25 +2,36 @@ package de.phyrone.zwie.server.web
 
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigException
+import de.phyrone.zwie.server.misc.RSocketFLoggerFactory
 import de.phyrone.zwie.server.module.DependsOn
 import de.phyrone.zwie.server.module.DisableTaskRunner
 import de.phyrone.zwie.server.module.EnableTaskRunner
 import de.phyrone.zwie.server.module.Module
+import de.phyrone.zwie.server.utils.DEFAULT_PORT
+import de.phyrone.zwie.server.utils.logger
+import de.phyrone.zwie.server.web.WebModule.Companion.setupDefault
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
+import io.ktor.server.plugins.callloging.*
 import io.ktor.server.plugins.cors.routing.*
+import io.ktor.server.request.*
 import io.ktor.server.routing.*
 import io.ktor.server.websocket.*
 import io.ktor.websocket.*
+import io.rsocket.kotlin.ktor.server.RSocketSupport
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.koin.core.KoinApplication
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import org.koin.dsl.bind
 import org.koin.dsl.module
+import org.slf4j.event.*
 import java.time.Duration
-import de.phyrone.zwie.server.utils.DEFAULT_PORT
+import java.util.zip.Deflater
 
 @Module("core::web")
 @DependsOn("core::config")
@@ -31,7 +42,18 @@ class WebModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
     override suspend fun onEnable() {
         koinApplication.modules(koinModule)
         applicationEngine.start(false)
-        applicationEngine.resolvedConnectors()
+        if (logger.atInfo().isEnabled)
+            CoroutineScope(Dispatchers.Main).launch {
+                applicationEngine.resolvedConnectors().forEach { connector ->
+                    logger.atInfo()
+                        .log(
+                            "listen on on %s://%s:%d/",
+                            connector.type.name.lowercase(),
+                            connector.host,
+                            connector.port
+                        )
+                }
+            }
     }
 
     override suspend fun onDisable() {
@@ -40,6 +62,7 @@ class WebModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
     }
 
     companion object {
+        private val logger = logger()
 
         private fun Application.setupDefault() {
             install(WebSockets) {
@@ -47,15 +70,31 @@ class WebModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
                 timeout = Duration.ofSeconds(15)
                 maxFrameSize = Long.MAX_VALUE
                 masking = false
+                extensions {
+                    install(WebSocketDeflateExtension) {
+                        compressionLevel = Deflater.BEST_COMPRESSION
+                        compressIfBiggerThan(1024)
+                    }
+                }
             }
+            install(RSocketSupport) {
+                server {
+                    this.loggerFactory = RSocketFLoggerFactory
+                }
+            }
+
             install(CORS) {
-                allowMethod(HttpMethod.Options)
-                allowMethod(HttpMethod.Put)
-                allowMethod(HttpMethod.Delete)
-                allowMethod(HttpMethod.Patch)
-                allowHeader(HttpHeaders.Authorization)
-                allowHeader("MyCustomHeader")
-                anyHost() // TODO: Don't do this in production if possible. Try to limit it.
+                allowMethod(HttpMethod.Get)
+                allowMethod(HttpMethod.Post)
+                allowSameOrigin = true
+                allowCredentials = true
+                //allowMethod(HttpMethod.Options)
+                //allowMethod(HttpMethod.Put)
+                //allowMethod(HttpMethod.Delete)
+                //allowMethod(HttpMethod.Patch)
+                //allowHeader(HttpHeaders.Authorization)
+                //allowHeader("MyCustomHeader")
+                anyHost()
             }
         }
 
@@ -81,7 +120,7 @@ class WebModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
                             this.port = port
                         }
                     }
-            } catch (e: ConfigException) {
+            } catch (_: ConfigException) {
                 try {
                     val (host, port) = stringToHostPortPair(config.getString("host"))
                     connector {
@@ -111,6 +150,4 @@ class WebModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
             return host to (port ?: DEFAULT_PORT)
         }
     }
-
-
 }

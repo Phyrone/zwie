@@ -28,7 +28,8 @@ const config = {
         enableSourcemap: {
             css: true,
             js: true
-        }
+        },
+        css: "external",
     },
 };
 

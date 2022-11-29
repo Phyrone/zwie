@@ -1,16 +1,21 @@
 <script lang="ts">
-    let promt;
-    window.addEventListener('beforeinstallprompt', (event) => {
-        event.preventDefault();
-        promt = event;
-    })
+    import {installPromt} from "../scripts/update.js";
 
-    function install_clicked() {
-        promt.prompt();
+
+    async function install_clicked() {
+        const {outcome} = await $installPromt!.prompt();
+        if (outcome === 'accepted') {
+            console.log('User accepted the A2HS prompt');
+            installPromt.set(null)
+        } else {
+            console.log('User dismissed the A2HS prompt');
+        }
+
     }
 </script>
 
-{#if promt}
-    <button class="btn btn-info" on:click|stopPropagation|preventDefault={install_clicked}>Install</button>
+{#if $installPromt}
+    <button class="btn btn-info" on:click|stopPropagation|preventDefault={install_clicked}><i
+            class="fa-solid fa-download"></i></button>
 {/if}
 

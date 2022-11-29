@@ -32,6 +32,30 @@ class StartupArguments : Runnable {
         defaultValue = "info"
     )
     lateinit var logLevel: Level
+
+    @Option(
+        names = ["-f", "--features"],
+
+
+        )
+    var features: Array<ServerFeature> = ServerFeature.values()
+
+
+    //for debug purposes
+    @Option(
+        names = ["--no-boot"],
+        hidden = true,
+        echo = true
+    )
+    var noBoot = false
+
+
+    @Option(
+        names = [ALLOW_ROOT_OPTION],
+        hidden = true,
+        echo = true
+    )
+    var allowRoot = false
     override fun run() {
         setLogLevel(LogbackLevel.convertAnSLF4JLevel(logLevel))
         logger.atFine().log("StartArguments: %s", lazyArg {
@@ -40,6 +64,7 @@ class StartupArguments : Runnable {
                 ToStringStyle.JSON_STYLE
             )
         })
+        if (noBoot) return
         BootstrapTask(this).run()
         KoinPlatformTools.defaultContext().get()
             .get<MainThreadExecutor>().runLoop()
@@ -47,5 +72,6 @@ class StartupArguments : Runnable {
 
     companion object {
         private val logger = logger()
+        const val ALLOW_ROOT_OPTION = "--imRunningAsRootItIsEvilAndIKnowWhatImDoing"
     }
 }

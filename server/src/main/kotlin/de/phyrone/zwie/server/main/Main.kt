@@ -24,6 +24,7 @@ fun main(args: Array<String>) {
     }
     val commandline = CommandLine(StartupArguments::class.java)
     commandline.isCaseInsensitiveEnumValuesAllowed = true
+    commandline.colorScheme = CommandLine.Help.defaultColorScheme(CommandLine.Help.Ansi.ON)
 
     @Suppress("SpreadOperator") //unavoidable
     exitProcess(commandline.execute(*args))
