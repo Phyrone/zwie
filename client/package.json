@@ -18,7 +18,7 @@
     "@tailwindcss/forms": "0.5.3",
     "@tailwindcss/line-clamp": "0.4.2",
     "@tauri-apps/cli": "1.2.1",
-    "@types/serviceworker": "0.0.57",
+    "@types/serviceworker": "0.0.58",
     "@types/sockjs-client": "1.5.1",
     "autoprefixer": "10.4.13",
     "daisyui": "2.42.1",
