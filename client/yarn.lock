@@ -52,10 +52,10 @@
   dependencies:
     initials "^3.0.1"
 
-"@dicebear/avatars@4.10.5":
-  version "4.10.5"
-  resolved "https://registry.yarnpkg.com/@dicebear/avatars/-/avatars-4.10.5.tgz#156ce34a7d23235e81fe16bb59d3d14510598f9c"
-  integrity sha512-vK1z5rtBaHs+hHW7UkKxx2yPA1ITIfdYQHwdtnXkSiXshRtXeL7JhSsMozU8GC7pT94WppIY8U9atIltQa0NUQ==
+"@dicebear/avatars@4.10.6":
+  version "4.10.6"
+  resolved "https://registry.yarnpkg.com/@dicebear/avatars/-/avatars-4.10.6.tgz#0bd2f97abf669134e999d9d75bafc119a468dca5"
+  integrity sha512-aNV2lcJag+kg3qaL2xUwGOaR5jWLanp1mgZAlOF9/pghDCH2P+ZcktbEny7TyWvaPwqss6Z4z1cgNcAKO4DlPQ==
   dependencies:
     "@types/json-schema" "^7.0.7"
     pure-color "^1.3.0"
