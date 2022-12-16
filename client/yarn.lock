@@ -40,10 +40,10 @@
   resolved "https://registry.yarnpkg.com/@dicebear/adventurer/-/adventurer-4.10.7.tgz#8edcaf792e690498e97d1944ec8438c8be260254"
   integrity sha512-W1QfPWbvQN8oECUYsvsCsh/YmpEBusnzDtNvprRbCAEBCWRam7PjPz9Is4rV1IqdvP/w6ARrUDDvvLpLfgT8iw==
 
-"@dicebear/avatars-identicon-sprites@4.10.6":
-  version "4.10.6"
-  resolved "https://registry.yarnpkg.com/@dicebear/avatars-identicon-sprites/-/avatars-identicon-sprites-4.10.6.tgz#50d9a68ecc78db23691056305769fa6242f7dd64"
-  integrity sha512-ECapYO/GYCiNRSPbzP+t6dPu1JqtDfeb8zoHYT8kvNxGw7mENpF+O/xb86/LpV4sOygMHU/iCluIhv0IELzoDQ==
+"@dicebear/avatars-identicon-sprites@4.10.7":
+  version "4.10.7"
+  resolved "https://registry.yarnpkg.com/@dicebear/avatars-identicon-sprites/-/avatars-identicon-sprites-4.10.7.tgz#547941cedc6eebad8a5c9a2efb619c0ed6ba4208"
+  integrity sha512-C5DRP/GV2JsBB2PS1wzqUM5qc6YVgUWeRGxiB/2mtyaLRps01cEhMB5gtwBWGYJHWp8TyG/XoXvD/RFrgJeXrA==
 
 "@dicebear/avatars-initials-sprites@4.10.6":
   version "4.10.6"
