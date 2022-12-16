@@ -35,10 +35,10 @@
   resolved "https://registry.yarnpkg.com/@cloudflare/workers-types/-/workers-types-3.18.0.tgz#b4177cbe9306d7df4654db594d6e77c036341d2e"
   integrity sha512-ehKOJVLMeR+tZkYhWEaLYQxl0TaIZu/kE86HF3/RidR8Xv5LuQxpbh+XXAoKVqsaphWLhIgBhgnlN5HGdheXSQ==
 
-"@dicebear/adventurer@4.10.6":
-  version "4.10.6"
-  resolved "https://registry.yarnpkg.com/@dicebear/adventurer/-/adventurer-4.10.6.tgz#ad16acd4cfc9d2450b3a443074536683874a915f"
-  integrity sha512-bZw45wZnB3pSkPAducuvViniX4Eoei133951LSMsDOKUb3L83nsiormae+v05rwPd/dH4VrtKHpa7JNQaetdFw==
+"@dicebear/adventurer@4.10.7":
+  version "4.10.7"
+  resolved "https://registry.yarnpkg.com/@dicebear/adventurer/-/adventurer-4.10.7.tgz#8edcaf792e690498e97d1944ec8438c8be260254"
+  integrity sha512-W1QfPWbvQN8oECUYsvsCsh/YmpEBusnzDtNvprRbCAEBCWRam7PjPz9Is4rV1IqdvP/w6ARrUDDvvLpLfgT8iw==
 
 "@dicebear/avatars-identicon-sprites@4.10.6":
   version "4.10.6"
