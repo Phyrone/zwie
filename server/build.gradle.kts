@@ -1,17 +1,18 @@
 plugins {
-
-    application
+    idea
     kotlin("jvm")
     kotlin("kapt")
     //kotlin("plugin.spring")
     //kotlin("plugin.jpa")
     kotlin("plugin.allopen")
     id("com.github.johnrengelman.shadow")
-    id("io.gitlab.arturbosch.detekt")
+    //id("io.gitlab.arturbosch.detekt")
+    //id("com.google.protobuf")
     //id("org.springframework.boot") version "2.7.5"
     //id("io.spring.dependency-management") version "1.1.0"
 }
 
+version = parent?.version ?: error("No parent project found")
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 configurations {
@@ -22,6 +23,7 @@ configurations {
 
 repositories {
     mavenCentral()
+    maven("https://jitpack.io")
     maven("https://libraries.minecraft.net")
 }
 
@@ -36,6 +38,9 @@ dependencies {
     implementation("io.vertx:vertx-service-proxy:4.3.4")
      */
 
+    implementation(project(":shared:common"))
+    implementation(project(":shared:const"))
+    implementation(project(":shared:protocol"))
 
     implementation("io.ktor:ktor-server-core:2.1.3")
     implementation("io.ktor:ktor-server-netty:2.1.3")
@@ -60,12 +65,13 @@ dependencies {
 
     implementation("com.zaxxer:HikariCP:5.0.1")
     //implementation("org.greenrobot:eventbus-java:3.3.1")
-    implementation("com.github.ben-manes.caffeine:caffeine:3.1.1")
+    implementation("com.github.ben-manes.caffeine:caffeine:3.1.2")
+    implementation("com.sksamuel.aedile:aedile-core:1.1.2")
 
-    implementation("ch.qos.logback:logback-classic:1.4.4")
+    implementation("ch.qos.logback:logback-classic:1.4.5")
 
     implementation("info.picocli:picocli:4.7.0")
-    implementation("info.picocli:picocli-shell-jline3:4.7.0")
+    //implementation("info.picocli:picocli-shell-jline3:4.7.0")
     implementation("com.google.guava:guava:31.1-jre")
     //implementation("name.neuhalfen.projects.crypto.bouncycastle.openpgp:bouncy-gpg:2.3.0")
 
@@ -78,25 +84,25 @@ dependencies {
     //implementation("com.google.flogger:flogger-log4j-backend:0.7.4")
     implementation("dev.onvoid.webrtc:webrtc-java:0.7.0")
 
-    implementation("org.atteo.classindex:classindex:3.11")
+    implementation("org.atteo.classindex:classindex:3.13")
     implementation("io.ktor:ktor-server-core-jvm:2.1.3")
     implementation("io.ktor:ktor-server-websockets-jvm:2.1.3")
     implementation("io.ktor:ktor-server-cors-jvm:2.1.3")
     implementation("io.ktor:ktor-server-call-logging-jvm:2.1.3")
-    kapt("org.atteo.classindex:classindex:3.11")
+    implementation("io.ktor:ktor-server-auth:2.1.3")
+    kapt("org.atteo.classindex:classindex:3.13")
 
 
-    implementation("org.shredzone.acme4j:acme4j-client:2.14")
-    implementation("org.shredzone.acme4j:acme4j-utils:2.14")
-    implementation("org.shredzone.acme4j:acme4j-smime:2.14")
+    //implementation("org.shredzone.acme4j:acme4j-client:2.14")
+    //implementation("org.shredzone.acme4j:acme4j-utils:2.15")
+    //implementation("org.shredzone.acme4j:acme4j-smime:2.15")
 
     implementation("org.greenrobot:eventbus-java:3.3.1")
-    kapt("org.greenrobot:eventbus-annotation-processor:3.3.1")
     kapt("org.greenrobot:eventbus-annotation-processor:3.3.1")
 
     runtimeOnly("com.h2database:h2:2.1.214")
 
-    implementation("com.coreoz:wisp:2.3.0")
+    //implementation("com.coreoz:wisp:2.3.0")
     implementation("org.apache.commons:commons-lang3:3.12.0")
 
     //for client
@@ -129,6 +135,8 @@ dependencies {
     testImplementation("io.projectreactor:reactor-test")
 
      */
+    implementation("de.vandermeer:asciitable:0.3.2")
+    //implementation("de.vandermeer:ascii-utf-themes:0.0.1")
 
     implementation("com.mojang:brigadier:1.0.18")
     implementation("org.jline:jline:3.21.0")
@@ -147,11 +155,17 @@ dependencies {
     implementation("org.pgpainless:pgpainless-core:1.4.0-rc1")
 
 
-    implementation("net.folivo:trixnity-core:3.0.0-beta3")
-    implementation("net.folivo:trixnity-client:3.0.0-beta3")
-    implementation("net.folivo:trixnity-olm:3.0.0-beta3")
+    //implementation("net.folivo:trixnity-core:3.0.0")
+    //implementation("net.folivo:trixnity-client:3.0.0-beta3")
+    //implementation("net.folivo:trixnity-olm:3.0.0")
     //implementation("org.jobrunr:jobrunr:5.3.1")
 
+
+    //implementation("io.grpc:grpc-kotlin-stub:1.3.0")
+    //implementation("io.grpc:grpc-protobuf:1.51.0")
+    //implementation("com.google.protobuf:protobuf-kotlin:3.21.12")
+
+    implementation("com.github.Phyrone:brigardier-kotlin:1.4.2")
 
 }
 tasks {
@@ -163,26 +177,38 @@ tasks {
     }
 
     jar {
-        archiveAppendix.set("no-dependencies")
+        enabled = false
     }
 
+    build{
+        finalizedBy("shadowJar")
+    }
     shadowJar {
+        enabled = true
         mergeServiceFiles()
         mergeServiceFiles("/META-INF/annotations")
 
-        archiveAppendix.set("")
+        archiveClassifier.set("")
+        manifest {
+            attributes(
+                    "Main-Class" to "de.phyrone.zwie.server.main.Main",
+                    "APP-Author" to "Phyrone <phyrone@phyrone.de>",
+                    "APP-Version" to project.version
+            )
+        }
     }
 
-
 }
-
+sourceSets {
+    main {
+        //proto { srcDir(parent!!.projectDir.resolve("proto")) }
+    }
+}
 allOpen {
     //annotation("javax.persistence.Entity")
 }
 
-application {
-    mainClass.set("de.phyrone.zwie.server.main.Main")
-}
+/*
 detekt {
     parallel = true
     ignoreFailures = true
@@ -190,8 +216,38 @@ detekt {
 
     }
 }
-kapt{
+
+ */
+kapt {
     arguments {
         arg("eventBusIndex", "de.phyrone.zwie.server.gen.EventBusIndex")
     }
 }
+/*
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.21.10"
+    }
+
+    plugins {
+        create("grpc") {
+            artifact = "io.grpc:protoc-gen-grpc-java:1.42.1"
+        }
+        create("grpckt") {
+            artifact = "io.grpc:protoc-gen-grpc-kotlin:1.3.0:jdk8@jar"
+        }
+    }
+    generateProtoTasks {
+        all().forEach {
+            it.plugins {
+                register("grpc")
+                register("grpckt")
+            }
+            it.builtins {
+                register("kotlin")
+            }
+        }
+    }
+
+}
+ */

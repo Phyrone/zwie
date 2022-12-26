@@ -93,9 +93,11 @@ fun logger(name: String): FluentLogger = floggerConsturctor.newInstance(Platform
 @OptIn(ExperimentalContracts::class)
 suspend inline fun <reified T, reified K : SuspendClosable> K.use(block: (K) -> T): T {
     contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
+    val res: T
     try {
-        return block(this)
+        res = block(this)
     } finally {
         close()
     }
+    return res
 }

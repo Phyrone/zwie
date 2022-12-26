@@ -2,8 +2,8 @@
     import {fly} from 'svelte/transition';
 
     import type {Writable} from "svelte/store";
-    import {DispatchedAlert} from "../../scripts/messages.js";
-    import type {AlertType} from "../../scripts/messages.js";
+    import {DispatchedAlert} from "../../scripts/minor/alerts.js";
+    import type {AlertType} from "../../scripts/minor/alerts.js";
 
     export let dispatchedAlert: DispatchedAlert
 

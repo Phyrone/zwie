@@ -1,5 +1,6 @@
 package de.phyrone.zwie.server.database.entity
 
+import de.phyrone.zwie.server.database.tables.ChannelChatMessagesTable
 import de.phyrone.zwie.server.database.tables.ChannelsTable
 import org.jetbrains.exposed.dao.LongEntity
 import org.jetbrains.exposed.dao.LongEntityClass
@@ -14,6 +15,8 @@ class ChannelEntity(id: EntityID<Long>) : LongEntity(id) {
     var owner by UserEntity optionalReferencedOn ChannelsTable.owner
 
     val children by ChannelEntity optionalReferrersOn ChannelsTable.parent
+
+    val messages by ChannelChatMessageEntity referrersOn ChannelChatMessagesTable.channel
 
     companion object : LongEntityClass<ChannelEntity>(ChannelsTable)
 }

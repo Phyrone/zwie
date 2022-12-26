@@ -49,9 +49,9 @@ class SharedMutex {
         fun unlock()
     }
 
-    @OptIn(ExperimentalContracts::class)
+    //@OptIn(ExperimentalContracts::class)
     suspend inline fun <T> withExclusive(block: () -> T): T {
-        contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
+        //contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
         val lock = acquireExclusive()
         try {
             return block()
@@ -60,9 +60,9 @@ class SharedMutex {
         }
     }
 
-    @OptIn(ExperimentalContracts::class)
+    //@OptIn(ExperimentalContracts::class)
     suspend inline fun <T> withShare(block: () -> T): T {
-        contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
+        //contract { callsInPlace(block, InvocationKind.EXACTLY_ONCE) }
         val lock = acquireShare()
         try {
             return block()

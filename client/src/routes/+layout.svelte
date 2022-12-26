@@ -1,9 +1,10 @@
 <script lang="ts">
     import "../styles/main.sass";
+    import "../scripts/minor/compat.js"
     import {onMount} from "svelte";
     import AlertsContainer from "../components/alert/AlertsContainer.svelte";
-    import {init as init_updater} from "../scripts/update.js";
-    import "../scripts/theme-selector.js";
+    import {init as init_updater} from "../scripts/minor/update.js";
+    import "../scripts/minor/theme-selector.js";
     import "../scripts/profile.js"
     import * as localforage from "localforage";
 

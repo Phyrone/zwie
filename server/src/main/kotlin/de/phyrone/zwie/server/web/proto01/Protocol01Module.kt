@@ -3,52 +3,43 @@ package de.phyrone.zwie.server.web.proto01
 import de.phyrone.zwie.server.data.proto01.packets.PacketPing
 import de.phyrone.zwie.server.data.proto01.packets.PacketPong
 import de.phyrone.zwie.server.database.entity.UserEntity
-import de.phyrone.zwie.server.event.UserSessionCreatedEven
+import de.phyrone.zwie.server.event.Proto01SessionSetupEvent
 import de.phyrone.zwie.server.module.CommonModule
 import de.phyrone.zwie.server.module.DependsOn
-import de.phyrone.zwie.server.module.EnableTaskRunner
 import de.phyrone.zwie.server.module.Module
+import de.phyrone.zwie.server.user.ZUser
+import de.phyrone.zwie.server.utils.logger
 import io.ktor.server.application.*
 import io.ktor.server.routing.*
 import io.ktor.server.websocket.*
 import io.ktor.websocket.*
-import io.rsocket.kotlin.ConnectionAcceptor
-import io.rsocket.kotlin.RSocket
 import io.rsocket.kotlin.RSocketRequestHandler
 import io.rsocket.kotlin.ktor.server.rSocket
 import io.rsocket.kotlin.payload.buildPayload
 import io.rsocket.kotlin.payload.data
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancel
-import kotlinx.coroutines.cancelAndJoin
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.lastOrNull
 import kotlinx.coroutines.flow.mapNotNull
-import kotlinx.coroutines.isActive
-import kotlinx.coroutines.joinAll
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withTimeoutOrNull
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import java.lang.IllegalStateException
+import java.nio.ByteBuffer
 import kotlin.system.measureNanoTime
 import kotlin.time.Duration.Companion.nanoseconds
 import kotlin.time.Duration.Companion.seconds
 
-@Module("core::web::protocoll01")
+@Module("core::web::protocol01")
 @DependsOn("core::web")
-@DependsOn("core::database")
 @DependsOn("core::user")
 @DependsOn("core::components")
+@DependsOn("core::database")
 class Protocol01Module : CommonModule, KoinComponent {
 
 
@@ -61,7 +52,7 @@ class Protocol01Module : CommonModule, KoinComponent {
             route("/_zwie/01/") {
                 webSocket("/socket") {
                     val socket = Protocol01Socket(this, call.request.queryParameters.contains("text"))
-                    val user: UserEntity
+                    val user: ZUser
                     try {
                         user = socket.handshake()
                     } catch (e: IllegalStateException) {
@@ -93,44 +84,16 @@ class Protocol01Module : CommonModule, KoinComponent {
         eventBus.unregister(this)
     }
 
-    @Subscribe
+    @Subscribe(threadMode = ThreadMode.BACKGROUND)
     @Suppress("unused")
-    fun UserSessionCreatedEven.onSessionCreatedDefault() {
+    fun Proto01SessionSetupEvent.onSessionCreatedDefault() {
 
         runTask {
-            val pongFlow = receiveFlow.asSharedFlow().mapNotNull { it as? PacketPong }
-            val pingFlow = receiveFlow.asSharedFlow().mapNotNull { it as? PacketPing }
-            launch {
-                var sequence = 0L
-                while (true) {
-                    val delay = withTimeoutOrNull(10.seconds) {
-                        measureNanoTime {
-                            sendFlow.emit(PacketPing(sequence))
-                            pongFlow.first { it.sequence == sequence }
-                        }
-                    }
-                    //TODO remove debug message
-                    println(delay?.nanoseconds ?: "timeout")
-                    //TODO calucate rtt
-                    delay(5.seconds)
-                    sequence = sequence.inc() % Int.MAX_VALUE
-                }
-            }
 
-            launch {
-                pingFlow.collect { sendFlow.emit(PacketPong(it.sequence)) }
-            }
-        }
-        runTask {
-            try {
-                while (true) {
-                    session.user.updateLastSeen()
-                    delay(30.seconds)
-                }
-            } finally {
-                session.user.updateLastSeen()
-            }
         }
     }
 
+    companion object {
+        private val logger = logger()
+    }
 }

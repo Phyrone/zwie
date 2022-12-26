@@ -8,6 +8,6 @@ import java.util.UUID
 @JsonTypeName("server/channel/chat/newmessage")
 data class PacketServerChannelChatMessage(
     val sender: UUID,
-    val channel: UUID,
+    val channel: Long,
     val components: ChatComponent,
 ) : PacketServer

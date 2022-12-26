@@ -16,6 +16,9 @@ import java.io.File
 @Command(
     name = "",
     mixinStandardHelpOptions = true,
+    subcommands = [
+
+    ]
 )
 class StartupArguments : Runnable {
 

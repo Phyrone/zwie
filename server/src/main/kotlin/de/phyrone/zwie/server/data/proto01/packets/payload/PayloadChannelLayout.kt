@@ -4,7 +4,7 @@ import de.phyrone.zwie.server.utils.JsonComponent
 import java.util.*
 
 data class PayloadChannelLayout(
-    val id: UUID,
+    val id: Long,
     val name: String,
     val description: String,
     val order: Int,

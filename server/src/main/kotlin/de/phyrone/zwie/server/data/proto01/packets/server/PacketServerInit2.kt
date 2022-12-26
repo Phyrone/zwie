@@ -5,5 +5,5 @@ import de.phyrone.zwie.server.data.proto01.packets.PacketServer
 
 @JsonTypeName("server/init/init2")
 data class PacketServerInit2(
-    val challenge: String,
+    val challenge: ByteArray,
 ) : PacketServer

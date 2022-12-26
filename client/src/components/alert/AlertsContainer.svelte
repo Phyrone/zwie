@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {alerts} from "../../scripts/messages.js";
+    import {alerts} from "../../scripts/minor/alerts.js";
     import Alert from "./Alert.svelte";
 
 </script>

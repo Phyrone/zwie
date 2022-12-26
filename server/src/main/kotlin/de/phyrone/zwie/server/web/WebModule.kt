@@ -12,6 +12,7 @@ import de.phyrone.zwie.server.utils.logger
 import de.phyrone.zwie.server.web.WebModule.Companion.setupDefault
 import io.ktor.http.*
 import io.ktor.server.application.*
+import io.ktor.server.auth.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import io.ktor.server.plugins.callloging.*
@@ -82,6 +83,7 @@ class WebModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
                     this.loggerFactory = RSocketFLoggerFactory
                 }
             }
+            install(Authentication)
 
             install(CORS) {
                 allowMethod(HttpMethod.Get)

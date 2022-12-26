@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {installPromt} from "../scripts/update.js";
+    import {installPromt} from "../scripts/minor/update.js";
 
 
     async function install_clicked() {

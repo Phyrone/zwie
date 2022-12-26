@@ -4,9 +4,6 @@ import {writable} from "svelte/store";
 import {generateKey, createMessage, sign, readPrivateKey, createCleartextMessage} from 'openpgp/lightweight';
 
 
-
-
-
 export const activeProfile = writable<ProfileData | null>(null);
 
 const profile_store_key: string = "zwie::pofile";
@@ -24,7 +21,7 @@ const profile_store_key: string = "zwie::pofile";
     }
 })();
 
-export async function createProfileData(name: string): Promise<ProfileData> {
+export async function createDefaultProfileData(name: string): Promise<ProfileData> {
     let {publicKey, privateKey} = await generateKey({
         curve: "curve25519",
         type: "ecc",
@@ -39,6 +36,16 @@ export async function createProfileData(name: string): Promise<ProfileData> {
     }
 }
 
+async function saveProfileData(data: ProfileData) {
+    let settings = await localforage.getItem<ProfileSettingsData>(profile_store_key)
+    if (settings) {
+        settings.availableProfiles.push(data)
+        await localforage.setItem<ProfileSettingsData>(profile_store_key, settings)
+    } else {
+        throw new Error("Profile settings not found")
+    }
+}
+
 export type ProfileSettingsData = {
     readonly currentProfile?: ProfileData,
     readonly  availableProfiles: ProfileData[]
@@ -46,6 +53,6 @@ export type ProfileSettingsData = {
 
 export type ProfileData = {
     readonly name: string,
-    readonly  publicKey: string,
-    readonly   privateKey: string,
+    readonly publicKey: string,
+    readonly privateKey: string,
 }

@@ -9,8 +9,9 @@ import java.time.LocalDateTime
 @IndexTable
 object BansTable : LongIdTable("ban") {
 
-    val user = reference("user", UsersTable, ReferenceOption.RESTRICT, ReferenceOption.CASCADE).nullable().default(null)
-
+    //reference("user", UsersTable, onDelete = ReferenceOption.RESTRICT, onUpdate = ReferenceOption.CASCADE, fkName = "FK_BAN_USER").nullable().default(null)
+    //no reference since users dont need to be registered to be banned
+    val user = varchar("user", 128).nullable()
 
     val ip4Address = binary("ip4_address", 4).nullable().default(null)
     val ip4Subnet = byte("ip4_subnet").nullable().default(null)

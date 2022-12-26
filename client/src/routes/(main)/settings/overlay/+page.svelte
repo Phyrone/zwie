@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {themes, theme} from "../../../../scripts/theme-selector.js";
+    import {themes, theme} from "../../../../scripts/minor/theme-selector.js";
 </script>
 <div>
     <span>Theme</span>

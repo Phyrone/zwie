@@ -7,6 +7,6 @@ import java.util.UUID
 
 @JsonTypeName("client/channel/chat/send")
 class PacketClientChannelChatMessage(
-    val channel: UUID,
+    val channel: Long,
     val components: ChatComponent,
 ) : PacketClient

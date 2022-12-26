@@ -3,6 +3,7 @@ package de.phyrone.zwie.server.command
 import com.mojang.brigadier.arguments.IntegerArgumentType
 import com.mojang.brigadier.builder.LiteralArgumentBuilder
 import com.mojang.brigadier.builder.RequiredArgumentBuilder
+import de.phyrone.zwie.server.module.DependsOn
 import de.phyrone.zwie.server.module.DisableTaskRunner
 import de.phyrone.zwie.server.module.EnableTaskRunner
 import de.phyrone.zwie.server.module.Module
@@ -14,21 +15,20 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.jline.reader.LineReader
 import org.jline.reader.impl.LineReaderImpl
+import org.jline.terminal.Terminal
 import org.jline.terminal.impl.DumbTerminal
 import org.koin.core.KoinApplication
 import org.koin.core.component.KoinComponent
+import org.koin.core.component.get
 import org.koin.core.component.inject
 import org.koin.dsl.module
 import kotlin.system.exitProcess
 
-@Module(
-    name = "core::commands"
-)
+@Module("core::commands")
 class ComandsCoreModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
 
 
     private val commandDispatcher by inject<ZwieCommandDispatcher>()
-    private val lineReader by inject<LineReader>()
     private val koinApplication by inject<KoinApplication>()
 
     override suspend fun onEnable() {
@@ -36,18 +36,21 @@ class ComandsCoreModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
 
         commandDispatcher.register(
             LiteralArgumentBuilder.literal<CommandContext>("help").executes { command ->
-                val usage = commandDispatcher.getSmartUsage(command.rootNode, command.source)
-                println("help:\n" + usage.map { (_, suggestion) -> " - $suggestion" }.joinToString("\n"))
+                val usage = commandDispatcher.getAllUsage(command.rootNode, command.source, true)
+                println("help:\n" + usage.joinToString("\n") { suggestion -> " - $suggestion" })//TODO replace with sender message
                 return@executes 0
             }
         )
 
         commandDispatcher.register(
             LiteralArgumentBuilder.literal<CommandContext?>("clear").executes { command ->
-                (lineReader as? LineReaderImpl)?.clearScreen()
-                lineReader.terminal.flush()
+                getKoin().getOrNull<LineReader>()?.also { lineReader ->
+                    lineReader.terminal.flush()
+                    (lineReader as? LineReaderImpl)?.clearScreen()
+                    lineReader.terminal.flush()
+                }
                 return@executes 0
-            }.requires { lineReader.terminal !is DumbTerminal && it is TerminalCommandContext })
+            }.requires { getKoin().getOrNull<Terminal>() !is DumbTerminal && it is TerminalCommandContext })
 
         commandDispatcher.register(LiteralArgumentBuilder.literal<CommandContext?>("stop").executes { command ->
             exitProcess(0)
@@ -64,6 +67,7 @@ class ComandsCoreModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
                     exitProcess(command.getArgument("exit code", Int::class.java))
                 }
             ))
+
         GlobalScope.launch(Dispatchers.Main) {
             if (logger.atFiner().isEnabled)
                 commandDispatcher.root.children.forEach { commandNode ->
