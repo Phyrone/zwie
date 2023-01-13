@@ -22,7 +22,7 @@
     "@types/sockjs-client": "1.5.1",
     "autoprefixer": "10.4.13",
     "daisyui": "2.46.1",
-    "pwa-asset-generator": "6.2.0",
+    "pwa-asset-generator": "6.2.1",
     "sass": "1.57.1",
     "svelte": "3.55.1",
     "svelte-check": "3.0.2",
