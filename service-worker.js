@@ -1,70 +1,70 @@
 const l = [
   "/_app/immutable/assets/fa-solid-900-8f06540f.woff2",
   "/_app/immutable/assets/fa-solid-900-e4f6a7e9.ttf",
-  "/_app/immutable/assets/_page-91244bf2.css",
   "/_app/immutable/assets/_layout-8506a42f.css",
-  "/_app/immutable/chunks/singletons-89644f2f.js",
-  "/_app/immutable/start-5f753c7f.js",
-  "/_app/immutable/chunks/index-0c7a8807.js",
-  "/_app/immutable/chunks/index-12acb24b.js",
-  "/_app/immutable/chunks/preload-helper-ff6eb6cb.js",
-  "/_app/immutable/chunks/theme-selector-93e4039c.js",
+  "/_app/immutable/assets/_page-91244bf2.css",
   "/_app/immutable/chunks/messages-ecd8510d.js",
-  "/_app/immutable/chunks/2-1393b31d.js",
+  "/_app/immutable/chunks/singletons-93332dc4.js",
+  "/_app/immutable/chunks/preload-helper-ff6eb6cb.js",
+  "/_app/immutable/chunks/index-12acb24b.js",
+  "/_app/immutable/chunks/theme-selector-93e4039c.js",
   "/_app/immutable/chunks/3-9d2e2df7.js",
+  "/_app/immutable/chunks/4-62a7dc3e.js",
   "/_app/immutable/chunks/5-bceb27d7.js",
   "/_app/immutable/chunks/6-653e8f0d.js",
   "/_app/immutable/chunks/7-06c85e04.js",
   "/_app/immutable/chunks/8-6ed74041.js",
   "/_app/immutable/chunks/9-c3bc0822.js",
   "/_app/immutable/chunks/10-067026db.js",
-  "/_app/immutable/chunks/1-6185a07e.js",
+  "/_app/immutable/chunks/11-307680ae.js",
   "/_app/immutable/chunks/12-567fe066.js",
   "/_app/immutable/chunks/13-608cb110.js",
   "/_app/immutable/chunks/14-5decf599.js",
   "/_app/immutable/chunks/15-5046990b.js",
-  "/_app/immutable/chunks/16-d25917ea.js",
   "/_app/immutable/chunks/17-bd7ce7ea.js",
   "/_app/immutable/chunks/18-747f5bfc.js",
-  "/_app/immutable/chunks/19-3ed5374a.js",
   "/_app/immutable/modules/pages/_layout.ts-ee6743a5.js",
   "/_app/immutable/modules/pages/(main)/_page.ts-94291217.js",
-  "/_app/immutable/components/pages/(main)/toolbox/_layout.svelte-0d31cf9e.js",
-  "/_app/immutable/chunks/4-62a7dc3e.js",
-  "/_app/immutable/components/pages/(main)/_page.svelte-44b2ca75.js",
-  "/_app/immutable/chunks/11-307680ae.js",
-  "/_app/immutable/chunks/NameChange-7f024b4d.js",
   "/_app/immutable/chunks/AvatarSelectPopUp-cdf1e1a8.js",
+  "/_app/immutable/components/pages/_layout.svelte-55fc1d6c.js",
+  "/_app/immutable/chunks/16-d25917ea.js",
+  "/_app/immutable/chunks/19-3ed5374a.js",
+  "/_app/immutable/chunks/E-Mail_Change-630025f8.js",
+  "/_app/immutable/chunks/NameChange-7f024b4d.js",
+  "/_app/immutable/chunks/2-1393b31d.js",
   "/_app/immutable/components/pages/(main)/settings/audio/_page.svelte-d693a48f.js",
-  "/_app/immutable/components/pages/(main)/dm/_page.svelte-f9044c4d.js",
   "/_app/immutable/components/pages/(main)/dm/_user_/_page.svelte-be06b136.js",
   "/_app/immutable/components/pages/(main)/plugins/_page.svelte-fc406397.js",
-  "/_app/immutable/components/error.svelte-6542d753.js",
   "/_app/immutable/components/pages/(main)/profile/_page.svelte-6b045904.js",
   "/_app/immutable/components/pages/(main)/server/_server_/_page.svelte-58db60e1.js",
   "/_app/immutable/components/pages/(main)/server/_server_/channel/_channel_/_page.svelte-b1cacfca.js",
   "/_app/immutable/components/pages/(main)/settings/_page.svelte-fc406397.js",
   "/_app/immutable/components/pages/(main)/settings/language/_page.svelte-3e967063.js",
-  "/_app/immutable/chunks/_page-da46b06b.js",
+  "/_app/immutable/components/pages/(main)/settings/video/_page.svelte-44a521ad.js",
+  "/_app/immutable/chunks/index-0c7a8807.js",
+  "/_app/immutable/chunks/1-0172a08e.js",
+  "/_app/immutable/components/pages/(main)/dm/_page.svelte-f9044c4d.js",
+  "/_app/immutable/chunks/0-c8681d03.js",
+  "/_app/immutable/components/error.svelte-f2785a2b.js",
+  "/_app/immutable/components/pages/(main)/toolbox/_page.svelte-fc406397.js",
+  "/_app/immutable/chunks/_layout-b00c1660.js",
+  "/_app/immutable/components/pages/(main)/settings/overlay/_page.svelte-634afa17.js",
   "/_app/immutable/components/pages/(main)/_layout.svelte-575cff42.js",
   "/_app/immutable/components/pages/(main)/plugins/_layout.svelte-b0d332c4.js",
-  "/_app/immutable/components/pages/(main)/server/_server_/_layout.svelte-fe7239a8.js",
-  "/_app/immutable/chunks/0-c8681d03.js",
-  "/_app/immutable/chunks/_layout-b00c1660.js",
+  "/_app/immutable/chunks/sweetalert2.all-21fb228e.js",
   "/_app/immutable/components/pages/(main)/settings/_layout.svelte-dc5ac2f1.js",
-  "/_app/immutable/chunks/E-Mail_Change-630025f8.js",
-  "/_app/immutable/components/pages/_layout.svelte-55fc1d6c.js",
-  "/_app/immutable/components/pages/(main)/toolbox/_page.svelte-fc406397.js",
-  "/_app/immutable/components/pages/(main)/settings/overlay/_page.svelte-634afa17.js",
-  "/_app/immutable/components/pages/(main)/settings/video/_page.svelte-44a521ad.js",
-  "/_app/immutable/chunks/sweetalert2.all-21fb228e.js"
+  "/_app/immutable/components/pages/(main)/toolbox/_layout.svelte-0d31cf9e.js",
+  "/_app/immutable/components/pages/(main)/_page.svelte-44b2ca75.js",
+  "/_app/immutable/chunks/_page-da46b06b.js",
+  "/_app/immutable/start-163df7c9.js",
+  "/_app/immutable/components/pages/(main)/server/_server_/_layout.svelte-fe7239a8.js"
 ], o = [
   "/app-icon-dev-rounded.png",
   "/favicon.ico",
   "/manifest.webmanifest"
 ], u = [
   "/"
-], p = "1673572494595";
+], p = "1673661574912";
 console.log("[ServiceWorker] Init...");
 const _ = [...l, ...u, ...o], n = "offline::", m = n + p;
 let c = caches.open(m);
@@ -92,7 +92,7 @@ async function b() {
   }
   console.log(`[ServiceWorker] Added ${e} files to cache`);
 }
-async function f(e) {
+async function d(e) {
   let a = await c, s = await a.match(e);
   if (s)
     return s;
@@ -112,7 +112,7 @@ addEventListener("activate", (e) => {
 addEventListener(
   "fetch",
   async (e) => {
-    new URL(e.request.url).host === i && e.respondWith(f(e.request));
+    new URL(e.request.url).host === i && e.respondWith(d(e.request));
   }
 );
 self.addEventListener("message", (e) => {
