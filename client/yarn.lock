@@ -3597,10 +3597,10 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-vite-imagetools@4.0.16:
-  version "4.0.16"
-  resolved "https://registry.yarnpkg.com/vite-imagetools/-/vite-imagetools-4.0.16.tgz#e99bab4030a0ab70126dc4e6aee0057be86f2181"
-  integrity sha512-kjTIcscDYEXLxTeCRVZVArygEOgFBoG6pno6H6wBpq6R07Lov/zRDG7UX/yw3DgMFzeVPWJW8YuItT7M0puSDw==
+vite-imagetools@4.0.17:
+  version "4.0.17"
+  resolved "https://registry.yarnpkg.com/vite-imagetools/-/vite-imagetools-4.0.17.tgz#c8ffca631fb94b8b5db2e12b6c6c8e5d04c371db"
+  integrity sha512-Nwe9zYrQBcIsmb21ABgr18WXycIa0CPnXpwJ6CmCHBZq0iies5PiYg2J45hQFmuEVNErX6ixARmNZILXxeJUXw==
   dependencies:
     "@rollup/pluginutils" "^5.0.0"
     imagetools-core "^3.3.1"
