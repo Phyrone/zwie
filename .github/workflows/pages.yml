@@ -12,9 +12,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./client
     concurrency:
       cancel-in-progress: true
       group: pages-${{ github.head_ref }}
