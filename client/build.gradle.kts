@@ -17,10 +17,10 @@ tasks {
         delete("src-tauri/target")
     }
     yarn {
+        dependsOn(":client:backend:browserProductionLibraryDistribution")
         this.inputs.files("package.json", "yarn.lock")
         this.outputs.dir("node_modules")
         this.inputs.dir(project(":client:backend").projectDir)
-        dependsOn(":client:backend:browserProductionLibraryDistribution")
     }
 
     create<YarnTask>("update-backend") {

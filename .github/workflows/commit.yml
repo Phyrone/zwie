@@ -51,7 +51,8 @@ jobs:
             client/src-tauri/target
             !client/src-tauri/target/*/bundle/**
             client/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/build.gradle.kts','settings.gradle.kts') }}-client
+          key: ${{ runner.os }}-${{ hashFiles('**/build.gradle.kts','settings.gradle.kts','client/yarn.lock','client/src-tauri/Cargo.lock') }}-client
+
       - name: Run Build Web
         run: ./gradlew client:build
       # TODO: Run tests
