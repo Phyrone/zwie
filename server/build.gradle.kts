@@ -138,7 +138,7 @@ dependencies {
     implementation("de.vandermeer:asciitable:0.3.2")
     //implementation("de.vandermeer:ascii-utf-themes:0.0.1")
 
-    implementation("com.mojang:brigadier:1.0.18")
+    implementation("com.mojang:brigadier:1.0.500")
     implementation("org.jline:jline:3.21.0")
 
     implementation("org.fusesource.jansi:jansi:2.4.0")
