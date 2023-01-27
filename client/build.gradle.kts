@@ -17,7 +17,8 @@ tasks {
         delete("src-tauri/target")
     }
     yarn {
-        dependsOn(":client:backend:browserProductionLibraryDistribution")
+        //dependsOn(":client:backend:browserProductionLibraryDistribution")
+        dependsOn("update-backend")
         this.inputs.files("package.json", "yarn.lock")
         this.outputs.dir("node_modules")
         this.inputs.dir(project(":client:backend").projectDir)
@@ -25,7 +26,7 @@ tasks {
 
     create<YarnTask>("update-backend") {
         group = "utils"
-        dependsOn(":client:backend:browserProductionLibraryDistribution", "yarn")
+        dependsOn(":client:backend:browserProductionLibraryDistribution")
         val backendLibFolder = project(":client:backend").buildDir.resolve("productionLibrary")
         this.args.set(listOf("add", backendLibFolder.absolutePath))
     }
