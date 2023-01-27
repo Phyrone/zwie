@@ -3,7 +3,7 @@
 package de.phyrone.zwie.client.backend
 
 import de.phyrone.zwie.client.backend.import.Readable
-import de.phyrone.zwie.shared.BuildConst
+import de.phyrone.zwie.shared.con.BuildConst
 import kotlin.js.Promise
 
 @Suppress("NON_EXPORTABLE_TYPE")
