@@ -61,11 +61,11 @@ jobs:
 
       - name: Build Client (${{ matrix.platform }})
         if: matrix.platform != 'macos-latest'
-        working_directory: ./client
+        working-directory: ./client
         run: yarn tauri build --debug
       - name: Build Client (macos)
         if: matrix.platform == 'macos-latest'
-        working_directory: ./client
+        working-directory: ./client
         run: yarn tauri build --debug --target universal-apple-darwin
   build-server:
     runs-on: ubuntu-latest
