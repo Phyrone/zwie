@@ -1,3 +1,3 @@
 package de.phyrone.zwie.shared.con
 
-actual fun currentProgramLangEnv(): ProgrammLangEnv = ProgrammLangEnv.JVM
+actual fun currentProgramLangEnv(): CompileTarget = CompileTarget.JVM

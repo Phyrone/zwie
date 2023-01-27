@@ -1,3 +1,3 @@
 package de.phyrone.zwie.shared.con
 
-expect fun currentProgramLangEnv(): ProgrammLangEnv
+expect fun currentProgramLangEnv(): CompileTarget

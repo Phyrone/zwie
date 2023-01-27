@@ -1,6 +1,6 @@
 package de.phyrone.zwie.shared.con
 
-enum class ProgrammLangEnv {
+enum class CompileTarget {
     JVM,
     JS;
 
