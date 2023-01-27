@@ -16,7 +16,7 @@ const config = {
             fallback: 'index.html',
             pages: 'build',
         }),
-        trailingSlash: "ignore",
+        //trailingSlash: "ignore",
         serviceWorker: {
             register: false,
         },

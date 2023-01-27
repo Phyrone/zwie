@@ -76,7 +76,7 @@ dependencies {
     //implementation("name.neuhalfen.projects.crypto.bouncycastle.openpgp:bouncy-gpg:2.3.0")
 
 
-    implementation("io.insert-koin:koin-core:3.2.2")
+    implementation("io.insert-koin:koin-core:3.3.0")
     implementation("com.google.flogger:flogger:0.7.4")
     implementation("com.google.flogger:flogger-slf4j-backend:0.7.4")
 
@@ -150,9 +150,9 @@ dependencies {
     //implementation("org.bouncycastle:bcprov-jdk15on:1.70")
     //implementation("name.neuhalfen.projects.crypto.bouncycastle.openpgp:bouncy-gpg:2.3.0")
 
-    implementation("com.github.oshi:oshi-core:6.3.2")
+    implementation("com.github.oshi:oshi-core:6.4.0")
 
-    implementation("org.pgpainless:pgpainless-core:1.4.0-rc1")
+    implementation("org.pgpainless:pgpainless-core:1.4.0")
 
 
     //implementation("net.folivo:trixnity-core:3.0.0")
@@ -166,6 +166,9 @@ dependencies {
     //implementation("com.google.protobuf:protobuf-kotlin:3.21.12")
 
     implementation("com.github.Phyrone:brigardier-kotlin:1.4.2")
+
+    implementation("org.quartz-scheduler:quartz:2.3.2")
+
 
 }
 tasks {

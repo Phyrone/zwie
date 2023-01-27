@@ -1,3 +1,3 @@
 package de.phyrone.zwie.shared.con
 
-actual fun currentPlatform(): Platform = Platform.JVM
+actual fun currentProgramLangEnv(): ProgrammLangEnv = ProgrammLangEnv.JVM

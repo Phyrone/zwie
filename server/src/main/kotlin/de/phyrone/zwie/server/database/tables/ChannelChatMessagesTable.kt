@@ -11,9 +11,9 @@ object ChannelChatMessagesTable : LongIdTable("channel_chat_messages") {
     val channel =
         reference("channel", ChannelsTable, onUpdate = ReferenceOption.CASCADE, onDelete = ReferenceOption.CASCADE)
     val user = reference("user", UsersTable)
-    val created = datetime("created").clientDefault { LocalDateTime.now() }
+    val timeStamp = datetime("timestamp").clientDefault { LocalDateTime.now() }
     val replaces = reference(
-        "replaces",
+        "parent",
         ChannelChatMessagesTable,
         onDelete = ReferenceOption.CASCADE,
         onUpdate = ReferenceOption.CASCADE,

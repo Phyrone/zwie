@@ -32,10 +32,16 @@ val generatedFolder by lazy {
 
 tasks {
 
+
     //task("")
     val genTask = create("write-generated-code") {
         outputs.dir(generatedFolder)
         createGeneatedKtFile().writeTo(File(generatedFolder, ""))
+    }
+    withType(){
+        if(name.startsWith("compileKotlin")){
+            dependsOn(genTask)
+        }
     }
     withType<ProcessResources>() {
         dependsOn(genTask)

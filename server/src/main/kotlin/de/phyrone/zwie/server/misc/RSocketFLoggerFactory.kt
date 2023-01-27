@@ -22,8 +22,6 @@ object RSocketFLoggerFactory : LoggerFactory {
         override fun rawLog(level: LoggingLevel, throwable: Throwable?, message: Any?) {
             logger.at(level.toJavaLevel()).withCause(throwable).log("%s", lazyArg { message })
         }
-
-
     }
 
     private fun LoggingLevel.toJavaLevel() = when (this) {

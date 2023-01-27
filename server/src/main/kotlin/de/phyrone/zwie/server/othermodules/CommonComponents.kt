@@ -25,13 +25,13 @@ class CommonComponents : CommonModule {
         koinApplication.modules(koinModule)
     }
 
-    override suspend fun onDisable() {
-        koinApplication.unloadModules(koinModule)
-    }
+    override suspend fun onDisable() {}
 
     companion object {
         private val koinModule = module {
-            single(named("core::mapper::json")) { ObjectMapper().findAndRegisterSubtypesAndModules() } bind ObjectMapper::class
+            single(named("core::mapper::json")) {
+                ObjectMapper().findAndRegisterSubtypesAndModules()
+            } bind ObjectMapper::class
             //single(named("core::mapper::cbor")) { CBORMapper().findAndRegisterSubtypesAndModules() } bind ObjectMapper::class
             //single(named("core::mapper::protobuf")) { ProtobufMapper().findAndRegisterSubtypesAndModules() } bind ObjectMapper::class
             single(named("core::mapper::ion")) {

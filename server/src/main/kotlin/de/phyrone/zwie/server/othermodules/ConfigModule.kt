@@ -11,6 +11,7 @@ import org.koin.core.KoinApplication
 import org.koin.core.component.get
 import org.koin.core.component.inject
 import org.koin.core.qualifier.named
+import org.koin.dsl.koinApplication
 import org.koin.dsl.module
 import java.io.IOException
 import org.koin.core.module.Module as KoinModule
@@ -21,22 +22,19 @@ class ConfigModule : CommonModule {
     private val koinApplication by inject<KoinApplication>()
 
 
-    private var koinModule: KoinModule? = null
     override suspend fun onEnable() {
-        koinModule = module(true) {
+        koinApplication.modules(module(true) {
             single(named("core::config::defaults")) { ConfigFactory.load("defaults") }
             single { loadConfig(get(), get(named("core::config::defaults"))) }
-        }.also { koinApplication.modules(it) }
+        })
+
         val config = get<Config>()
         if (logger.atFine().isEnabled) {
             logger.atFine().log("Config: %s", config.root().render(ConfigRenderOptions.defaults()))
         }
     }
 
-    override suspend fun onDisable() {
-
-        koinModule?.let { koinApplication.unloadModules(it) }
-    }
+    override suspend fun onDisable() {}
 
     private fun loadConfig(args: StartupArguments, defaults: Config): Config {
         val configFile = args.configFile

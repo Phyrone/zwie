@@ -16,7 +16,7 @@ class ChannelChatMessageEntity(id: EntityID<Long>) : LongEntity(id), KoinCompone
 
     var channel by ChannelEntity referencedOn ChannelChatMessagesTable.channel
 
-    var created by ChannelChatMessagesTable.created
+    var created by ChannelChatMessagesTable.timeStamp
     var messageJson by ChannelChatMessagesTable.message
 
     var replaces by ChannelChatMessageEntity optionalReferencedOn ChannelChatMessagesTable.replaces
@@ -51,6 +51,17 @@ class ChannelChatMessageEntity(id: EntityID<Long>) : LongEntity(id), KoinCompone
         set(value) {
             messageJson = value?.let { mapper.writeValueAsString(it) }
         }
+
+    /**
+     * Deletes all revisions of this message
+     */
+    fun deleteMessage() {
+        //cascade delete all revisions
+        getFirstRevision().delete()
+    }
+    fun deleteRevision() {
+        delete()
+    }
 
     companion object : LongEntityClass<ChannelChatMessageEntity>(ChannelChatMessagesTable)
 }
