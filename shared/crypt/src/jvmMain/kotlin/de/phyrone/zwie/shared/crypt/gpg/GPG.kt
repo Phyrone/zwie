@@ -5,6 +5,7 @@ import org.pgpainless.PGPainless
 import org.pgpainless.algorithm.DocumentSignatureType
 import org.pgpainless.algorithm.EncryptionPurpose
 import org.pgpainless.decryption_verification.ConsumerOptions
+import org.pgpainless.decryption_verification.MessageMetadata
 import org.pgpainless.encryption_signing.EncryptionOptions
 import org.pgpainless.encryption_signing.ProducerOptions
 import org.pgpainless.encryption_signing.SigningOptions
@@ -13,14 +14,6 @@ import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 
 actual object GPG {
-
-    fun a() {
-        PGPainless.readKeyRing().keyRing(
-            """
-            
-        """.trimIndent()
-        )
-    }
 
     actual suspend fun generateKey(): GPGKeyPriv {
         val keyring = PGPainless.generateKeyRing().modernKeyRing(null)
@@ -60,6 +53,17 @@ actual object GPG {
         )
     ).second.detachedSignatures.let { it.get(it.keySet().first()).first().encoded }
 
+    private fun Pair<ByteArray, MessageMetadata>.requireVerifiedSignedBy(key: GPGKeyPub): Pair<ByteArray, MessageMetadata> {
+        if (!second.isVerifiedSignedBy(key.pgpPublicKeyRing))
+            throw GPGVerficationException("Signature is not valid for this data")
+        return this
+    }
+
+    private fun Pair<ByteArray, MessageMetadata>.requireEncryptedFor(key: GPGKeyPriv): Pair<ByteArray, MessageMetadata> {
+        if (!second.isEncryptedFor(key.pgpSecretKeyRing))
+            throw GPGVerficationException("Signature is not valid for this data")
+        return this
+    }
 
     actual suspend fun verifySignature(
         data: ByteArray, signature: ByteArray, key: GPGKeyPub
@@ -68,10 +72,7 @@ actual object GPG {
             ConsumerOptions()
                 .addVerificationCert(key.pgpPublicKeyRing)
                 .addVerificationOfDetachedSignatures(signatureStream)
-        ).also {
-            if (!it.second.isVerifiedSignedBy(key.pgpPublicKeyRing))
-                throw GPGVerficationException("Signature is not valid for this data")
-        }.first
+        ).requireVerifiedSignedBy(key).first
     }
 
     actual suspend fun encrypt(data: ByteArray, key: GPGKeyPub): ByteArray = data.produce(
@@ -86,7 +87,7 @@ actual object GPG {
         data.consume(
             ConsumerOptions()
                 .addDecryptionKey(key.pgpSecretKeyRing, SecretKeyRingProtector.unprotectedKeys())
-        ).also { (_, metadata) -> require(metadata.isEncryptedFor(key.pgpSecretKeyRing)) }.first
+        ).requireEncryptedFor(key).first
 
     actual suspend fun signAndEncrypt(
         data: ByteArray,
@@ -106,12 +107,28 @@ actual object GPG {
         decryptKey: GPGKeyPriv,
         verifyKey: GPGKeyPub
     ): ByteArray = data.consume(ConsumerOptions())
-        .also { (_, metadata) ->
-            require(
-                metadata.isEncryptedFor(decryptKey.pgpSecretKeyRing)
-                        && metadata.isVerifiedSignedBy(verifyKey.pgpPublicKeyRing)
-            )
-        }.first
+        .requireVerifiedSignedBy(verifyKey)
+        .requireEncryptedFor(decryptKey)
+        .first
+
+    actual suspend fun signInline(
+        data: ByteArray,
+        key: GPGKeyPriv
+    ): ByteArray = data.produce(
+        ProducerOptions.sign(
+            SigningOptions()
+                .addSignature(SecretKeyRingProtector.unprotectedKeys(), key.pgpSecretKeyRing)
+        )
+    ).first
+
+    actual suspend fun verifyInline(
+        data: ByteArray,
+        key: GPGKeyPub
+    ): ByteArray = data.consume(
+        ConsumerOptions()
+            .addVerificationCert(key.pgpPublicKeyRing)
+    ).requireVerifiedSignedBy(key)
+        .first
 
 
 }

@@ -30,12 +30,6 @@
   dependencies:
     regenerator-runtime "^0.13.11"
 
-"@client/backend@/Users/samuellaqua/IdeaProjects/zwie/client/backend/build/productionLibrary":
-  version "0.0.1-DEV"
-  dependencies:
-    localforage "1.10.0"
-    svelte "3.55.0"
-
 "@client/backend@file:backend/build/productionLibrary":
   version "0.0.1-DEV"
   dependencies:

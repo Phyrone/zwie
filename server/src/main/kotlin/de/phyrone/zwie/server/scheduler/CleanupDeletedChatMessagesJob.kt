@@ -59,6 +59,7 @@ class CleanupDeletedChatMessagesJob : Job, KoinComponent {
                 ChannelChatMessagesTable.message.isNull() and channelFilter and
                         (ChannelChatMessagesTable.timeStamp lessEq deadline)
             }.forEach { it.deleteMessage() }
+
         }
 
     }

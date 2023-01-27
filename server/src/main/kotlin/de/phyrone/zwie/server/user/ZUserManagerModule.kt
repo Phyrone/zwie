@@ -220,7 +220,7 @@ class ZUserManagerModule : ZUserManager, CommonModule {
     }
 
     override suspend fun onDisable() {
-        koinApplication.unloadModules(koinModule)
+        //koinApplication.unloadModules(koinModule)
         pscope.cancel()
     }
 

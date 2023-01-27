@@ -86,7 +86,7 @@ class ComandsCoreModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
     }
 
     override suspend fun onDisable() {
-        koinApplication.unloadModules(koinModule)
+        //koinApplication.unloadModules(koinModule)
     }
 
     companion object {

@@ -56,7 +56,7 @@ class DatabaseModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
         withContext(Dispatchers.IO) {
             (dataSource as? Closeable)?.close()
         }
-        koinApplication.unloadModules(koinModule)
+        //koinApplication.unloadModules(koinModule)
     }
 
     companion object {
