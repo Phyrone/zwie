@@ -5,7 +5,6 @@
     import AlertsContainer from "../components/alert/AlertsContainer.svelte";
     import {init as init_updater} from "../scripts/minor/update.js";
     import "../scripts/minor/theme-selector.js";
-    import "../scripts/profile.js"
     import * as localforage from "localforage";
 
     onMount(async ()=>{

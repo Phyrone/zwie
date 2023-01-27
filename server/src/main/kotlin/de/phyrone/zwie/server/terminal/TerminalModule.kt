@@ -45,7 +45,7 @@ class TerminalModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
         terminalReaderThread?.interrupt()
         terminalReaderThread = null
         promtFixer.stopPromtFix()
-        koinApplication.unloadModules(koinModule)
+        //koinApplication.unloadModules(koinModule)
     }
 
     class TerminalReaderThread : Thread("TerminalReader"), KoinComponent {

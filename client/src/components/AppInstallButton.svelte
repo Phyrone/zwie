@@ -1,4 +1,7 @@
 <script lang="ts">
+    import Icon from '@iconify/svelte';
+    import installDesktop from '@iconify/icons-material-symbols/install-desktop';
+
     import {installPromt} from "../scripts/minor/update.js";
 
 
@@ -15,7 +18,8 @@
 </script>
 
 {#if $installPromt}
-    <button class="btn btn-info" on:click|stopPropagation|preventDefault={install_clicked}><i
-            class="fa-solid fa-download"></i></button>
+    <button class="btn btn-info text-lg" on:click|stopPropagation|preventDefault={install_clicked}>
+        <Icon icon={installDesktop} inline={true} />
+    </button>
 {/if}
 

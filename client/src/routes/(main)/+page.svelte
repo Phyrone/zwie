@@ -1,10 +1,10 @@
+<!--
 <script lang="ts">
 
 
     import ContextMenuWrapper from "$lib/ContextMenuListener.svelte";
     import {window} from "@tauri-apps/api";
     import {Buffer} from "buffer";
-    import {sleep} from "matrix-js-sdk/lib/utils.js";
     import {WebsocketClientTransport} from "rsocket-websocket-client";
     import {RSocketConnector,RSocket} from "rsocket-core";
 
@@ -99,7 +99,7 @@
 
     {/each}
 </ul>
-
+-->
 <!--
 <button class="btn" on:click={()=>sendAlert({
     text: "Normal Alert "+counter++,

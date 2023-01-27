@@ -16,10 +16,11 @@ class SlfKoinLogger : KoinLogger(
         else -> Level.NONE
     }
 ) {
-    override fun log(level: Level, msg: MESSAGE) {
+    override fun display(level: Level, msg: MESSAGE) {
         when (level) {
             Level.DEBUG -> logger.atFiner()
             Level.INFO -> logger.atFine()
+            Level.WARNING -> logger.atWarning()
             Level.ERROR -> logger.atSevere()
             Level.NONE -> throw IllegalArgumentException("Level.NONE must not be used")
         }.log(msg)

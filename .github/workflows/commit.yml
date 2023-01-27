@@ -12,9 +12,6 @@ env:
 
 jobs:
   build-client:
-    defaults:
-      run:
-        working-directory: ./client
     strategy:
       fail-fast: false
       matrix:
@@ -46,32 +43,29 @@ jobs:
       #      if: matrix.platform == 'macos-latest'
       #      run: |
       #         brew install dbus
-      - name: Buildcache (cargo and node)
-        uses: actions/cache@v3
-        with:
-          path: |
-            client/src-tauri/target
-            !client/src-tauri/target/*/bundle/**
-            client/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('client/yarn.lock','client/src-tauri/Cargo.lock') }}-client-caro-node
-      - name: Buildcache (gradle)
+      - name: Build Cache (gradle)
         uses: pat-s/always-upload-cache@v3.0.11
         with:
           path: |
             **/build/
-          key: ${{ runner.os }}-${{ hashFiles('**/build.gradle.kts','settings.gradle.kts') }}-client-gradle
-      - name: Install app dependencies
-        run: yarn install
-      - name: Run WebContent Build
-        run: yarn build
-      - name: Run Tests
-        working-directory: ./client/src-tauri
-        run: cargo test
-      - name: Run Build
+            client/src-tauri/target
+            !client/src-tauri/target/*/bundle/**
+            client/node_modules
+          key: ${{ runner.os }}-client
+          #key: ${{ runner.os }}-${{ hashFiles('**/build.gradle.kts','settings.gradle.kts','client/yarn.lock','client/src-tauri/Cargo.lock') }}-client
+      - name: Run Build Web
+        run: ./gradlew client:build
+      # TODO: Run tests
+      - name: Stop Gradle
+        run: ./gradlew --stop
+
+      - name: Build Client (${{ matrix.platform }})
         if: matrix.platform != 'macos-latest'
+        working-directory: ./client
         run: yarn tauri build --debug
-      - name: Run Build (macos)
+      - name: Build Client (macos)
         if: matrix.platform == 'macos-latest'
+        working-directory: ./client
         run: yarn tauri build --debug --target universal-apple-darwin
   build-server:
     runs-on: ubuntu-latest
@@ -85,13 +79,13 @@ jobs:
         with:
           distribution: 'zulu' # See 'Supported distributions' for available options
           java-version: '11'
-      - name: Buildcache
+      - name: Build Cache
         id: cache-primes
         uses: pat-s/always-upload-cache@v3.0.11
         with:
           path: |
             **/build/
-          key: ${{ runner.os }}-${{ hashFiles('**/build.gradle.kts','settings.gradle.kts') }}-server
+          key: ${{ runner.os }}-server
       - name: Run Build
         run: ./gradlew server:build
       - name: Run Test

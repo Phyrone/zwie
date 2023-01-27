@@ -59,7 +59,7 @@ class WebModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
 
     override suspend fun onDisable() {
         applicationEngine.stop(200, 400)
-        koinApplication.unloadModules(koinModule)
+        //koinApplication.unloadModules(koinModule)
     }
 
     companion object {

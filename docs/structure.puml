@@ -1,0 +1,18 @@
+@startuml
+(Server 1)
+folder Spaces{
+    (Space 1)
+    (Space 2)
+}
+folder Channels{
+    (Channel 1:1)
+    (Channel 1:2)
+    (Channel 2:1)
+}
+(Server 1)-->(Space 1)
+(Server 1)-->(Space 2)
+(Space 1) --> (Channel 1:1)
+(Space 1) --> (Channel 1:2)
+(Space 2) --> (Channel 2:1)
+
+@enduml
