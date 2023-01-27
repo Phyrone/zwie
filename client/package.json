@@ -37,7 +37,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@client/backend": "/Users/samuellaqua/IdeaProjects/zwie/client/backend/build/productionLibrary",
+    "@client/backend": "backend/build/productionLibrary",
     "@dicebear/adventurer": "^4.10.7",
     "@dicebear/avatars": "^4.10.7",
     "@dicebear/avatars-identicon-sprites": "^4.10.7",
