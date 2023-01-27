@@ -43,21 +43,15 @@ jobs:
       #      if: matrix.platform == 'macos-latest'
       #      run: |
       #         brew install dbus
-      - name: Build Cache (cargo and node)
-        uses: actions/cache@v3
-        with:
-          path: |
-            client/src-tauri/target
-            !client/src-tauri/target/*/bundle/**
-            client/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('client/yarn.lock','client/src-tauri/Cargo.lock') }}-client-cargo-node
-          # key: ${{ runner.os }}-${{ hashFiles('client/yarn.lock','client/src-tauri/Cargo.lock') }}-client-gargo-node
       - name: Build Cache (gradle)
         uses: pat-s/always-upload-cache@v3.0.11
         with:
           path: |
             **/build/
-          key: ${{ runner.os }}-${{ hashFiles('**/build.gradle.kts','settings.gradle.kts') }}-client-gradle
+            client/src-tauri/target
+            !client/src-tauri/target/*/bundle/**
+            client/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/build.gradle.kts','settings.gradle.kts') }}-client
       - name: Run Build Web
         run: ./gradlew client:build
       # TODO: Run tests

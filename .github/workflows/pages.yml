@@ -33,6 +33,7 @@ jobs:
         with:
           path: |
             client/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('client/yarn.lock','client/src-tauri/Cargo.lock') }}-client
       - run: ./gradlew client:build-web
         name: Build
       - name: Deploy 🚀
