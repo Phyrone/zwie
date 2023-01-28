@@ -56,9 +56,9 @@ dependencies {
     implementation("com.esotericsoftware.kryo:kryo5:5.3.0")
 
 
-    implementation("org.jetbrains.exposed:exposed-core:0.40.1")
+    implementation("org.jetbrains.exposed:exposed-core:0.41.1")
     implementation("org.jetbrains.exposed:exposed-dao:0.40.1")
-    implementation("org.jetbrains.exposed:exposed-jdbc:0.40.1")
+    implementation("org.jetbrains.exposed:exposed-jdbc:0.41.1")
     implementation("org.jetbrains.exposed:exposed-java-time:0.40.1")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.6.4")
@@ -139,7 +139,7 @@ dependencies {
     //implementation("de.vandermeer:ascii-utf-themes:0.0.1")
 
     implementation("com.mojang:brigadier:1.0.18")
-    implementation("org.jline:jline:3.21.0")
+    implementation("org.jline:jline:3.22.0")
 
     implementation("org.fusesource.jansi:jansi:2.4.0")
 
@@ -152,7 +152,7 @@ dependencies {
 
     implementation("com.github.oshi:oshi-core:6.4.0")
 
-    implementation("org.pgpainless:pgpainless-core:1.4.0")
+    implementation("org.pgpainless:pgpainless-core:1.4.2")
 
 
     //implementation("net.folivo:trixnity-core:3.0.0")
