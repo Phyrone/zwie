@@ -2,6 +2,7 @@
 
 package de.phyrone.zwie.client.backend
 
+import de.phyrone.zwie.client.backend.impl.BackendInstance
 import de.phyrone.zwie.client.backend.import.Readable
 import de.phyrone.zwie.shared.con.BuildConst
 import kotlin.js.Promise
@@ -13,9 +14,7 @@ object ZwieEntry {
     fun version(): String = BuildConst.VERSION
     fun kotlinVersion(): String = BuildConst.KOTLIN_VERSION
 
-    fun createBackend(platformInfo: PlatformInfo): ZwieJsClientBackend {
-        TODO()
-    }
+    fun createBackend(platformInfo: PlatformInfo): ZwieJsClientBackend = BackendInstance(platformInfo)
 }
 
 enum class ClientPlatform {

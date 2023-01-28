@@ -1,16 +1,33 @@
 <script lang="ts">
     import Icon from '@iconify/svelte';
-    import accountIcon from '@iconify/icons-line-md/account';
-    import homeMdTwotone from '@iconify/icons-line-md/home-md-twotone';
-    import homeSimpleFilled from '@iconify/icons-line-md/home-simple-filled';
     import chatIcon from '@iconify/icons-material-symbols/chat.js';
+    import {backend} from "../../scripts/backend";
+    import {de} from "@client/backend/backend";
+
+    type ServerInfo = de.phyrone.zwie.client.backend.ServerInfo;
+
+    let servers_readable = backend.servers()
+
+    let servers: Array<ServerInfo> = []
+
+    $:{
+        // @ts-ignore
+        servers = ($servers_readable) ?? []
+    }
+
 </script>
 <div class="flex-none flex flex-col">
-    <a href="/dm/" class=" btn btn-primary btn-ghost"><Icon icon={chatIcon} /></a>
+    <a href="/dm/" class=" btn btn-primary btn-ghost">
+        <Icon icon={chatIcon}/>
+    </a>
     <div class="divider my-0"></div>
 </div>
 <div class="flex-auto flex flex-col pt-1 overflow-x-auto scrollbar-none overscroll-auto">
 
+    {#each servers as server}
+        <a href="/server/{server.name}/" class="btn btn-circle my-0.5">{server.name}</a>
+    {/each}
+    <!--
     <a href="/server/s1/" class="btn btn-circle my-0.5">S1</a>
     <a href="/server/s2/" class="btn btn-circle my-0.5">S2</a>
     <a href="/server/s3/" class="btn btn-circle my-0.5">S3</a>
@@ -24,6 +41,7 @@
     <a href="/server/s11/" class="btn btn-circle my-0.5">S11</a>
     <a href="/server/s12/" class="btn btn-circle my-0.5">S12</a>
     <a href="/server/s13/" class="btn btn-circle my-0.5">S13</a>
+    -->
 </div>
 <!--
 <div class="flex-none py-1 px-0.5">

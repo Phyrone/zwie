@@ -39,9 +39,9 @@
   "dependencies": {
     "@client/backend": "./backend/build/productionLibrary",
     "@dicebear/adventurer": "^5.0.0",
-    "@dicebear/avatars": "^4.10.7",
-    "@dicebear/avatars-identicon-sprites": "^4.10.7",
-    "@dicebear/avatars-initials-sprites": "^4.10.7",
+    "@dicebear/core": "^5.2.0",
+    "@dicebear/identicon": "^5.2.0",
+    "@dicebear/initials": "^5.2.0",
     "@fortawesome/fontawesome-free": "^6.2.1",
     "@iconify/icons-line-md": "^1.2.19",
     "@iconify/icons-material-symbols": "^1.2.25",

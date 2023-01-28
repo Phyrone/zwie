@@ -6,7 +6,9 @@ import de.phyrone.zwie.client.backend.import.Subscriber
 import de.phyrone.zwie.client.backend.import.Unsubscriber
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.last
 import kotlinx.coroutines.launch
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.contract
@@ -27,19 +29,19 @@ inline fun <T> withConsoleTimer(name: String, block: () -> T): T {
     return result
 }
 
-fun <T> StateFlow<T>.asReadable(): Readable<T> = TODO()
+fun <T> Flow<T>.asReadable(): Readable<T> = StateFlowReadable(this)
 
 class StateFlowReadable<T>(
-    private val stateFlow: StateFlow<T>,
+    private val flow: Flow<T>,
     private val scope: CoroutineScope = CoroutineScope(Dispatchers.Default)
 ) : Readable<T> {
 
     override fun subscribe(run: Subscriber<T>, invalidate: Invalidator<T>): Unsubscriber {
         val job = scope.launch {
             try {
-                stateFlow.collect { newValue -> run(newValue) }
+                flow.collect { newValue -> run(newValue) }
             } finally {
-                invalidate(stateFlow.value)
+                invalidate(flow.last())
             }
         }
         return { job.cancel() }
