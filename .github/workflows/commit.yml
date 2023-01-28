@@ -13,7 +13,7 @@ env:
 jobs:
   build-client:
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         platform: [ macos-latest, ubuntu-latest] #  ,windows-latest
     runs-on: ${{ matrix.platform }}
