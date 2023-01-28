@@ -53,7 +53,7 @@ dependencies {
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-ion:2.14.1")
     //implementation("org.msgpack:jackson-dataformat-msgpack:0.9.3")
 
-    implementation("com.esotericsoftware.kryo:kryo5:5.3.0")
+    implementation("com.esotericsoftware.kryo:kryo5:5.4.0")
 
 
     implementation("org.jetbrains.exposed:exposed-core:0.41.1")
