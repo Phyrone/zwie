@@ -42,9 +42,9 @@ dependencies {
     implementation(project(":shared:const"))
     implementation(project(":shared:protocol"))
 
-    implementation("io.ktor:ktor-server-core:2.1.3")
-    implementation("io.ktor:ktor-server-netty:2.1.3")
-    implementation("io.ktor:ktor-server-websockets:2.1.3")
+    implementation("io.ktor:ktor-server-core:2.2.2")
+    implementation("io.ktor:ktor-server-netty:2.2.2")
+    implementation("io.ktor:ktor-server-websockets:2.2.2")
     implementation("io.netty:netty-tcnative:2.0.54.Final")
 
     implementation("com.fasterxml.jackson.core:jackson-databind:2.14.0")
@@ -57,9 +57,9 @@ dependencies {
 
 
     implementation("org.jetbrains.exposed:exposed-core:0.41.1")
-    implementation("org.jetbrains.exposed:exposed-dao:0.40.1")
+    implementation("org.jetbrains.exposed:exposed-dao:0.41.1")
     implementation("org.jetbrains.exposed:exposed-jdbc:0.41.1")
-    implementation("org.jetbrains.exposed:exposed-java-time:0.40.1")
+    implementation("org.jetbrains.exposed:exposed-java-time:0.41.1")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.6.4")
 
@@ -85,11 +85,11 @@ dependencies {
     implementation("dev.onvoid.webrtc:webrtc-java:0.7.0")
 
     implementation("org.atteo.classindex:classindex:3.13")
-    implementation("io.ktor:ktor-server-core-jvm:2.1.3")
-    implementation("io.ktor:ktor-server-websockets-jvm:2.1.3")
-    implementation("io.ktor:ktor-server-cors-jvm:2.1.3")
-    implementation("io.ktor:ktor-server-call-logging-jvm:2.1.3")
-    implementation("io.ktor:ktor-server-auth:2.1.3")
+    implementation("io.ktor:ktor-server-core-jvm:2.2.2")
+    implementation("io.ktor:ktor-server-websockets-jvm:2.2.2")
+    implementation("io.ktor:ktor-server-cors-jvm:2.2.2")
+    implementation("io.ktor:ktor-server-call-logging-jvm:2.2.2")
+    implementation("io.ktor:ktor-server-auth:2.2.2")
     kapt("org.atteo.classindex:classindex:3.13")
 
 
