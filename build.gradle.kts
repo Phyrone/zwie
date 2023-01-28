@@ -7,7 +7,7 @@ plugins {
     kotlin("plugin.allopen") version "1.7.21" apply false
     kotlin("kapt") version "1.7.21" apply false
     id("com.github.johnrengelman.shadow") version "7.1.2" apply false
-    id("io.gitlab.arturbosch.detekt") version "1.22.0-RC3" apply false
+    id("io.gitlab.arturbosch.detekt") version "1.22.0" apply false
     kotlin("multiplatform") version "1.7.20" apply false
     id("com.google.protobuf") version "0.9.1" apply false
     id("org.jetbrains.compose") version "1.2.2" apply false
