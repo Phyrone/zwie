@@ -112,3 +112,5 @@ gradle-app.setting
 hs_err_pid*
 
 detekt-baseline.xml
+
+externals
