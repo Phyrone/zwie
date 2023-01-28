@@ -38,7 +38,7 @@
   "type": "module",
   "dependencies": {
     "@client/backend": "./backend/build/productionLibrary",
-    "@dicebear/adventurer": "^4.10.7",
+    "@dicebear/adventurer": "^5.0.0",
     "@dicebear/avatars": "^4.10.7",
     "@dicebear/avatars-identicon-sprites": "^4.10.7",
     "@dicebear/avatars-initials-sprites": "^4.10.7",
