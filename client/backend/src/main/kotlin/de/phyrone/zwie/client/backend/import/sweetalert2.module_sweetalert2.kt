@@ -14,12 +14,4 @@ import org.w3c.performance.*
 import org.w3c.workers.*
 import org.w3c.xhr.*
 
-typealias Subscriber<T> = (value: T) -> Unit
-
-typealias Unsubscriber = () -> Unit
-
-typealias Invalidator<T> = (value: T) -> Unit
-
-external interface Readable<T> {
-    fun subscribe(run: Subscriber<T>, invalidate: Invalidator<T> = definedExternally): Unsubscriber
-}
+external interface JQuery

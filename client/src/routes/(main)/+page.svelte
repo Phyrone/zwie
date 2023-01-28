@@ -1,3 +1,9 @@
+<script lang="ts">
+    import Swal from "sweetalert2";
+    import {sendAlert} from "../../scripts/minor/alerts";
+
+    let counter = 1;
+</script>
 <!--
 <script lang="ts">
 
@@ -100,7 +106,7 @@
     {/each}
 </ul>
 -->
-<!--
+
 <button class="btn" on:click={()=>sendAlert({
     text: "Normal Alert "+counter++,
     onClick: ()=>Swal.fire({
@@ -137,4 +143,3 @@
     })
 })}>Error Alert
 </button>
--->

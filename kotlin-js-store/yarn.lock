@@ -1749,6 +1749,11 @@ svelte@3.55.0:
   resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.55.0.tgz#29cb958750a23e751309a6535ccd811fcabc9038"
   integrity sha512-uGu2FVMlOuey4JoKHKrpZFkoYyj0VLjJdz47zX5+gVK5odxHM40RVhar9/iK2YFRVxvfg9FkhfVlR0sjeIrOiA==
 
+sweetalert2@11.7.1:
+  version "11.7.1"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-11.7.1.tgz#e015b824fec3dcd174babbfedd30d989118c6783"
+  integrity sha512-+1bnkbqBl64FnZmi3g4SzAi4F3pL3S2jF1YQvrysv4GbgizfeFqGkJopxR3FnV/eJm6w2SQ2oAmCxSIBjgP/ag==
+
 tapable@^2.1.1, tapable@^2.2.0:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-2.2.1.tgz#1967a73ef4060a82f12ab96af86d52fdb76eeca0"
