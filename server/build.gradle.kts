@@ -47,7 +47,7 @@ dependencies {
     implementation("io.ktor:ktor-server-websockets:2.2.2")
     implementation("io.netty:netty-tcnative:2.0.56.Final")
 
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.14.0")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.14.1")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.1")
     //implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.14.0")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-ion:2.14.1")
