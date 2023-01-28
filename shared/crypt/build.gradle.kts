@@ -51,7 +51,7 @@ kotlin {
         val jvmMain by getting {
             dependencies {
                 implementation("org.pgpainless:pgpainless-core:1.4.2")
-                implementation("org.bouncycastle:bcprov-jdk15on:1.68")
+                implementation("org.bouncycastle:bcprov-jdk15on:1.70")
             }
         }
         val jvmTest by getting {
