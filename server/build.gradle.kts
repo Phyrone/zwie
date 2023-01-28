@@ -139,7 +139,7 @@ dependencies {
     //implementation("de.vandermeer:ascii-utf-themes:0.0.1")
 
     implementation("com.mojang:brigadier:1.0.18")
-    implementation("org.jline:jline:3.21.0")
+    implementation("org.jline:jline:3.22.0")
 
     implementation("org.fusesource.jansi:jansi:2.4.0")
 
