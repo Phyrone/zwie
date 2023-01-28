@@ -53,7 +53,7 @@ dependencies {
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-ion:2.14.1")
     //implementation("org.msgpack:jackson-dataformat-msgpack:0.9.3")
 
-    implementation("com.esotericsoftware.kryo:kryo5:5.3.0")
+    implementation("com.esotericsoftware.kryo:kryo5:5.4.0")
 
 
     implementation("org.jetbrains.exposed:exposed-core:0.41.1")
@@ -66,7 +66,7 @@ dependencies {
     implementation("com.zaxxer:HikariCP:5.0.1")
     //implementation("org.greenrobot:eventbus-java:3.3.1")
     implementation("com.github.ben-manes.caffeine:caffeine:3.1.2")
-    implementation("com.sksamuel.aedile:aedile-core:1.1.2")
+    implementation("com.sksamuel.aedile:aedile-core:1.2.0")
 
     implementation("ch.qos.logback:logback-classic:1.4.5")
 
