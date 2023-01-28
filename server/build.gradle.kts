@@ -152,7 +152,7 @@ dependencies {
 
     implementation("com.github.oshi:oshi-core:6.4.0")
 
-    implementation("org.pgpainless:pgpainless-core:1.4.0")
+    implementation("org.pgpainless:pgpainless-core:1.4.2")
 
 
     //implementation("net.folivo:trixnity-core:3.0.0")
