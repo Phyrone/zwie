@@ -12,7 +12,7 @@ plugins {
     id("com.google.protobuf") version "0.9.1" apply false
     id("org.jetbrains.compose") version "1.2.2" apply false
     kotlin("plugin.serialization") version "1.7.21" apply false
-    id("com.github.node-gradle.node") version "3.5.0" apply false
+    id("com.github.node-gradle.node") version "3.5.1" apply false
 }
 
 version = "0.0.1-DEV"
