@@ -22,7 +22,7 @@ kotlin {
         }
         val jvmMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-okhttp:2.2.1")
+                implementation("io.ktor:ktor-client-okhttp:2.2.2")
             }
         }
         val commonMain by getting {
