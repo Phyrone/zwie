@@ -70,7 +70,7 @@ dependencies {
 
     implementation("ch.qos.logback:logback-classic:1.4.5")
 
-    implementation("info.picocli:picocli:4.7.0")
+    implementation("info.picocli:picocli:4.7.1")
     //implementation("info.picocli:picocli-shell-jline3:4.7.0")
     implementation("com.google.guava:guava:31.1-jre")
     //implementation("name.neuhalfen.projects.crypto.bouncycastle.openpgp:bouncy-gpg:2.3.0")
