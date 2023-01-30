@@ -1,3 +1,5 @@
+@file:JsModule("openpgp")
+@file:JsNonModule
 @file:Suppress(
     "INTERFACE_WITH_SUPERCLASS",
     "OVERRIDING_FINAL_MEMBER",
@@ -7,6 +9,8 @@
 
 package global.GPGJS
 import de.phyrone.zwie.shared.crypt.import.common.Partial
+import de.phyrone.zwie.shared.crypt.import.pgpjs.AnyKeyPacket
+import de.phyrone.zwie.shared.crypt.import.pgpjs.PacketList
 import global.GPGJS.enums.*
 import org.khronos.webgl.Uint8Array
 import kotlin.js.Date
@@ -1047,11 +1051,6 @@ external open class UnparseablePacket {
     open var write: () -> Uint8Array
 }
 
-typealias AnyKeyPacket = BasePublicKeyPacket
-
-typealias AllowedPackets = Map<packet, Any?>
-
-typealias PacketList<T> = Array<T>
 
 external interface GenericWebStream<T>
 external interface GenericNodeStream<T>
@@ -1261,6 +1260,8 @@ external interface GenerateKeyOptions {
     var type: String? /* "ecc" | "rsa" */
         get() = definedExternally
         set(value) = definedExternally
+
+    @JsName("curve")
     var curve: String? /* "ed25519" | "curve25519" | "p256" | "p384" | "p521" | "secp256k1" | "brainpoolP256r1" | "brainpoolP384r1" | "brainpoolP512r1" */
         get() = definedExternally
         set(value) = definedExternally
@@ -1284,7 +1285,7 @@ external interface GenerateKeyOptions {
         set(value) = definedExternally
 }
 
-typealias KeyOptions = GenerateKeyOptions
+
 
 external interface SubkeyOptions {
     var type: String? /* "ecc" | "rsa" */

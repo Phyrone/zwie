@@ -26,9 +26,9 @@ tasks {
 
     create<YarnTask>("update-backend") {
         group = "utils"
-        dependsOn(":client:backend:browserProductionLibraryDistribution")
+        dependsOn( ":client:backend:browserProductionLibraryDistribution")
         val backendLibFolder = project(":client:backend").buildDir.resolve("productionLibrary")
-        this.args.set(listOf("add", "./"+backendLibFolder.relativeTo(projectDir).path))
+        this.args.set(listOf("add", "./" + backendLibFolder.relativeTo(projectDir).path))
     }
 
     create<YarnTask>("build-web") {

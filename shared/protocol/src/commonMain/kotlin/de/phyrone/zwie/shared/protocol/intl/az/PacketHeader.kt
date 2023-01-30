@@ -12,6 +12,9 @@ sealed class PacketHeader(
 
     abstract fun encodeFlags(): Byte
 
+    object Heartbeat : PacketHeader(PacketType.HEARTBEAT, false) {
+        override fun encodeFlags(): Byte = 0
+    }
     object Ping : PacketHeader(PacketType.PING, false) {
         override fun encodeFlags(): Byte = 0
     }
@@ -46,6 +49,7 @@ sealed class PacketHeader(
             val typePart = byte.toInt() and 0x0F
             val flagPart = (byte.toInt() and 0xF0 shr FLAG_PART_SHIFT).toByte()
             return when (PacketType.fromByte(typePart)) {
+                PacketType.HEARTBEAT -> Heartbeat
                 PacketType.PING -> Ping
                 PacketType.PONG -> Pong
                 PacketType.CALL -> TODO()

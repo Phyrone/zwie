@@ -9,10 +9,9 @@ import de.phyrone.zwie.shared.protocol.intl.SizeDescriptor
 import de.phyrone.zwie.shared.protocol.rpc.*
 import io.ktor.utils.io.core.*
 import io.ktor.websocket.*
+import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.*
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Semaphore
 import kotlinx.coroutines.sync.withPermit
 import kotlin.math.max
@@ -26,7 +25,14 @@ abstract class AZSocket(
     val crypt: PacketCrypt,
 ) : ZSocket {
 
+    private val scope = CoroutineScope(webSocket.coroutineContext)
+
     /* IN */
+
+    init {
+        scope.launch { listen() }
+        scope.launch { heartbeat() }
+    }
 
     private suspend fun listen() {
         for (frame in webSocket.incoming) {
@@ -43,6 +49,8 @@ abstract class AZSocket(
             is PacketHeader.Control -> handleIncommingControl(header, packet)
             is PacketHeader.Ping -> handleIncommingPing(header, packet)
             is PacketHeader.Pong -> handleIncommingPong(header, packet)
+            is PacketHeader.Heartbeat -> {/* for now do nothing */
+            }
             is PacketHeader.Channel -> TODO()
         }
 
@@ -50,8 +58,8 @@ abstract class AZSocket(
 
     private suspend fun handleIncommingControl(header: PacketHeader.Control, packet: ByteReadPacket) {
         val typeID = packet.readShort().toUShort()
-        val type = ControlPacketType.fromID(typeID)
-            ?: error("there is no known control type '${typeID /* TODO to hex */}'")
+        val type =
+            ControlPacketType.fromID(typeID) ?: error("there is no known control type '${typeID /* TODO to hex */}'")
         when (type) {
             ControlPacketType.CHANNEL_OPEN_REQUEST -> TODO()
             ControlPacketType.CHANNEl_OPEN_ACCEPTED -> TODO()
@@ -115,6 +123,13 @@ abstract class AZSocket(
         }
     }
 
+    suspend fun heartbeat() {
+        while (true) {
+            sendPacket(PacketHeader.Control, buildPacket { })
+            delay(5_000)
+        }
+    }
+
 
     private val localReady = MutableStateFlow(0u)
     private val remoteReady = MutableStateFlow(0u)
@@ -128,15 +143,13 @@ abstract class AZSocket(
     }
 
     override suspend fun <In, Out> openChannel(
-        name: String,
-        incomming: PacketDecoder<In>,
-        outgoint: PacketEncoder<Out>
+        name: String, incomming: PacketDecoder<In>, outgoint: PacketEncoder<Out>
     ): ZChannel<In, Out> {
         TODO("Not yet implemented")
     }
 
     override suspend fun close() {
-
+        scope.cancel()
         webSocket.close(CloseReason(CloseReason.Codes.NORMAL, ""))
     }
 
@@ -151,8 +164,6 @@ abstract class AZSocket(
     ) : SendChannel<ChannelOUT> by outChannel, ReceiveChannel<ChannelIN> by inChannel, ZChannel<ChannelIN, ChannelOUT> {
         override val incomming: ReceiveChannel<ChannelIN> = inChannel
         override val outgoing: SendChannel<ChannelOUT> = outChannel
-
-        private val inSizeDescriptor = SizeDescriptor.fromSample(inID)
         private val outSizeDescriptor = SizeDescriptor.fromSample(outID)
         suspend fun run() = coroutineScope {
             launch {

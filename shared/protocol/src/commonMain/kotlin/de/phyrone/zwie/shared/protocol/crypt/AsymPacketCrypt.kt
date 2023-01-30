@@ -5,15 +5,15 @@ import de.phyrone.zwie.shared.crypt.gpg.GPGKeyPriv
 import de.phyrone.zwie.shared.crypt.gpg.GPGKeyPub
 import io.ktor.utils.io.core.*
 
-class AsynmetricEncryptPacketCrypt(
-    val localKey: GPGKeyPriv,
-    val remoteKey: GPGKeyPub
+class AsymPacketCrypt(
+    private val localKey: GPGKeyPriv,
+    private val remoteKey: GPGKeyPub
 ) : PacketCrypt {
     override suspend fun handleIncoming(packet: ByteReadPacket): ByteReadPacket {
-        return ByteReadPacket(GPG.verifyInline(packet.readBytes(), remoteKey))
+        return ByteReadPacket(GPG.signAndEncrypt(packet.readBytes(), remoteKey, localKey))
     }
 
     override suspend fun handleOutgoing(packet: ByteReadPacket): ByteReadPacket {
-        return ByteReadPacket(GPG.signInline(packet.readBytes(), localKey))
+        return ByteReadPacket(GPG.decryptAndVerify(packet.readBytes(), localKey, remoteKey))
     }
 }

@@ -4,11 +4,11 @@
     import {backend} from "../../scripts/backend";
     import {de} from "@client/backend/backend";
 
-    type ServerInfo = de.phyrone.zwie.client.backend.ServerInfo;
+    type ServerConnection = de.phyrone.zwie.client.backend.ServerConnection;
 
-    let servers_readable = backend.servers()
+    let servers_readable = backend.connectedServers()
 
-    let servers: Array<ServerInfo> = []
+    let servers: Array<ServerConnection>
 
     $:{
         // @ts-ignore

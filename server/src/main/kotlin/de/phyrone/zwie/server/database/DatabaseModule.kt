@@ -42,8 +42,8 @@ class DatabaseModule : EnableTaskRunner, DisableTaskRunner, KoinComponent {
         val tables = InstanceLoader.getAll(ClassIndex.getAnnotated(IndexTable::class.java))
             .mapNotNull { it as? Table }.toList().toTypedArray()
 
-        logger.atFine().log("SQL Dialect: %s", database.dialect.name)
         newSuspendedTransaction(Dispatchers.IO, database) {
+            logger.atFine().log("SQL Dialect: %s", database.dialect.name)
             SchemaUtils.createMissingTablesAndColumns(
                 tables = tables,
                 withLogs = true,

@@ -27,12 +27,7 @@ kotlin {
 
     js(IR) {
         this.moduleName = "@client/backend"
-
-        browser() {
-            this.dceTask {
-                this.enabled = true
-            }
-        }
+        browser()
         binaries.library()
     }
 }

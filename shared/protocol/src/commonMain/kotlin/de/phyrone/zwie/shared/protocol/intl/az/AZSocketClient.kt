@@ -1,16 +1,20 @@
 package de.phyrone.zwie.shared.protocol.intl.az
 
+import de.phyrone.zwie.shared.crypt.gpg.GPGKeyPriv
 import de.phyrone.zwie.shared.protocol.client.getPlatformClientEngine
-import de.phyrone.zwie.shared.protocol.crypt.NoOpPacketCrypt
+import de.phyrone.zwie.shared.protocol.crypt.AsymPacketCrypt
 import de.phyrone.zwie.shared.protocol.crypt.PacketCrypt
+import de.phyrone.zwie.shared.protocol.crypt.SignOnlyPacketCrypt
 import io.ktor.client.*
 import io.ktor.client.plugins.websocket.*
+import io.ktor.http.*
 import io.ktor.websocket.*
 
 class AZSocketClient private constructor(
     webSocketSession: WebSocketSession,
     crypt: PacketCrypt,
-    val httpClient: HttpClient?
+    private val httpClient: HttpClient,
+    private val closeHttpClientAtEnd: Boolean
 ) : AZSocket(
     webSocketSession,
     crypt
@@ -18,16 +22,27 @@ class AZSocketClient private constructor(
 
     override suspend fun close() {
         super.close()
-        httpClient?.close()
+        if (closeHttpClientAtEnd)
+            httpClient.close()
     }
 
     companion object {
-        suspend operator fun invoke(url: String, client: HttpClient? = null): AZSocketClient {
-            val httpClient = HttpClient(getPlatformClientEngine()) {
+        suspend operator fun invoke(
+            clientKey: GPGKeyPriv, url: String, httpClient: HttpClient? = null
+        ): AZSocketClient {
+            val secure = when (Url(url).protocol) {
+                URLProtocol.WSS, URLProtocol.HTTPS -> true
+                else -> false
+            }
+            val httpClientI = httpClient ?: HttpClient(getPlatformClientEngine()) {
                 install(WebSockets)
             }
-            val webSocket = httpClient.webSocketSession(url) {}
-            return AZSocketClient(webSocket, NoOpPacketCrypt, if (client != null) null else httpClient)
+            val webSocket = httpClientI.webSocketSession(url) {}
+            val (_, serverKey) = webSocket.runHandshakeClient(clientKey, secure)
+            val crypt = if (secure) SignOnlyPacketCrypt(clientKey, serverKey) else
+                AsymPacketCrypt(clientKey, serverKey)
+
+            return AZSocketClient(webSocket, crypt, httpClientI, httpClient == null)
         }
     }
 }

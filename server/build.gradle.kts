@@ -41,6 +41,7 @@ dependencies {
     implementation(project(":shared:common"))
     implementation(project(":shared:const"))
     implementation(project(":shared:protocol"))
+    implementation(project(":shared:crypt"))
 
     implementation("io.ktor:ktor-server-core:2.2.2")
     implementation("io.ktor:ktor-server-netty:2.2.2")

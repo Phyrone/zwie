@@ -6,8 +6,8 @@ import de.phyrone.zwie.shared.crypt.gpg.GPGKeyPub
 import io.ktor.utils.io.core.*
 
 class SignOnlyPacketCrypt(
-    val localKey: GPGKeyPriv,
-    val remoteKey: GPGKeyPub
+    private val localKey: GPGKeyPriv,
+    private val remoteKey: GPGKeyPub
 ) : PacketCrypt {
     override suspend fun handleIncoming(packet: ByteReadPacket): ByteReadPacket {
         return ByteReadPacket(GPG.verifyInline(packet.readBytes(), remoteKey))

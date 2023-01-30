@@ -5,8 +5,9 @@ enum class PacketType(
     val secure: Boolean = true,
 ) {
 
-    PING(0x00, false),
-    PONG(0x01, false),
+    HEARTBEAT(0x00, false),
+    PING(0x01, false),
+    PONG(0x02, false),
 
     CALL(0x05),
     CALL_RESPONSE(0x06),

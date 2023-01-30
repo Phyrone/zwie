@@ -26,11 +26,17 @@ interface ZwieJsClientBackend {
     fun destroy()
 
 
-    fun servers(): Readable<Array<ServerInfo>>
+    fun connect(url: String): Promise<ServerConnection>
+    fun connectedServers(): Readable<Array<ServerConnection>>
+
+    fun getServer(name: String): ServerConnection?
 }
 
-interface ServerInfo {
+
+interface ServerConnection {
     val name: String
+
+    fun disconnect(): EmptyPromise
 }
 
 data class PlatformInfo(

@@ -17,10 +17,14 @@ import global.GPGJS.verify as gpgJsVerify
 actual object GPG {
     actual suspend fun generateKey(): GPGKeyPriv {
 
-        val key = (gpgJsGenerateKey(object : GenerateKeyOptions {
-            override var curve: String? = "ed25519"
-            override var format: String? = "object"
-        }) as Promise<KeyPair>).await().privateKey
+        val generateOptions = js(
+            """{
+                curve:"ed25519",
+                format: "object"
+            }
+            """
+        )
+        val key = (gpgJsGenerateKey(generateOptions.unsafeCast<GenerateKeyOptions>()) as Promise<KeyPair>).await().privateKey
         return GPGKeyPriv(key)
     }
 
