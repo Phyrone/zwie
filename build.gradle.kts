@@ -10,7 +10,7 @@ plugins {
     id("io.gitlab.arturbosch.detekt") version "1.22.0" apply false
     kotlin("multiplatform") version "1.8.0" apply false
     id("com.google.protobuf") version "0.9.2" apply false
-    id("org.jetbrains.compose") version "1.2.2" apply false
+    id("org.jetbrains.compose") version "1.3.0" apply false
     kotlin("plugin.serialization") version "1.8.0" apply false
     id("com.github.node-gradle.node") version "3.5.1" apply false
 }
