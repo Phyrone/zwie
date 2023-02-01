@@ -17,7 +17,7 @@ kotlin {
     sourceSets {
         val jsMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-js:2.2.2")
+                implementation("io.ktor:ktor-client-js:2.2.3")
             }
         }
         val jvmMain by getting {
