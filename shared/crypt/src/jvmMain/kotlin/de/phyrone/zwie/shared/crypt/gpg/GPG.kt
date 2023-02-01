@@ -50,7 +50,7 @@ actual object GPG {
                 key.pgpSecretKeyRing,
                 DocumentSignatureType.BINARY_DOCUMENT
             )
-        )
+        ).setAsciiArmor(false).setHideArmorHeaders(true)
     ).second.detachedSignatures.let { it.get(it.keySet().first()).first().encoded }
 
     private fun Pair<ByteArray, MessageMetadata>.requireVerifiedSignedBy(key: GPGKeyPub): Pair<ByteArray, MessageMetadata> {
@@ -79,7 +79,7 @@ actual object GPG {
         ProducerOptions.encrypt(
             EncryptionOptions(EncryptionPurpose.COMMUNICATIONS)
                 .addRecipient(key.pgpPublicKeyRing)
-        )
+        ).setAsciiArmor(false).setHideArmorHeaders(true)
     ).first
 
 
@@ -98,7 +98,7 @@ actual object GPG {
             EncryptionOptions(EncryptionPurpose.COMMUNICATIONS)
                 .addRecipient(encryptKey.pgpPublicKeyRing),
             SigningOptions().addSignature(SecretKeyRingProtector.unprotectedKeys(), singKey.pgpSecretKeyRing)
-        )
+        ).setAsciiArmor(false).setHideArmorHeaders(true)
     ).first
 
 
@@ -118,7 +118,7 @@ actual object GPG {
         ProducerOptions.sign(
             SigningOptions()
                 .addSignature(SecretKeyRingProtector.unprotectedKeys(), key.pgpSecretKeyRing)
-        )
+        ).setAsciiArmor(false).setHideArmorHeaders(true)
     ).first
 
     actual suspend fun verifyInline(

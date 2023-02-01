@@ -31,8 +31,9 @@ kotlin {
                 implementation(project(":shared:crypt"))
                 implementation(kotlin("stdlib-common"))
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.4.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0-RC")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-protobuf:1.5.0-RC")
+
                 implementation("io.ktor:ktor-client-core:2.2.2")
                 implementation("io.rsocket.kotlin:rsocket-core:0.15.4")
                 implementation("io.rsocket.kotlin:rsocket-ktor-client:0.15.4")

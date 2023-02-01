@@ -1,3 +1,5 @@
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.databind.node.ObjectNode
 import com.github.gradle.node.yarn.task.YarnTask
 
 plugins {
@@ -18,17 +20,47 @@ tasks {
     }
     yarn {
         //dependsOn(":client:backend:browserProductionLibraryDistribution")
-        dependsOn("update-backend")
+        dependsOn("update-backend-release")
         this.inputs.files("package.json", "yarn.lock")
         this.outputs.dir("node_modules")
         this.inputs.dir(project(":client:backend").projectDir)
     }
 
-    create<YarnTask>("update-backend") {
-        group = "utils"
-        dependsOn( ":client:backend:browserProductionLibraryDistribution")
+    create<YarnTask>("add-task-backend-release") {
+
+        dependsOn(":client:backend:snapshot-lib-version-release")
         val backendLibFolder = project(":client:backend").buildDir.resolve("productionLibrary")
-        this.args.set(listOf("add", "./" + backendLibFolder.relativeTo(projectDir).path))
+        val path = "./${backendLibFolder.relativeTo(projectDir).path}"
+        this.args.set(listOf("add", path))
+        onlyIf {
+            val packageJsonNode = ObjectMapper().readTree(projectDir.resolve("package.json")) as ObjectNode
+            (packageJsonNode.get("dependencies") as ObjectNode).get("@client/backend")?.asText() != path
+        }
+    }
+
+    create<YarnTask>("update-backend-release") {
+        group = "utils"
+        dependsOn("add-task-backend-release", ":client:backend:snapshot-lib-version-release")
+
+        this.args.set(listOf("upgrade", "@client/backend"))
+    }
+
+    create<YarnTask>("add-task-backend-develop") {
+
+        dependsOn(":client:backend:snapshot-lib-version-develop")
+        val backendLibFolder = project(":client:backend").buildDir.resolve("developmentLibrary")
+        val path = "./${backendLibFolder.relativeTo(projectDir).path}"
+        this.args.set(listOf("add", path))
+        onlyIf {
+            val packageJsonNode = ObjectMapper().readTree(projectDir.resolve("package.json")) as ObjectNode
+            (packageJsonNode.get("dependencies") as ObjectNode).get("@client/backend")?.asText() != path
+        }
+    }
+
+    create<YarnTask>("update-backend-develop") {
+        group = "utils"
+        dependsOn("add-task-backend-develop", ":client:backend:snapshot-lib-version-develop")
+        this.args.set(listOf("upgrade", "@client/backend"))
     }
 
     create<YarnTask>("build-web") {

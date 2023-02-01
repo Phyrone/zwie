@@ -3,7 +3,7 @@
 
 
     function connect() {
-        backend.connect("http://0.0.0.0:4342/").then((data) => {
+        backend.connect("http://localhost:4342/_zw_/proto01a").then((data) => {
             console.log("connection", data);
         });
     }

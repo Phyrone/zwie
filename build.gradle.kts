@@ -15,7 +15,8 @@ plugins {
     id("com.github.node-gradle.node") version "3.5.1" apply false
 }
 
-version = "0.0.1-DEV"
+group = "de.phyrone.zwie"
+version = "0.0.3-SNAPSHOT"
 
 repositories {
     mavenCentral()

@@ -9,8 +9,11 @@ import de.phyrone.zwie.shared.protocol.crypt.SignOnlyPacketCrypt
 import de.phyrone.zwie.shared.protocol.intl.az.ServerHandshakeResult
 import de.phyrone.zwie.shared.protocol.intl.az.runHandshakeServer
 import io.ktor.server.application.*
+import io.ktor.server.plugins.*
+import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import io.ktor.server.websocket.*
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.time.withTimeout
 import kotlinx.coroutines.withTimeout
@@ -30,7 +33,8 @@ class AZSocketModule : CommonModule {
     private val application by inject<Application>()
     override suspend fun onEnable() {
         application.routing {
-            webSocket("/") {
+            webSocket("/_zw_/proto01a") {
+                println("Opening Connection: ${this.call.request.origin.remoteHost}:${this.call.request.origin.remotePort}")
                 val serverKey = GPG.generateKey()
                 val (_, clientKey, alreadySecure) = withTimeout(10.seconds) {
                     runHandshakeServer(serverKey)

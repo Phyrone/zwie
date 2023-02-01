@@ -30,15 +30,32 @@ class AZSocketClient private constructor(
         suspend operator fun invoke(
             clientKey: GPGKeyPriv, url: String, httpClient: HttpClient? = null
         ): AZSocketClient {
-            val secure = when (Url(url).protocol) {
+
+            val fetchedURL = Url(url)
+            val secure = when (fetchedURL.protocol) {
                 URLProtocol.WSS, URLProtocol.HTTPS -> true
                 else -> false
             }
+
             val httpClientI = httpClient ?: HttpClient(getPlatformClientEngine()) {
                 install(WebSockets)
             }
-            val webSocket = httpClientI.webSocketSession(url) {}
-            val (_, serverKey) = webSocket.runHandshakeClient(clientKey, secure)
+            val webSocket = httpClientI.webSocketSession(
+                host = fetchedURL.host,
+                port = fetchedURL.port,
+                path = fetchedURL.encodedPath,
+            ) {}
+
+            println("socket working -> starting handshake...")
+            val (_, serverKey) = try {
+                webSocket.runHandshakeClient(clientKey, secure)
+            } catch (e: Exception) {
+                webSocket.close()
+                println("handshake failed $e")
+                throw e
+            }
+            println("handshake done")
+
             val crypt = if (secure) SignOnlyPacketCrypt(clientKey, serverKey) else
                 AsymPacketCrypt(clientKey, serverKey)
 

@@ -24,14 +24,16 @@ class BackendInstance(
 
 
     private suspend fun backenBootstrap() {
-        localforage.ready().await()
-        console.log("BackendDatabase Driver=", localforage.driver())
-
+        console.log("Starting...")
+        withConsoleTimer("Bootstrap") {
+            console.log("Loading Database...")
+            localforage.ready().await()
+            console.log("BackendDatabase Driver=", localforage.driver())
+        }
+        console.log("Test1")
         //val data = localforage.getItem<ClientLocalData>(DATA_SAVE_KEY).await()
         //    ?: ClientLocalData.default.also { localforage.setItem(DATA_SAVE_KEY, it).await() }
         //console.log("BackendDatabase Data=", data)
-
-
     }
 
     init {
@@ -39,7 +41,7 @@ class BackendInstance(
             try {
                 backenBootstrap()
             } catch (e: Throwable) {
-                console.error("BackendInstance", "init", e)
+                console.error("Start Failed!", e)
             }
         }
     }
@@ -50,6 +52,7 @@ class BackendInstance(
 
     override fun connect(url: String): Promise<ServerConnection> = scope.promise {
         val client = AZSocketClient(GPG.generateKey(), url)
+
         val instance = ServerConnectionInstance(this@BackendInstance, "server", client)
         serversStateFlow.update { it + instance }
         return@promise instance
@@ -63,7 +66,7 @@ class BackendInstance(
     private val serversStateFlowRead = serversStateFlow.asReadable()
 
 
-    companion object{
+    companion object {
         const val DATA_SAVE_KEY = "zwie::data"
     }
 }

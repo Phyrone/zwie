@@ -37,7 +37,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@client/backend": "./backend/build/productionLibrary",
+    "@client/backend": "./backend/build/developmentLibrary",
     "@dicebear/adventurer": "^5.0.0",
     "@dicebear/core": "^5.2.0",
     "@dicebear/identicon": "^5.2.0",

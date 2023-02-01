@@ -16,6 +16,7 @@ import kotlinx.coroutines.sync.Semaphore
 import kotlinx.coroutines.sync.withPermit
 import kotlin.math.max
 import kotlin.time.Duration
+import kotlin.time.Duration.Companion.seconds
 import kotlin.time.ExperimentalTime
 import kotlin.time.measureTime
 
@@ -51,6 +52,7 @@ abstract class AZSocket(
             is PacketHeader.Pong -> handleIncommingPong(header, packet)
             is PacketHeader.Heartbeat -> {/* for now do nothing */
             }
+
             is PacketHeader.Channel -> TODO()
         }
 
@@ -123,10 +125,10 @@ abstract class AZSocket(
         }
     }
 
-    suspend fun heartbeat() {
+    private suspend fun heartbeat() {
         while (true) {
             sendPacket(PacketHeader.Control, buildPacket { })
-            delay(5_000)
+            delay(5.seconds)
         }
     }
 
