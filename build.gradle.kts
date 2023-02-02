@@ -1,7 +1,7 @@
 plugins {
     idea
     kotlin("jvm") version "1.8.0" apply false
-    kotlin("js") version "1.8.0" apply false
+    kotlin("js") version "1.8.10" apply false
     //kotlin("plugin.spring") version "1.7.20" apply false
     //kotlin("plugin.jpa") version "1.7.20" apply false
     kotlin("plugin.allopen") version "1.8.0" apply false
