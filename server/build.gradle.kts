@@ -43,7 +43,7 @@ dependencies {
     implementation(project(":shared:protocol"))
 
     implementation("io.ktor:ktor-server-core:2.2.3")
-    implementation("io.ktor:ktor-server-netty:2.2.2")
+    implementation("io.ktor:ktor-server-netty:2.2.3")
     implementation("io.ktor:ktor-server-websockets:2.2.2")
     implementation("io.netty:netty-tcnative:2.0.56.Final")
 
