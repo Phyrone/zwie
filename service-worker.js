@@ -10,7 +10,7 @@ const i = [
   "/_app/immutable/chunks/16-bfa7b1a8.js",
   "/_app/immutable/chunks/17-5536941f.js",
   "/_app/immutable/chunks/18-bfbe0aa7.js",
-  "/_app/immutable/chunks/2-6af04394.js",
+  "/_app/immutable/chunks/2-0bee9d3b.js",
   "/_app/immutable/chunks/3-d7ab1036.js",
   "/_app/immutable/chunks/4-d07c6912.js",
   "/_app/immutable/chunks/5-7644cdfc.js",
@@ -31,12 +31,12 @@ const i = [
   "/_app/immutable/chunks/sweetalert2.all-b59b2082.js",
   "/_app/immutable/chunks/theme-selector-bbacf5b5.js",
   "/_app/immutable/chunks/update-e75f62cf.js",
-  "/_app/immutable/start-8620b26e.js",
+  "/_app/immutable/start-7f541f7a.js",
   "/_app/immutable/components/error.svelte-18155622.js",
   "/_app/immutable/chunks/AvatarSelectPopUp-8ada13cd.js",
   "/_app/immutable/chunks/E-Mail_Change-91753120.js",
   "/_app/immutable/chunks/NameChange-a0ada6a5.js",
-  "/_app/immutable/components/pages/(main)/_layout.svelte-392bf57f.js",
+  "/_app/immutable/components/pages/(main)/_layout.svelte-80239f09.js",
   "/_app/immutable/components/pages/(main)/_page.svelte-95664ef8.js",
   "/_app/immutable/modules/pages/(main)/_page.ts-94291217.js",
   "/_app/immutable/components/pages/(main)/dm/_page.svelte-6ede0a1d.js",
@@ -64,7 +64,7 @@ const i = [
   "/manifest.webmanifest"
 ], o = [
   "/"
-], p = "1675454841671";
+], p = "1675463680328";
 console.log("[ServiceWorker] Init...");
 const u = [...i, ...o, ...c], n = "offline::", m = n + p;
 let l = caches.open(m);
