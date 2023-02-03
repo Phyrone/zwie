@@ -8,7 +8,7 @@ plugins {
     kotlin("kapt") version "1.8.0" apply false
     id("com.github.johnrengelman.shadow") version "7.1.2" apply false
     id("io.gitlab.arturbosch.detekt") version "1.22.0" apply false
-    kotlin("multiplatform") version "1.8.0" apply false
+    kotlin("multiplatform") version "1.8.10" apply false
     id("com.google.protobuf") version "0.9.2" apply false
     id("org.jetbrains.compose") version "1.3.0" apply false
     kotlin("plugin.serialization") version "1.8.0" apply false
