@@ -86,7 +86,7 @@ dependencies {
 
     implementation("org.atteo.classindex:classindex:3.13")
     implementation("io.ktor:ktor-server-core-jvm:2.2.3")
-    implementation("io.ktor:ktor-server-websockets-jvm:2.2.2")
+    implementation("io.ktor:ktor-server-websockets-jvm:2.2.3")
     implementation("io.ktor:ktor-server-cors-jvm:2.2.3")
     implementation("io.ktor:ktor-server-call-logging-jvm:2.2.3")
     implementation("io.ktor:ktor-server-auth:2.2.3")
