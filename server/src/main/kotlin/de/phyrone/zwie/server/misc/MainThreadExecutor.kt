@@ -2,17 +2,17 @@ package de.phyrone.zwie.server.misc
 
 import de.phyrone.zwie.server.event.MainThreadStartedEvent
 import de.phyrone.zwie.server.utils.logger
+import de.phyrone.zwie.shared.common.EventBus
 import kotlinx.coroutines.MainCoroutineDispatcher
 import kotlinx.coroutines.Runnable
-import org.greenrobot.eventbus.EventBus
+import kotlinx.coroutines.runBlocking
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import java.util.concurrent.Executor
 import java.util.concurrent.LinkedBlockingQueue
 import kotlin.coroutines.CoroutineContext
-import org.greenrobot.eventbus.MainThreadExecutor as EventBusMainThreadExecutor
 
-class MainThreadExecutor : Executor, MainCoroutineDispatcher(), EventBusMainThreadExecutor, KoinComponent {
+class MainThreadExecutor : Executor, MainCoroutineDispatcher(), KoinComponent {
     private val queue = LinkedBlockingQueue<Runnable>()
     private val eventBus by inject<EventBus>()
 
@@ -36,14 +36,10 @@ class MainThreadExecutor : Executor, MainCoroutineDispatcher(), EventBusMainThre
     var mainThread: Thread? = null
         private set
 
-    override fun isMainThread(): Boolean {
-        return if (mainThread == null) true else Thread.currentThread() == mainThread
-    }
-
     @Synchronized
     fun runLoop(): Nothing {
         mainThread = Thread.currentThread()
-        eventBus.postSticky(MainThreadStartedEvent)
+        runBlocking { eventBus.post(MainThreadStartedEvent, true) }
         while (true) {
             val command = queue.take()
             try {

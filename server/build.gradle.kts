@@ -98,8 +98,8 @@ dependencies {
     //implementation("org.shredzone.acme4j:acme4j-utils:2.15")
     //implementation("org.shredzone.acme4j:acme4j-smime:2.15")
 
-    implementation("org.greenrobot:eventbus-java:3.3.1")
-    kapt("org.greenrobot:eventbus-annotation-processor:3.3.1")
+    //implementation("org.greenrobot:eventbus-java:3.3.1")
+    //kapt("org.greenrobot:eventbus-annotation-processor:3.3.1")
 
     runtimeOnly("com.h2database:h2:2.1.214")
 
@@ -224,7 +224,7 @@ detekt {
  */
 kapt {
     arguments {
-        arg("eventBusIndex", "de.phyrone.zwie.server.gen.EventBusIndex")
+        //arg("eventBusIndex", "de.phyrone.zwie.server.gen.EventBusIndex")
     }
 }
 /*

@@ -16,7 +16,7 @@ import java.io.ByteArrayOutputStream
 actual object GPG {
 
     actual suspend fun generateKey(): GPGKeyPriv {
-        val keyring = PGPainless.generateKeyRing().modernKeyRing(null)
+        val keyring = PGPainless.generateKeyRing().modernKeyRing("s <s@s.s>")
 
         return GPGKeyPriv(keyring)
     }

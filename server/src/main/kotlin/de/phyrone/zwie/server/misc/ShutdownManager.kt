@@ -4,10 +4,10 @@ import de.phyrone.zwie.server.event.PreShutdownEvent
 import de.phyrone.zwie.server.module.DisableTaskRunner
 import de.phyrone.zwie.server.module.ModuleLoader
 import de.phyrone.zwie.server.utils.logger
+import de.phyrone.zwie.shared.common.EventBus
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Runnable
 import kotlinx.coroutines.runBlocking
-import org.greenrobot.eventbus.EventBus
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import java.util.concurrent.LinkedBlockingQueue
@@ -66,7 +66,7 @@ class ShutdownManager(
 
         try {
             try {
-                eventBus.postSticky(PreShutdownEvent)
+                runBlocking { eventBus.post(PreShutdownEvent, true) }
             } catch (e: Exception) {
                 logger.atSevere().withCause(e).log("Error while PreShutdownEvent")
             }

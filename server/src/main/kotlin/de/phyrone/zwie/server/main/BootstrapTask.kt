@@ -1,9 +1,6 @@
 package de.phyrone.zwie.server.main
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder
-import de.phyrone.zwie.server.gen.EventBusIndex
-import de.phyrone.zwie.server.misc.EventBusLogger
-import de.phyrone.zwie.server.misc.EventLogger
 import de.phyrone.zwie.server.misc.InstanceLoader
 import de.phyrone.zwie.server.misc.MainThreadExecutor
 import de.phyrone.zwie.server.misc.ShutdownManager
@@ -12,13 +9,12 @@ import de.phyrone.zwie.server.module.Module
 import de.phyrone.zwie.server.module.ModuleLoader
 import de.phyrone.zwie.server.utils.lazyArg
 import de.phyrone.zwie.server.utils.logger
+import de.phyrone.zwie.shared.common.EventBus
 import kotlinx.coroutines.MainCoroutineDispatcher
 import kotlinx.coroutines.asCoroutineDispatcher
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import org.atteo.classindex.ClassIndex
-import org.greenrobot.eventbus.EventBus
-import org.greenrobot.eventbus.setMainThreadExecutor
 import org.koin.core.KoinApplication
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.get
@@ -35,17 +31,11 @@ import oshi.hardware.HardwareAbstractionLayer
 import oshi.software.os.OSProcess
 import oshi.software.os.OperatingSystem
 import java.security.SecureRandom
-import java.util.concurrent.Executor
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
-import java.util.concurrent.ScheduledExecutorService
-import java.util.concurrent.ScheduledThreadPoolExecutor
-import java.util.concurrent.ThreadFactory
+import java.util.concurrent.*
 import kotlin.coroutines.CoroutineContext
 import kotlin.system.exitProcess
 import kotlin.system.measureNanoTime
 import kotlin.time.Duration.Companion.nanoseconds
-import org.greenrobot.eventbus.MainThreadExecutor as EventbusMainThreadExecutor
 
 class BootstrapTask(private val arguments: StartupArguments) : KoinComponent, Runnable {
 
@@ -70,23 +60,9 @@ class BootstrapTask(private val arguments: StartupArguments) : KoinComponent, Ru
                 single { ShutdownManager(get()) }
                 single { MainThreadExecutor() } binds arrayOf(
                     MainCoroutineDispatcher::class,
-                    Executor::class,
-                    EventbusMainThreadExecutor::class
+                    Executor::class
                 )
-                single {
-                    EventBus.builder()
-                        .eventInheritance(true)
-                        .setMainThreadExecutor(get())
-                        .addIndex(EventBusIndex())
-                        .logger(EventBusLogger)
-                        .executorService(get(named("core::threadpool::async")))
-                        .logNoSubscriberMessages(true)
-                        .logSubscriberExceptions(true)
-                        .sendNoSubscriberEvent(true)
-                        .sendSubscriberExceptionEvent(true)
-                        .executorService(get(named("core::threadpool::async")))
-                        .build()
-                }
+                single { EventBus(get()) }
                 single(named("core::threadpool::async")) {
                     ThreadFactoryBuilder()
                         .setDaemon(true)
@@ -113,7 +89,6 @@ class BootstrapTask(private val arguments: StartupArguments) : KoinComponent, Ru
                 single { SecureRandom.getInstanceStrong() } bind SecureRandom::class
 
             })
-            eventBus.register(EventLogger())
             if (logger.atFine().isEnabled) {
                 logger.atFine().log("SystemInfo:")
                 logger.atFine().log("  OS: %s", operatingSystem)
