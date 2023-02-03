@@ -1,4 +1,4 @@
-const c = [
+const i = [
   "/_app/immutable/chunks/0-dba24ee1.js",
   "/_app/immutable/chunks/1-4e856669.js",
   "/_app/immutable/chunks/10-534a0a81.js",
@@ -10,7 +10,7 @@ const c = [
   "/_app/immutable/chunks/16-bfa7b1a8.js",
   "/_app/immutable/chunks/17-5536941f.js",
   "/_app/immutable/chunks/18-bfbe0aa7.js",
-  "/_app/immutable/chunks/2-8d5ee322.js",
+  "/_app/immutable/chunks/2-4555adac.js",
   "/_app/immutable/chunks/3-d7ab1036.js",
   "/_app/immutable/chunks/4-d07c6912.js",
   "/_app/immutable/chunks/5-7644cdfc.js",
@@ -31,12 +31,12 @@ const c = [
   "/_app/immutable/chunks/sweetalert2.all-b59b2082.js",
   "/_app/immutable/chunks/theme-selector-bbacf5b5.js",
   "/_app/immutable/chunks/update-e75f62cf.js",
-  "/_app/immutable/start-dd9a26eb.js",
+  "/_app/immutable/start-4512384f.js",
   "/_app/immutable/components/error.svelte-18155622.js",
   "/_app/immutable/chunks/AvatarSelectPopUp-8ada13cd.js",
   "/_app/immutable/chunks/E-Mail_Change-91753120.js",
   "/_app/immutable/chunks/NameChange-a0ada6a5.js",
-  "/_app/immutable/components/pages/(main)/_layout.svelte-c0c29f45.js",
+  "/_app/immutable/components/pages/(main)/_layout.svelte-676d9837.js",
   "/_app/immutable/components/pages/(main)/_page.svelte-95664ef8.js",
   "/_app/immutable/modules/pages/(main)/_page.ts-94291217.js",
   "/_app/immutable/components/pages/(main)/dm/_page.svelte-6ede0a1d.js",
@@ -58,15 +58,15 @@ const c = [
   "/_app/immutable/assets/_layout-bc435ffc.css",
   "/_app/immutable/components/pages/_layout.svelte-79f2dbdf.js",
   "/_app/immutable/modules/pages/_layout.ts-ee6743a5.js"
-], i = [
+], c = [
   "/app-icon-dev-rounded.png",
   "/favicon.ico",
   "/manifest.webmanifest"
 ], o = [
   "/"
-], p = "1675411804192";
+], p = "1675420848177";
 console.log("[ServiceWorker] Init...");
-const u = [...c, ...o, ...i], n = "offline::", m = n + p;
+const u = [...i, ...o, ...c], n = "offline::", m = n + p;
 let l = caches.open(m);
 async function _() {
   try {
