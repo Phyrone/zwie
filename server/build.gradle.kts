@@ -43,15 +43,15 @@ dependencies {
     implementation(project(":shared:protocol"))
     implementation(project(":shared:crypt"))
 
-    implementation("io.ktor:ktor-server-core:2.2.2")
-    implementation("io.ktor:ktor-server-netty:2.2.2")
-    implementation("io.ktor:ktor-server-websockets:2.2.2")
-    implementation("io.netty:netty-tcnative:2.0.56.Final")
+    implementation("io.ktor:ktor-server-core:2.2.3")
+    implementation("io.ktor:ktor-server-netty:2.2.3")
+    implementation("io.ktor:ktor-server-websockets:2.2.3")
+    implementation("io.netty:netty-tcnative:2.0.57.Final")
 
-    implementation("com.fasterxml.jackson.core:jackson-databind:2.14.1")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.1")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.14.2")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.2")
     //implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.14.0")
-    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-ion:2.14.1")
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-ion:2.14.2")
     //implementation("org.msgpack:jackson-dataformat-msgpack:0.9.3")
 
     implementation("com.esotericsoftware.kryo:kryo5:5.4.0")
@@ -71,7 +71,7 @@ dependencies {
 
     implementation("ch.qos.logback:logback-classic:1.4.5")
 
-    implementation("info.picocli:picocli:4.7.0")
+    implementation("info.picocli:picocli:4.7.1")
     //implementation("info.picocli:picocli-shell-jline3:4.7.0")
     implementation("com.google.guava:guava:31.1-jre")
     //implementation("name.neuhalfen.projects.crypto.bouncycastle.openpgp:bouncy-gpg:2.3.0")
@@ -86,11 +86,11 @@ dependencies {
     implementation("dev.onvoid.webrtc:webrtc-java:0.7.0")
 
     implementation("org.atteo.classindex:classindex:3.13")
-    implementation("io.ktor:ktor-server-core-jvm:2.2.2")
-    implementation("io.ktor:ktor-server-websockets-jvm:2.2.2")
-    implementation("io.ktor:ktor-server-cors-jvm:2.2.2")
-    implementation("io.ktor:ktor-server-call-logging-jvm:2.2.2")
-    implementation("io.ktor:ktor-server-auth:2.2.2")
+    implementation("io.ktor:ktor-server-core-jvm:2.2.3")
+    implementation("io.ktor:ktor-server-websockets-jvm:2.2.3")
+    implementation("io.ktor:ktor-server-cors-jvm:2.2.3")
+    implementation("io.ktor:ktor-server-call-logging-jvm:2.2.3")
+    implementation("io.ktor:ktor-server-auth:2.2.3")
     kapt("org.atteo.classindex:classindex:3.13")
 
 
@@ -153,7 +153,7 @@ dependencies {
 
     implementation("com.github.oshi:oshi-core:6.4.0")
 
-    implementation("org.pgpainless:pgpainless-core:1.4.2")
+    implementation("org.pgpainless:pgpainless-core:1.4.3")
 
 
     //implementation("net.folivo:trixnity-core:3.0.0")

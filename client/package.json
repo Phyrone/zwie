@@ -20,7 +20,7 @@
     "@tauri-apps/cli": "^1.2.3",
     "@types/crypto-js": "^4.1.1",
     "@types/pubsub-js": "^1.8.3",
-    "@types/serviceworker": "^0.0.61",
+    "@types/serviceworker": "^0.0.62",
     "@types/sockjs-client": "^1.5.1",
     "autoprefixer": "^10.4.13",
     "daisyui": "^2.49.0",
