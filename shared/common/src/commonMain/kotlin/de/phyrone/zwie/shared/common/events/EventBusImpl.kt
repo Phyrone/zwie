@@ -26,7 +26,9 @@ internal class EventBusImpl(
         } finally {
             postEventFlow.emit(event)
         }
-        registryAndStickyEvents.update { (registry, stickyEvents) -> registry to (stickyEvents + event) }
+
+        if (event is StickyEvent && event.sticky && (event !is CancelableEvent || !event.canceled))
+            registryAndStickyEvents.update { (registry, stickyEvents) -> registry to (stickyEvents + event) }
     }
 
     private inner class EventDeliveryImpl(
