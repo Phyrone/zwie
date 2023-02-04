@@ -22,6 +22,11 @@ kotlin {
         }
         val jvmMain by getting {
 
+            dependencies{
+                implementation("com.github.ben-manes.caffeine:caffeine:3.1.2")
+                implementation("com.sksamuel.aedile:aedile-core:1.2.0")
+                implementation("org.jgrapht:jgrapht-core:1.5.1")
+            }
         }
         val commonMain by getting {
             dependencies {
@@ -31,7 +36,8 @@ kotlin {
 
             }
         }
-        val jvmTest by getting{
+
+        val jvmTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))

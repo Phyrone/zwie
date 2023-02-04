@@ -1,3 +1,5 @@
 package de.phyrone.zwie.server.event
 
-object PreShutdownEvent
+import de.phyrone.zwie.shared.common.events.StickyEvent
+
+object PreShutdownEvent:StickyEvent

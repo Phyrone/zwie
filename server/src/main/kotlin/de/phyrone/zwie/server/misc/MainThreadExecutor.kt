@@ -2,7 +2,7 @@ package de.phyrone.zwie.server.misc
 
 import de.phyrone.zwie.server.event.MainThreadStartedEvent
 import de.phyrone.zwie.server.utils.logger
-import de.phyrone.zwie.shared.common.EventBus
+import de.phyrone.zwie.shared.common.events.EventBus
 import kotlinx.coroutines.MainCoroutineDispatcher
 import kotlinx.coroutines.Runnable
 import kotlinx.coroutines.runBlocking
@@ -39,7 +39,7 @@ class MainThreadExecutor : Executor, MainCoroutineDispatcher(), KoinComponent {
     @Synchronized
     fun runLoop(): Nothing {
         mainThread = Thread.currentThread()
-        runBlocking { eventBus.post(MainThreadStartedEvent, true) }
+        runBlocking { eventBus.post(MainThreadStartedEvent) }
         while (true) {
             val command = queue.take()
             try {

@@ -9,7 +9,7 @@ import de.phyrone.zwie.server.module.Module
 import de.phyrone.zwie.server.module.ModuleLoader
 import de.phyrone.zwie.server.utils.lazyArg
 import de.phyrone.zwie.server.utils.logger
-import de.phyrone.zwie.shared.common.EventBus
+import de.phyrone.zwie.shared.common.events.EventBus
 import kotlinx.coroutines.MainCoroutineDispatcher
 import kotlinx.coroutines.asCoroutineDispatcher
 import kotlinx.coroutines.runBlocking
@@ -62,7 +62,7 @@ class BootstrapTask(private val arguments: StartupArguments) : KoinComponent, Ru
                     MainCoroutineDispatcher::class,
                     Executor::class
                 )
-                single { EventBus(get()) }
+                single { EventBus() }
                 single(named("core::threadpool::async")) {
                     ThreadFactoryBuilder()
                         .setDaemon(true)

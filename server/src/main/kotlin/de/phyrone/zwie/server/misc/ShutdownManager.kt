@@ -4,7 +4,7 @@ import de.phyrone.zwie.server.event.PreShutdownEvent
 import de.phyrone.zwie.server.module.DisableTaskRunner
 import de.phyrone.zwie.server.module.ModuleLoader
 import de.phyrone.zwie.server.utils.logger
-import de.phyrone.zwie.shared.common.EventBus
+import de.phyrone.zwie.shared.common.events.EventBus
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Runnable
 import kotlinx.coroutines.runBlocking
@@ -66,7 +66,7 @@ class ShutdownManager(
 
         try {
             try {
-                runBlocking { eventBus.post(PreShutdownEvent, true) }
+                runBlocking { eventBus.post(PreShutdownEvent) }
             } catch (e: Exception) {
                 logger.atSevere().withCause(e).log("Error while PreShutdownEvent")
             }

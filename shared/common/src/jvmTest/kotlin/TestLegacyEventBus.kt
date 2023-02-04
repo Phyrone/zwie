@@ -1,16 +1,16 @@
-import de.phyrone.zwie.shared.common.EventBus
+import de.phyrone.zwie.shared.common.LegacyEventBus
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class TestEventBus {
+class TestLegacyEventBus {
 
 
     @Test
     fun testEventBus() {
         runBlocking {
-            val eventBus = EventBus()
+            val eventBus = LegacyEventBus()
             var eventExecuteCount = 0
             var lateEventExecuteCount = 0
             eventBus.subscribe<TestEvent> {
@@ -33,7 +33,7 @@ class TestEventBus {
     @Test
     fun testEventBusSticky() {
         runBlocking {
-            val eventBus = EventBus()
+            val eventBus = LegacyEventBus()
             var eventExecuteCount = 0
             var lateEventExecuteCount = 0
             eventBus.subscribe<TestEvent> {

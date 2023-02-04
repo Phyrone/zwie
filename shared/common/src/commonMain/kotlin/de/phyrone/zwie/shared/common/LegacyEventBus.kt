@@ -8,7 +8,7 @@ import kotlin.reflect.KClass
 import kotlin.reflect.cast
 
 
-class EventBus @JvmOverloads constructor(
+class LegacyEventBus @JvmOverloads constructor(
     dispatcher: CoroutineDispatcher = Dispatchers.Default,
 ) {
 
