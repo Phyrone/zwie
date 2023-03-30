@@ -234,10 +234,10 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@matrix-org/matrix-sdk-crypto-js@^0.1.0-alpha.2":
-  version "0.1.0-alpha.3"
-  resolved "https://registry.yarnpkg.com/@matrix-org/matrix-sdk-crypto-js/-/matrix-sdk-crypto-js-0.1.0-alpha.3.tgz#829ea03bcad8051dc1e4f0da18a66d4ba273f78f"
-  integrity sha512-KpEddjC34aobFlUYf2mIaXqkjLC0goRmYnbDZLTd0MwiFtau4b1TrPptQ8XFc90Z2VeAcvf18CBqA2otmZzUKQ==
+"@matrix-org/matrix-sdk-crypto-js@^0.1.0-alpha.3":
+  version "0.1.0-alpha.6"
+  resolved "https://registry.yarnpkg.com/@matrix-org/matrix-sdk-crypto-js/-/matrix-sdk-crypto-js-0.1.0-alpha.6.tgz#c0bdb9ab0d30179b8ef744d1b4010b0ad0ab9c3a"
+  integrity sha512-7hMffzw7KijxDyyH/eUyTfrLeCQHuyU3kaPOKGhcl3DZ3vx7bCncqjGMGTnxNPoP23I6gosvKSbO+3wYOT24Xg==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -2045,13 +2045,13 @@ matrix-events-sdk@0.0.1:
   resolved "https://registry.yarnpkg.com/matrix-events-sdk/-/matrix-events-sdk-0.0.1.tgz#c8c38911e2cb29023b0bbac8d6f32e0de2c957dd"
   integrity sha512-1QEOsXO+bhyCroIe2/A5OwaxHvBm7EsSQ46DEDn8RBIfQwN5HWBpFvyWWR4QY0KHPPnnJdI99wgRiAl7Ad5qaA==
 
-matrix-js-sdk@^23.0.0:
-  version "23.1.1"
-  resolved "https://registry.yarnpkg.com/matrix-js-sdk/-/matrix-js-sdk-23.1.1.tgz#0678edbf4d32241d7e3ef841597302559ac92608"
-  integrity sha512-lPxthMS2Cjd1jaQtYDRhfa2OwcIYS95UtrIwOCSFAI1Irh+PySgNenLjDLFdnmkwGmTf5LNrs5HKO1ZdcPY6pw==
+matrix-js-sdk@^24.0.0:
+  version "24.0.0"
+  resolved "https://registry.yarnpkg.com/matrix-js-sdk/-/matrix-js-sdk-24.0.0.tgz#cc08c55e6a88dcc177341705a8ff7cdfe93e0c27"
+  integrity sha512-AOhO036ziDf6lwYoauj5DES/RJ6RDTq+vrK2yO/GW/8n+bAXhkjWc9AA/WcTK/9SkNHS46ZanmolkhS1n8WniQ==
   dependencies:
     "@babel/runtime" "^7.12.5"
-    "@matrix-org/matrix-sdk-crypto-js" "^0.1.0-alpha.2"
+    "@matrix-org/matrix-sdk-crypto-js" "^0.1.0-alpha.3"
     another-json "^0.2.0"
     bs58 "^5.0.0"
     content-type "^1.0.4"
