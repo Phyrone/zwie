@@ -62,7 +62,7 @@
     "jsbi": "^4.3.0",
     "localforage": "^1.10.0",
     "marked": "^4.2.5",
-    "matrix-js-sdk": "^23.0.0",
+    "matrix-js-sdk": "^24.0.0",
     "node-polyglot": "^2.4.2",
     "openpgp": "^5.5.0",
     "protobufjs": "^7.1.2",
