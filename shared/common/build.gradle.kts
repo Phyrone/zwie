@@ -23,7 +23,7 @@ kotlin {
         val jvmMain by getting {
 
             dependencies{
-                implementation("com.github.ben-manes.caffeine:caffeine:3.1.2")
+                implementation("com.github.ben-manes.caffeine:caffeine:3.1.6")
                 implementation("com.sksamuel.aedile:aedile-core:1.2.0")
                 implementation("org.jgrapht:jgrapht-core:1.5.1")
             }
