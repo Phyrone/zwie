@@ -77,7 +77,7 @@ dependencies {
     //implementation("name.neuhalfen.projects.crypto.bouncycastle.openpgp:bouncy-gpg:2.3.0")
 
 
-    implementation("io.insert-koin:koin-core:3.3.2")
+    implementation("io.insert-koin:koin-core:3.4.2")
     implementation("com.google.flogger:flogger:0.7.4")
     implementation("com.google.flogger:flogger-slf4j-backend:0.7.4")
 

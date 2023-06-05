@@ -26,7 +26,7 @@ dependencies {
     implementation(npm("localforage", "1.10.0", false))
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:1.6.4")
-    implementation("io.insert-koin:koin-core:3.3.2")
+    implementation("io.insert-koin:koin-core:3.4.2")
 }
 
 kotlin {
