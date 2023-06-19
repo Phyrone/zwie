@@ -52,7 +52,7 @@
     "buffer": "^6.0.3",
     "cbor-js": "^0.1.0",
     "crypto-js": "^4.1.1",
-    "dompurify": "^2.4.1",
+    "dompurify": "^3.0.0",
     "elliptic": "^6.5.4",
     "events": "^3.3.0",
     "gun": "^0.2020.1239",
