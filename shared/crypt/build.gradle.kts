@@ -50,7 +50,7 @@ kotlin {
 
         val jvmMain by getting {
             dependencies {
-                implementation("org.pgpainless:pgpainless-core:1.4.3")
+                implementation("org.pgpainless:pgpainless-core:1.5.5")
                 implementation("org.bouncycastle:bcprov-jdk15on:1.70")
             }
         }
